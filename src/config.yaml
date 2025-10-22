@@ -1,7 +1,7 @@
 site:
   name: 'arc^'
-  site: 'https://example.com'
-  base: '/'
+  site: 'https://writingsbyali-hub.github.io/arc-up/'
+  base: '/arc-up/'
   trailingSlash: false
   googleSiteVerificationId: false
 
