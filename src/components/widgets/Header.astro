@@ -7,16 +7,16 @@
 import AnimatedLogo from '~/components/ui/AnimatedLogo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 
 // Navigation following the user journey
 const navList = [
   { text: 'Home', href: getHomePermalink() },
-  { text: 'About', href: '/about' },
-  { text: 'Research', href: '/research' },
-  { text: 'Pathways', href: '/pathways' },
-  { text: 'Get Started', href: '/get-started' },
-  { text: 'Workspace', href: '/workspace' },
+  { text: 'About', href: getPermalink('/about') },
+  { text: 'Research', href: getPermalink('/research') },
+  { text: 'Pathways', href: getPermalink('/pathways') },
+  { text: 'Get Started', href: getPermalink('/get-started') },
+  { text: 'Workspace', href: getPermalink('/workspace') },
 ];
 
 export interface Props {

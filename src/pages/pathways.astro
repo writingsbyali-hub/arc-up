@@ -4,6 +4,7 @@
 // Gateway to the three pillars: Lab, Framework, Commons
 // ====================================================================
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Pathways — Explore Our Work',
@@ -101,7 +102,7 @@ const pillars = [
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
         {pillars.map((pillar) => (
           <a
-            href={`/${pillar.slug}`}
+            href={getPermalink(`/${pillar.slug}`)}
             class={`group relative bg-gradient-to-br ${pillar.bgGradient} border ${pillar.borderColor} ${pillar.hoverBorder} rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-${pillar.color}-400/20 block`}
           >
             <!-- Pillar Header -->
@@ -176,7 +177,7 @@ const pillars = [
               <span class="text-2xl">04</span>
               <div>
                 <p class="font-semibold text-white mb-1">Get Involved</p>
-                <p>Ready to contribute? Visit <a href="/get-started" class="text-living-earth hover:text-arc-electric transition underline">Get Started</a> to begin your journey</p>
+                <p>Ready to contribute? Visit <a href={getPermalink('/get-started')} class="text-living-earth hover:text-arc-electric transition underline">Get Started</a> to begin your journey</p>
               </div>
             </div>
           </div>
@@ -190,13 +191,13 @@ const pillars = [
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/research"
+              href={getPermalink('/research')}
               class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
             >
               ← Read About Research
             </a>
             <a
-              href="/get-started"
+              href={getPermalink('/get-started')}
               class="px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
             >
               Get Started →

@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const featuresTheChallenge = [
   {
@@ -204,11 +205,11 @@ const tabContent = [
         <div class="mt-8 text-center">
           <p class="text-sm text-gray-400 mb-4">Quick access for returning builders:</p>
           <nav aria-label="Quick access navigation" class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-sm">
-            <a href="/lab" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Lab</a>
+            <a href={getPermalink('/lab')} class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Lab</a>
             <span class="text-gray-600 hidden sm:inline" aria-hidden="true">|</span>
-            <a href="/framework" class="text-green-400 hover:text-green-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Framework</a>
+            <a href={getPermalink('/framework')} class="text-green-400 hover:text-green-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Framework</a>
             <span class="text-gray-600 hidden sm:inline" aria-hidden="true">|</span>
-            <a href="/commons" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Commons</a>
+            <a href={getPermalink('/commons')} class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Commons</a>
           </nav>
         </div>
       </Fragment>

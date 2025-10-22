@@ -6,12 +6,12 @@
 // ====================================================================
 import { Icon } from 'astro-icon/components';
 import AnimatedLogo from '~/components/ui/AnimatedLogo.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 
 // Hardcoded ArcUp Navigation
 const navList = [
   { text: 'Home', href: getHomePermalink() },
-  { text: 'Workspace', href: '/documentation' },
+  { text: 'Workspace', href: getPermalink('/documentation') },
   { text: 'Re-Practice', href: 'https://re-practice-placeholder.org', external: true },
 ];
 
@@ -85,7 +85,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
-                href="/about"
+                href={getPermalink('/about')}
               >
                 About
               </a>
@@ -93,7 +93,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
-                href="/research"
+                href={getPermalink('/research')}
               >
                 Research
               </a>
@@ -101,7 +101,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
-                href="/pathways"
+                href={getPermalink('/pathways')}
               >
                 Pathways
               </a>
@@ -109,7 +109,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
-                href="/get-started"
+                href={getPermalink('/get-started')}
               >
                 Get Started
               </a>
@@ -124,7 +124,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-yellow-400 transition duration-150 ease-in-out"
-                href="/lab"
+                href={getPermalink('/lab')}
               >
                 Lab
               </a>
@@ -132,7 +132,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-green-400 transition duration-150 ease-in-out"
-                href="/framework"
+                href={getPermalink('/framework')}
               >
                 Framework
               </a>
@@ -140,7 +140,7 @@ const { theme = 'dark' } = Astro.props;
             <li>
               <a
                 class="text-base text-gray-400 hover:text-blue-400 transition duration-150 ease-in-out"
-                href="/commons"
+                href={getPermalink('/commons')}
               >
                 Commons
               </a>
