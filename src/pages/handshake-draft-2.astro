@@ -1,0 +1,180 @@
+---
+// ====================================================================
+// ARCUP HANDSHAKE DRAFT 2 (ACCESSIBLE VERSION)
+// This file is a copy of the handshake page with revised, accessible language
+// and explicit anchors to the Re-Practice Framework (RE:TECH, RE:EARTH, RE:ALIGN).
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'The Handshake (Draft 2) — ArcUp',
+};
+
+// Define the navigation items for the sticky sidebar
+const documentationNav = [
+  { text: '1. The Protocol: Shared Ground', href: '#protocol', external: false },
+  { text: '2. The Vault: Collective Assets', href: '#vault', external: false },
+  { text: '3. The Covenant: Licensing Agreement', href: '#covenant', external: false },
+  { text: 'Foundation: Re-Practice Charter', href: 'https://re-practice-placeholder.org', external: true },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-primary-900 text-white min-h-screen py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header Section -->
+      <header class="pb-16 border-b border-gray-700 mb-16">
+        <h1 class="text-5xl md:text-6xl font-mono tracking-tight mb-4 text-arc-electric">
+          THE ARCUP HANDSHAKE
+        </h1>
+        <p class="text-xl text-gray-300 max-w-4xl">
+          <strong>Our Rules, Protocols, and Covenant.</strong> This is the agreement for all ArcUp contributors. It defines the specific technical standards, ethical boundaries, and legal commitment necessary to participate in the plasma research project.
+        </p>
+        <p class="text-lg text-gray-400 max-w-4xl mt-4">
+          ArcUp is governed by the <strong>Re-Practice Framework</strong>—a philosophy built on <strong>RE:TECH</strong> (design), <strong>RE:EARTH</strong> (worldview), and <strong>RE:ALIGN</strong> (ethics). This page translates that philosophy into action.
+        </p>
+      </header>
+
+      <!-- Main Layout: Sticky Sidebar (TOC) and Content -->
+      <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <!-- Sticky Sidebar Navigation (TOC) -->
+        <aside class="lg:col-span-3 mb-10 lg:mb-0">
+          <nav class="sticky top-24 bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+            <h3 class="text-lg font-mono font-bold mb-4 border-b border-gray-700 pb-2 text-white/90">Your Commitment</h3>
+            <ul class="space-y-3">
+              {documentationNav.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "block text-lg font-medium transition duration-150 ease-in-out hover:text-arc-electric",
+                      item.external ? 'text-living-earth' : 'text-gray-400'
+                    ]}
+                    {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {item.text}
+                    {item.external && (
+                      <span class="ml-1 text-sm opacity-60">↗</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Documentation Content -->
+        <main class="lg:col-span-9 space-y-16">
+
+          <!-- 1. The Protocol: Shared Ground (How We Work) -->
+          <section id="protocol" class="p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/50 border border-gray-800">
+            <h2 class="text-4xl font-mono mb-6 pb-2 border-b-2 border-arc-electric/50 text-arc-electric">
+              1. The Protocol: Shared Ground (How We Work)
+            </h2>
+            <p class="text-lg text-gray-400 mb-8">
+              The Protocol defines the <strong>"How"</strong>—the operational steps, ethical constraints, and rigor required for collaborative plasma research.
+            </p>
+
+            <div class="space-y-10">
+              <!-- Sub-Section I -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">I. The Build Book: Documenting Everything</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  The core of the Protocol is <strong class="text-white">reproducibility</strong>. We track all experiments in a <strong class="text-white">digital 'Build Book'</strong> (like a lab notebook). Every step, decision, and result gets a version number, making all our work traceable and reliable across the global network.
+                </p>
+              </article>
+
+              <!-- Sub-Section II -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">II. Our Ethical Red Line: Safety First</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  <strong class="text-white">Safety is non-negotiable.</strong> Our <strong class="text-white">Non-Lethal Mandate</strong> means all applications must be non-invasive and non-toxic. We use transparent, community-driven processes to resolve conflicts and evaluate new proposals, safeguarding the commons against appropriation.
+                </p>
+              </article>
+
+              <!-- Sub-Section III -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">III. The Test Rig: Replication and Trust</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  To accelerate credible research, we put all findings through a public, decentralized review. Results only become official knowledge after they pass <strong class="text-white">independent replication</strong> and safety checks. We even <strong class="text-white">pre-register</strong> our studies to be completely transparent.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- 2. The Vault: Collective Assets (Our Data) -->
+          <section id="vault" class="p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/50 border border-gray-800">
+            <h2 class="text-4xl font-mono mb-6 pb-2 border-b-2 border-arc-electric/50 text-arc-electric">
+              2. The Vault: Collective Assets (Our Data)
+            </h2>
+            <p class="text-lg text-gray-400 mb-8">
+              The Vault is the data architecture for the ArcUp Commons, designed for security, transparency, and global access.
+            </p>
+
+            <div class="space-y-10">
+              <!-- Sub-Section I -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">I. Data Flow: Our Shared Language</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  We enforce a <strong class="text-white">single data language (JSON/CSV schema)</strong>. This ensures every experiment speaks the same way, allowing real-time data ingestion from around the world. We use decentralized storage (like IPFS) to protect the data's integrity long-term.
+                </p>
+              </article>
+
+              <!-- Sub-Section II -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">II. See the Systems: Dashboards and Tools</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  We offer public endpoints and a real-time dashboard for anyone to access the raw data. We invite contributors to build <strong class="text-white">open-source visualization tools</strong> to help us all understand the complex kinetic and ecological streams.
+                </p>
+              </article>
+
+              <!-- Sub-Section III -->
+              <article>
+                <h3 class="text-2xl font-semibold mb-3 text-white">III. Predicting the Future: Ecological Modeling</h3>
+                <p class="text-gray-300 leading-relaxed">
+                  This is where we use <strong class="text-white">systems theory</strong> and advanced modeling to look ahead. We develop predictive models for ecosystem resilience and coupling dynamics to determine the long-term, scalable impact of plasma regeneration systems.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- 3. The Covenant: Licensing Agreement (The Legal Rule) -->
+          <section id="covenant" class="p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/50 border border-gray-800">
+            <h2 class="text-4xl font-mono mb-6 pb-2 border-b-2 border-living-earth/50 text-living-earth">
+              3. The Covenant: Licensing Agreement (The Legal Rule)
+            </h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">
+              <strong class="text-white">Everything is Share-Alike.</strong> All ArcUp work (blueprints, data, and protocols) uses the <strong class="text-white">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</strong>. This one, simple legal rule blocks commercial exploitation and ensures the commons remains open, free, and adaptive forever. <strong class="text-living-earth">By contributing, you agree to this Covenant.</strong>
+            </p>
+            <div class="mt-6">
+              <a
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-arc-electric font-semibold hover:underline text-lg transition duration-150 ease-in-out"
+              >
+                View the Full CC BY-SA 4.0 License
+                <span class="ml-2 text-sm">↗</span>
+              </a>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Smooth scroll behavior for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Add scroll padding to account for sticky header */
+  :target {
+    scroll-margin-top: 8rem;
+  }
+</style>

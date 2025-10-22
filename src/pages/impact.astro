@@ -1,0 +1,131 @@
+---
+// ====================================================================
+// ARCUP IMPACT PAGE (The Scientific Potential and Scale of Repair)
+// Focuses on the "what" and the potential ecological impact.
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'The Scale of Repair — ArcUp',
+};
+
+const scales = [
+  {
+    title: 'Local: The Tether',
+    description: 'Small, static plasma devices designed to treat water sources at the point of ecological need (e.g., a specific stream or pond). Focuses on high-fidelity research and data capture.'
+  },
+  {
+    title: 'Regional: The Field Kit',
+    description: 'Portable, modular units for medium-scale application in watersheds or agricultural systems. Designed for easy replication and deployment by community partners under the RE:ALIGN mandate.'
+  },
+  {
+    title: 'Global: Modeling Systems',
+    description: 'Utilizes collective data from the Local and Regional scales to train sophisticated ecological models, predicting macro-scale impact on biodiversity and climate coupling dynamics.'
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-primary-900 text-white min-h-screen py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header Section -->
+      <header class="pb-16 border-b border-gray-700 mb-16">
+        <h1 class="text-5xl md:text-6xl font-mono tracking-tight mb-4 text-living-earth">
+          THE SCALE OF REPAIR
+        </h1>
+        <p class="text-xl text-gray-300 max-w-4xl">
+          Moving beyond abstraction. This page details ArcUp's scientific focus, hardware prototypes, and the scalable deployment phases necessary to achieve systemic ecological impact.
+        </p>
+      </header>
+
+      <!-- Section 1: The Science -->
+      <section class="mb-20">
+        <h2 class="text-4xl font-mono mb-6 pb-2 border-b-2 border-arc-electric/50 text-arc-electric">
+          1. Plasma for Regeneration: The Science
+        </h2>
+        <div class="lg:grid lg:grid-cols-2 lg:gap-10">
+          <div class="text-lg text-gray-400 space-y-6">
+            <h3 class="text-2xl font-mono text-white">Mechanism: Plasma-Activated Water (PAW)</h3>
+            <p>
+              ArcUp harnesses <strong class="text-white">Non-Thermal Atmospheric Plasma (NTAP)</strong> to create <strong class="text-white">Plasma-Activated Water (PAW)</strong>. This process charges water with Reactive Nitrogen Species (RNS) and Reactive Oxygen Species (ROS).
+            </p>
+            <p>
+              Unlike traditional chemistry, this process is non-invasive and non-toxic, utilizing atmospheric components to create short-lived molecules that stimulate a healing response in compromised ecological systems, improving soil health and water quality.
+            </p>
+          </div>
+          <div class="text-lg text-gray-400 space-y-6">
+            <h3 class="text-2xl font-mono text-arc-electric mt-4 lg:mt-0">The Non-Lethal Difference</h3>
+            <p>
+              Traditional plasma research often focuses on sterilization or demolition. ArcUp's research is constrained by the <strong class="text-white">Non-Lethal Mandate</strong>, directing our focus entirely toward <strong class="text-white">stimulation and repair</strong>—finding the precise kinetic outputs that promote cellular and ecological health without harm.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Prototypes -->
+      <section class="mb-20">
+        <h2 class="text-4xl font-mono mb-6 pb-2 border-b-2 border-arc-electric/50 text-arc-electric">
+          2. Prototypes in the Field: Physical Systems
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-gray-400">
+          <div class="p-8 rounded-xl bg-gray-900/50 border border-gray-700 hover:border-arc-electric/50 transition-all duration-300">
+            <h3 class="text-2xl font-mono text-white mb-4">The Tether (Static Node)</h3>
+            <p class="leading-relaxed">
+              The Tether is ArcUp's primary R&D unit. It is a fixed installation used for highly controlled experiments in plasma kinetics and local water remediation. Every Tether is a standardized node that feeds real-time data directly into The Vault (Commons) for global analysis.
+            </p>
+          </div>
+          <div class="p-8 rounded-xl bg-gray-900/50 border border-gray-700 hover:border-arc-electric/50 transition-all duration-300">
+            <h3 class="text-2xl font-mono text-white mb-4">The Field Kit (Modular Unit)</h3>
+            <p class="leading-relaxed">
+              The Field Kit is a modular, replicable hardware design for deployment in collaborative projects. These kits scale up the plasma output for regional use and are designed to be built, maintained, and operated by local teams following the <strong class="text-white">Open Protocol Standard</strong> (The Handshake).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: The Three Scales -->
+      <section class="mb-20">
+        <h2 class="text-4xl font-mono mb-12 text-center pb-2 border-b-2 border-gray-700 text-white">
+          3. Defining Impact: The Three Scales of Ecological Repair
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {scales.map((s) => (
+            <div class="p-8 rounded-xl bg-gray-900/50 shadow-lg border border-gray-700 hover:border-living-earth/50 transition-all duration-300">
+              <h3 class="text-2xl font-mono text-living-earth mb-4">{s.title}</h3>
+              <p class="text-gray-400 leading-relaxed">{s.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="bg-gray-900/50 border border-gray-700 rounded-xl p-8 md:p-12 lg:p-16">
+        <CallToAction
+          actions={[
+            {
+              variant: 'primary',
+              text: 'REVIEW THE ARCUP HANDSHAKE',
+              href: '/handshake',
+              class: 'bg-arc-electric hover:bg-arc-electric/90 text-white font-mono text-lg px-8 py-4',
+            },
+          ]}
+        >
+          <Fragment slot="title">
+            <span class="text-white text-3xl md:text-4xl font-mono">
+              Ready to Build a Prototype?
+            </span>
+          </Fragment>
+
+          <Fragment slot="subtitle">
+            <span class="text-gray-300 text-lg">
+              The blueprints for Tethers and Field Kits are open-source. Join the discussion and review the governance that ensures safety and shared knowledge.
+            </span>
+          </Fragment>
+        </CallToAction>
+      </section>
+
+    </div>
+  </div>
+</Layout>

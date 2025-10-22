@@ -1,0 +1,76 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Workspace — ArcUp',
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="min-h-screen bg-primary-900 text-white flex items-center justify-center px-4 py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="mb-8">
+        <div class="text-8xl mb-6">🔐</div>
+        <h1 class="text-4xl md:text-5xl font-mono mb-4">
+          <span class="text-arc-electric">Workspace</span> Coming Soon
+        </h1>
+        <p class="text-xl text-gray-400 leading-relaxed mb-8">
+          The secure workspace for technical schematics, protocols, and raw data is under development. <br/>
+          This will be an external app launching soon.
+        </p>
+      </div>
+
+      <div class="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
+        <h2 class="text-2xl font-mono mb-4 text-living-earth">What Will the Workspace Include?</h2>
+        <div class="text-left text-gray-300 space-y-4 mb-6">
+          <div class="flex items-start gap-3">
+            <span class="text-arc-electric text-2xl">⚡️</span>
+            <div>
+              <strong class="text-white">Technical Schematics:</strong> Open-source blueprints for plasma systems, hardware designs, and 3D-printable components
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-arc-electric text-2xl">📊</span>
+            <div>
+              <strong class="text-white">Raw Data & Protocols:</strong> Experimental data, methodology templates, and reproducible protocols
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-arc-electric text-2xl">🔬</span>
+            <div>
+              <strong class="text-white">Verification System:</strong> Peer validation workflows and quality control mechanisms
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-arc-electric text-2xl">🌍</span>
+            <div>
+              <strong class="text-white">Collaboration Tools:</strong> Real-time collaboration for distributed research teams
+            </div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 italic">
+          Access will be granted to contributors who have committed to the RE:ALIGN framework.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contribute"
+          class="bg-arc-electric hover:bg-arc-electric/80 px-6 py-3 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 transition-all"
+        >
+          Join the Builders
+        </a>
+        <a
+          href="/"
+          class="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full font-bold text-white border border-gray-600 transition-all"
+        >
+          Back to Homepage
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-500 mt-12">
+        Built openly by Alisa. You're joining the foundation.
+      </p>
+    </div>
+  </div>
+</Layout>

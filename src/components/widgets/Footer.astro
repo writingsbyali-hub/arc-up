@@ -1,0 +1,217 @@
+---
+// ====================================================================
+// ARCUP FOOTER REFACTOR
+// Only includes essential links and ArcUp branding.
+// Uses custom ArcUp styling with dark theme.
+// ====================================================================
+import { Icon } from 'astro-icon/components';
+import AnimatedLogo from '~/components/ui/AnimatedLogo.astro';
+import { getHomePermalink } from '~/utils/permalinks';
+
+// Hardcoded ArcUp Navigation
+const navList = [
+  { text: 'Home', href: getHomePermalink() },
+  { text: 'Workspace', href: '/documentation' },
+  { text: 'Re-Practice', href: 'https://re-practice-placeholder.org', external: true },
+];
+
+const socialList = [
+  {
+    ariaLabel: 'GitHub',
+    icon: 'tabler:brand-github',
+    href: 'https://github.com/alixarcup',
+  },
+  {
+    ariaLabel: 'Discord',
+    icon: 'tabler:brand-discord',
+    href: 'https://discord.com/invite/DA8BPA3VsN',
+  },
+  {
+    ariaLabel: 'YouTube',
+    icon: 'tabler:brand-youtube',
+    href: 'https://www.youtube.com/@arc-arcup',
+  },
+];
+
+export interface Props {
+  theme?: string;
+}
+
+const { theme = 'dark' } = Astro.props;
+---
+
+<footer class="border-t border-gray-700 bg-primary-900 text-white">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="xl:grid xl:grid-cols-4 xl:gap-8">
+
+      <!-- Logo and Description Column -->
+      <div class="space-y-4 xl:col-span-2 pr-8">
+        <a class="flex items-center gap-3" href={getHomePermalink()}>
+          <AnimatedLogo size="sm" animation="playful" />
+          <span class="text-sm text-gray-400 font-mono">byali</span>
+        </a>
+        <p class="text-gray-400 text-md">
+          Built openly by Ali Al Saleh. For a world where science serves life and the future!
+        </p>
+        <div class="flex space-x-4">
+          {socialList.map((item) => (
+            <a
+              class="text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+              aria-label={item.ariaLabel}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={item.icon} class="w-6 h-6" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
+        <!-- Internal Pages -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Navigate</h3>
+          <ul role="list" class="space-y-3">
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href={getHomePermalink()}
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="/about"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="/research"
+              >
+                Research
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="/pathways"
+              >
+                Pathways
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="/get-started"
+              >
+                Get Started
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillars -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Pillars</h3>
+          <ul role="list" class="space-y-3">
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-yellow-400 transition duration-150 ease-in-out"
+                href="/lab"
+              >
+                Lab
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-green-400 transition duration-150 ease-in-out"
+                href="/framework"
+              >
+                Framework
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-blue-400 transition duration-150 ease-in-out"
+                href="/commons"
+              >
+                Commons
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- External Links -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white">External</h3>
+          <ul role="list" class="space-y-3">
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="https://xbyali.page"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ali's Work <span class="text-sm opacity-60">↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="https://repractise.xbyali.page"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Re:Practise <span class="text-sm opacity-60">↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="https://workspace.xbyali.page"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Workspace <span class="text-sm opacity-60">↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="https://discord.com/invite/DA8BPA3VsN"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Discord <span class="text-sm opacity-60">↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                href="https://www.youtube.com/@arc-arcup"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube <span class="text-sm opacity-60">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="mt-16 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+      <p class="text-sm text-gray-400">
+        &copy; {new Date().getFullYear()} arc^ by Ali Al Saleh. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>

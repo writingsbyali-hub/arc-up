@@ -1,0 +1,471 @@
+﻿---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const featuresTheChallenge = [
+  {
+    icon: '🔒',
+    title: 'The Knowledge Lock',
+    description: 'Critical technologies locked behind patents. Communities cannot adapt. Innovation stalls.',
+    responseTitle: 'The ArcUp Response',
+    response: '<strong>Open-Source Blueprints.</strong> Technical schematics and methodologies released under open licenses.',
+  },
+  {
+    icon: '🌍',
+    title: 'The Planetary Drift',
+    description: 'Pollution and ecosystem disruption accelerate faster than siloed science can respond.',
+    responseTitle: 'The ArcUp Response',
+    response: '<strong>Plasma for Regeneration.</strong> Controlled plasma energy as a tool for pollutant breakdown and ecological resilience.',
+  },
+];
+
+const tabContent = [
+  {
+    id: 'lab',
+    title: 'THE LAB',
+    headline: 'Multi-Stream Experimental Research',
+    body:
+      'The engine for research. We link engineering with ecology by designing plasma systems and open-hardware standards. We pursue non-lethal, non-invasive techniques across three integrated streams.',
+    streams: [
+      {
+        id: 'physical',
+        title: 'I. Physical Plasma Systems',
+        icon: '⚡️',
+        status: 'Coming Soon',
+        color: 'text-yellow-400',
+        focusAreas: [
+          'Plasma architecture design',
+          'Circuit optimization',
+          'Open-hardware standards',
+          'Community-led prototyping'
+        ],
+        forWho: 'Electrical engineers, hardware designers, makers',
+      },
+      {
+        id: 'water',
+        title: 'II. Plasma-Water Interface',
+        icon: '💧',
+        status: 'Ready to Build',
+        color: 'text-green-400',
+        focusAreas: [
+          'Oxidation mechanisms',
+          'Desalination & water reuse',
+          'Pollutant degradation',
+          'Pathogen removal'
+        ],
+        forWho: 'Chemists, environmental engineers, water systems researchers',
+      },
+      {
+        id: 'ecosystem',
+        title: 'III. Ecosystem Dynamics',
+        icon: '🌲',
+        status: 'Help Shape This',
+        color: 'text-blue-400',
+        focusAreas: [
+          'Genetic & non-genetic responses',
+          'Microbiome community shifts',
+          'Stress adaptation patterns',
+          'Ecosystem resilience modeling'
+        ],
+        forWho: 'Ecologists, molecular biologists, systems researchers',
+      },
+    ],
+  },
+  {
+    id: 'framework',
+    title: 'THE FRAMEWORK',
+    headline: 'Governance, Ethics, and Reproducibility',
+    body:
+      'The adaptive methodology and ethical standard for practice. This ensures all work is reproducible, safe, and aligned with ecological principles.',
+    streams: [
+      {
+        id: 'protocols',
+        title: 'I. Protocols',
+        icon: '📝',
+        status: 'Active',
+        color: 'text-green-400',
+        focusAreas: [
+          'Methodology templates',
+          'Version control systems',
+          'Reproducible documentation',
+          'Open-hardware specs'
+        ],
+        forWho: 'Researchers, documentation specialists, open-source advocates',
+      },
+      {
+        id: 'governance',
+        title: 'II. Governance',
+        icon: '⚖️',
+        status: 'In Development',
+        color: 'text-yellow-400',
+        focusAreas: [
+          '<strong>Non-Lethal Mandate</strong>',
+          'Transparent decision-making',
+          'Conflict resolution',
+          'Commons-based IP frameworks'
+        ],
+        forWho: 'Ethicists, community organizers, legal scholars',
+      },
+      {
+        id: 'validation',
+        title: 'III. Validation',
+        icon: '✅',
+        status: 'Coming Soon',
+        color: 'text-blue-400',
+        focusAreas: [
+          'Open-source code review',
+          'Pre-registration workflows',
+          'Decentralized verification',
+          'Peer validation systems'
+        ],
+        forWho: 'Software developers, data scientists, peer reviewers',
+      },
+    ],
+  },
+  {
+    id: 'commons',
+    title: 'THE COMMONS',
+    headline: 'Global Data Infrastructure & Access',
+    body:
+      'The future home for a global, decentralized dashboard. Every builder is a co-contributor, sharing data to validate and improve the next design.',
+    streams: [
+      {
+        id: 'data',
+        title: 'I. Data',
+        icon: '🔗',
+        status: 'In Development',
+        color: 'text-blue-400',
+        focusAreas: [
+          'Data ingestion APIs',
+          'Sensor network integration',
+          'Standardized schemas (JSON/CSV)',
+          'Distributed storage systems'
+        ],
+        forWho: 'Backend developers, database architects, IoT engineers',
+      },
+      {
+        id: 'visualization',
+        title: 'II. Visualization',
+        icon: '📊',
+        status: 'Coming Soon',
+        color: 'text-yellow-400',
+        focusAreas: [
+          'Real-time monitoring dashboards',
+          'Open-source viz libraries',
+          'Public data access interfaces',
+          'Interactive data exploration'
+        ],
+        forWho: 'Frontend developers, UX designers, data visualization specialists',
+      },
+      {
+        id: 'modeling',
+        title: 'III. Modeling',
+        icon: '🔬',
+        status: 'Future Work',
+        color: 'text-red-400',
+        focusAreas: [
+          'Systems theory application',
+          'Ecosystem resilience modeling',
+          'Coupling & cycling dynamics',
+          'Predictive analytical tools'
+        ],
+        forWho: 'Data scientists, computational ecologists, systems modelers',
+      },
+    ],
+  },
+];
+---
+
+<Layout>
+  <div class="bg-primary-900 text-white min-h-screen">
+    <Hero
+      tagline="FOR A BETTER WORLD - FOR EVERYONE"
+      actions={[
+        {
+          variant: 'primary',
+          text: 'EXPLORE PATHWAYS',
+          href: '/pathways',
+          class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 text-lg px-8 py-4 transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
+        },
+      ]}
+      bg="bg-primary-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-color-primary-900,rgba(8,14,33,1))_5%,_#000000_100%)]"
+    >
+      <Fragment slot="title">
+        <span class="font-mono ">building futures worth inheriting - openly</span> 
+      </Fragment>
+      <Fragment slot="subtitle">
+        <span>
+          Open plasma research for ecological regeneration.<br/>
+          <strong>For those ready to build a different future—experimentally, collaboratively, openly.</strong>
+        </span>
+      </Fragment>
+      <Fragment slot="content">
+        <div class="mt-8 text-center">
+          <p class="text-sm text-gray-400 mb-4">Quick access for returning builders:</p>
+          <nav aria-label="Quick access navigation" class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-sm">
+            <a href="/lab" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Lab</a>
+            <span class="text-gray-600 hidden sm:inline" aria-hidden="true">|</span>
+            <a href="/framework" class="text-green-400 hover:text-green-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Framework</a>
+            <span class="text-gray-600 hidden sm:inline" aria-hidden="true">|</span>
+            <a href="/commons" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline py-2 sm:py-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded">Commons</a>
+          </nav>
+        </div>
+      </Fragment>
+    </Hero>
+
+    <section class="py-16 md:py-20 lg:py-24 bg-[#131A33] border-t border-b border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center pb-4 md:pb-6">
+          <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">Why ArcUp Exists</p>
+          <h2 class="text-3xl md:text-4xl font-mono tracking-tight mb-4">The Systems We're Changing</h2>
+          <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+            Two systemic barriers lock humanity out of the solutions we need. ArcUp is the response.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade">
+          {
+            featuresTheChallenge.map((feature) => (
+              <div class="group p-8 rounded-2xl bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hover:border-arc-electric/50 hover:bg-gray-900/40 transition-all duration-300 text-center">
+                <div class="text-7xl mb-6">{feature.icon}</div>
+                <h3 class="text-2xl font-mono text-white mb-4">{feature.title}</h3>
+                <p class="text-gray-350 leading-relaxed">{feature.description}</p>
+
+                <div class="mt-8 pt-6 border-t-2 border-living-earth/20">
+                  <div class="flex items-center justify-center gap-2 mb-3">
+                    <div class="h-0.5 w-8 bg-living-earth"></div>
+                    <h4 class="font-bold text-living-earth text-lg">{feature.responseTitle}</h4>
+                    <div class="h-0.5 w-8 bg-living-earth"></div>
+                  </div>
+                  <p class="text-gray-200 leading-relaxed" set:html={feature.response}></p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="pathways" class="py-16 md:py-20 lg:py-24 bg-primary-900 scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center pb-12 md:pb-16">
+          <p class="text-sm font-mono text-living-earth uppercase tracking-widest mb-4">Three Pathways</p>
+          <h2 class="text-3xl md:text-4xl font-mono tracking-tight mb-4">Three Pillars. One Vision.</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            From research to governance to global data—explore where you fit. <br/>
+            <span class="text-base text-gray-500">👇 Click a pillar to view its streams. Click a card to dive deeper.</span>
+          </p>
+        </div>
+
+        <div class="mt-8 max-w-5xl mx-auto">
+          <!-- Hidden radio inputs for CSS-only tabs -->
+          <input type="radio" name="pillar-tabs" id="tab-lab" class="hidden" checked />
+          <input type="radio" name="pillar-tabs" id="tab-framework" class="hidden" />
+          <input type="radio" name="pillar-tabs" id="tab-commons" class="hidden" />
+
+          <!-- Tab buttons (labels) -->
+          <div class="flex flex-col sm:flex-row justify-center items-center rounded-2xl p-2 space-y-2 sm:space-y-0 sm:space-x-2 bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
+            <label
+              for="tab-lab"
+              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-yellow-500/20"
+            >
+              THE LAB
+            </label>
+            <label
+              for="tab-framework"
+              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-green-400/20"
+            >
+              THE FRAMEWORK
+            </label>
+            <label
+              for="tab-commons"
+              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-blue-400/20"
+            >
+              THE COMMONS
+            </label>
+          </div>
+
+          <!-- Tab content sections -->
+          <div class="mt-8">
+            {
+              tabContent.map((tab) => (
+                <div
+                  id={tab.id}
+                  class="tab-panel rounded-2xl p-8 md:p-10 bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hidden"
+                  data-tab={tab.id}
+                >
+                  <h3 class="text-3xl font-mono text-arc-electric mb-4">{tab.headline}</h3>
+                  <p class="mb-10 text-gray-300 border-b-2 border-gray-800/50 pb-6 leading-relaxed" set:html={tab.body}></p>
+
+                  <div class="text-center mb-6">
+                    <p class="text-sm text-gray-500">👇 Choose your stream. Click to dive deeper.</p>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {
+                      tab.streams.map((stream) => (
+                        <a
+                          href={`/${tab.id}#${stream.id}`}
+                          class="group p-6 md:p-7 rounded-xl bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 hover:border-arc-electric/60 hover:bg-gray-800/60 hover:shadow-2xl hover:shadow-arc-electric/10 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between cursor-pointer"
+                        >
+                          <div>
+                            <h4 class="font-bold font-mono text-xl text-white mb-4 group-hover:text-arc-electric transition-colors tracking-tight">{stream.title}</h4>
+
+                            {/* Focus Areas List */}
+                            <div class="mb-4">
+                              <p class="text-xs font-mono text-gray-500 uppercase tracking-wide mb-2">Focus:</p>
+                              <ul class="space-y-1.5">
+                                {stream.focusAreas.map((area) => (
+                                  <li class="text-sm text-gray-300 flex items-start">
+                                    <span class="text-living-earth mr-2 mt-0.5">→</span>
+                                    <span set:html={area}></span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* Who This Is For */}
+                            <div class="mt-4 p-3 rounded-lg bg-gray-900/50 border border-gray-700/30">
+                              <p class="text-xs font-mono text-arc-electric uppercase tracking-wide mb-1">For:</p>
+                              <p class="text-sm text-gray-300 leading-relaxed">{stream.forWho}</p>
+                            </div>
+                          </div>
+
+                          <div class="mt-6 pt-4 border-t border-gray-700/50 space-y-3">
+                            <span
+                              class:list={[
+                                'inline-block text-xs font-semibold px-3 py-1.5 rounded-full',
+                                stream.color === 'text-yellow-400'
+                                  ? 'bg-yellow-900/50 text-yellow-400'
+                                  : stream.color === 'text-green-400'
+                                  ? 'bg-green-900/50 text-green-400'
+                                  : stream.color === 'text-blue-400'
+                                  ? 'bg-blue-900/50 text-blue-400'
+                                  : 'bg-red-900/50 text-red-400',
+                              ]}
+                            >
+                              {stream.status}
+                            </span>
+                            <div class="flex items-center text-xs text-gray-500 group-hover:text-arc-electric transition-colors font-mono">
+                              <span>Explore this stream</span>
+                              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </div>
+                        </a>
+                      ))
+                    }
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20 lg:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <CallToAction
+          title="<span class='text-living-earth'>Ready to Build?</span> Start Here."
+          subtitle="ArcUp is at foundation stage. Built in public. <strong>Your contribution shapes what comes next.</strong>"
+          actions={[
+            {
+              variant: 'primary',
+              text: 'JOIN THE BUILDERS',
+              href: '/contribute',
+              class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 text-lg transition-all',
+            },
+            {
+              variant: 'secondary',
+              text: 'ACCESS WORKSPACE',
+              href: '/workspace',
+              class: 'bg-living-earth hover:bg-living-earth/90 hover:scale-105 py-4 px-8 text-lg rounded-full font-bold shadow-2xl shadow-living-earth/50 transition-all',
+            },
+          ]}
+          bg="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50"
+        />
+        <p class="text-center text-sm text-gray-500 mt-8">
+          Built openly by Alisa. You're joining the foundation.
+        </p>
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- Back to Top Button -->
+  <button
+    id="back-to-top"
+    class="fixed bottom-6 right-6 bg-arc-electric hover:bg-arc-electric/90 text-white p-4 rounded-full shadow-2xl shadow-arc-electric/40 opacity-0 invisible transition-all duration-300 z-50 hover:scale-110"
+    aria-label="Back to top"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <style>
+    /* CSS-only tab switching */
+    #tab-lab:checked ~ div .tab-panel[data-tab="lab"],
+    #tab-framework:checked ~ div .tab-panel[data-tab="framework"],
+    #tab-commons:checked ~ div .tab-panel[data-tab="commons"] {
+      display: block !important;
+    }
+
+    /* Active tab styling */
+    #tab-lab:checked ~ div label[for="tab-lab"] {
+      background-color: rgb(234 179 8) !important; /* yellow-500 */
+      color: rgb(17 24 39) !important; /* gray-900 */
+    }
+
+    #tab-framework:checked ~ div label[for="tab-framework"] {
+      background-color: rgb(74 222 128) !important; /* green-400 */
+      color: rgb(17 24 39) !important; /* gray-900 */
+    }
+
+    #tab-commons:checked ~ div label[for="tab-commons"] {
+      background-color: rgb(96 165 250) !important; /* blue-400 */
+      color: rgb(17 24 39) !important; /* gray-900 */
+    }
+  </style>
+
+  <script is:inline>
+    // Smooth scroll for anchor links
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Back to top button logic
+      const backToTopButton = document.getElementById('back-to-top');
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 500) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+          } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+          }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+
+  </script>
+</Layout>

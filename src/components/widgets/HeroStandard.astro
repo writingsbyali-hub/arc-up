@@ -1,0 +1,64 @@
+---
+import type { CallToAction } from '~/types';
+
+interface Props {
+  tagline?: string;
+  title: string;
+  subtitle?: string;
+  actions?: CallToAction[];
+  className?: string;
+}
+
+const {
+  tagline,
+  title,
+  subtitle,
+  actions = [],
+  className = ''
+} = Astro.props;
+---
+
+<section
+  class={`relative overflow-hidden py-16 md:py-24 ${className}`}
+  style="background: radial-gradient(circle at top, #181f3d 0%, #080E21 90%);"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto">
+      {tagline && (
+        <p class="text-sm font-mono text-[#674EF3] uppercase tracking-widest mb-6">
+          {tagline}
+        </p>
+      )}
+
+      <h1 class="text-5xl md:text-6xl font-mono text-white font-bold mb-6 leading-tight">
+        {title}
+      </h1>
+
+      {subtitle && (
+        <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+          {subtitle}
+        </p>
+      )}
+
+      {actions.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          {actions.map((action) => (
+            <a
+              href={action.href}
+              class={`inline-block px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                action.variant === 'primary'
+                  ? 'bg-[#674EF3] text-white hover:bg-[#5640d9] shadow-lg hover:shadow-xl'
+                  : action.variant === 'secondary'
+                  ? 'bg-[#14B8A6] text-white hover:bg-[#12a594] shadow-lg hover:shadow-xl'
+                  : 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-600'
+              }`}
+              target={action.target}
+            >
+              {action.text}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,578 @@
+---
+// ====================================================================
+// GET STARTED - BOLD TYPOGRAPHY + CREATIVE LAYOUTS
+// Big type, asymmetry, personality
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Get Started — arc^',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- ============================================ -->
+  <!-- HERO - MASSIVE TYPE -->
+  <!-- ============================================ -->
+  <section class="relative py-24 md:py-40 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-mono font-bold mb-12 tracking-tight text-white leading-[0.95]">
+        What if plasma research was open<br/>
+        <span class="text-arc-electric">from day one?</span>
+      </h1>
+      <div class="max-w-3xl">
+        <p class="text-2xl md:text-3xl text-gray-300 leading-relaxed mb-8">
+          No patents. No closed labs.<br/>
+          No waiting years to publish.
+        </p>
+        <p class="text-2xl md:text-3xl text-white leading-relaxed mb-8">
+          Just science built in the open,<br/>
+          for ecological repair.
+        </p>
+        <p class="text-xl md:text-2xl text-arc-electric font-mono font-bold">
+          That's arc^. And I'm building it right now.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- THE REALITY - ASYMMETRIC LAYOUT -->
+  <!-- ============================================ -->
+  <section class="bg-primary-900 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="grid md:grid-cols-12 gap-12 items-start">
+
+        <!-- Left: Big Header -->
+        <div class="md:col-span-4">
+          <div class="sticky top-8">
+            <div class="text-6xl mb-4">👤</div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white font-mono leading-tight mb-4">
+              The<br/>Reality
+            </h2>
+            <p class="text-lg text-gray-400 font-mono">Let me be honest about where this is.</p>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="md:col-span-8">
+          <div class="bg-gradient-to-br from-arc-electric/10 via-gray-900/50 to-living-earth/10 border border-gray-700/50 rounded-2xl p-8 md:p-12">
+            <div class="space-y-6 text-lg md:text-xl text-gray-300 leading-relaxed">
+              <p>
+                Right now, <strong class="text-white text-2xl">it's just me</strong>. I'm Ali, an undergrad student at RMIT applying for honours.
+              </p>
+              <p class="text-base md:text-lg text-gray-400 font-mono">
+                I'm in the process of:
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-4">
+                  <span class="text-arc-electric text-2xl mt-1">→</span>
+                  <span class="text-lg">Pitching this proposal to my professors</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="text-arc-electric text-2xl mt-1">→</span>
+                  <span class="text-lg">Designing the experiments</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="text-arc-electric text-2xl mt-1">→</span>
+                  <span class="text-lg">Sharing information with my supervisory team</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="text-arc-electric text-2xl mt-1">→</span>
+                  <span class="text-lg">Negotiating intellectual property terms with my university</span>
+                </li>
+              </ul>
+              <p class="text-lg">
+                There's <strong class="text-white text-2xl">no lab yet</strong>. No funding. No team. No published results.
+              </p>
+              <div class="pt-6 border-t border-gray-700/50">
+                <p class="text-lg mb-4">
+                  But there <em class="text-white">is</em> a framework, a vision, and a commitment to doing research differently.
+                </p>
+                <p class="text-2xl text-arc-electric font-mono font-bold">
+                  If you're joining now,<br/>
+                  you're joining at the foundation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- THE FORK - LARGE TYPE DECISION -->
+  <!-- ============================================ -->
+  <section class="bg-primary-900 py-20 md:py-32 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-white font-mono mb-6 leading-tight">
+          Does This<br/>Resonate?
+        </h2>
+        <p class="text-xl md:text-2xl text-gray-400 font-mono">
+          Two paths from here.<br/>Choose the one that fits.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Path A -->
+        <div class="bg-living-earth/5 border-2 border-living-earth/30 rounded-2xl p-10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-living-earth/20 transition-all duration-300 group">
+          <h3 class="text-3xl md:text-4xl font-bold text-living-earth mb-6 font-mono leading-tight">
+            Build Something<br/>Similar?
+          </h3>
+          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+            Love the approach but want to apply it to your own field? You don't need to contribute to arc^.
+          </p>
+          <div class="space-y-4 mb-8">
+            <p class="text-sm font-mono text-gray-400 uppercase tracking-wider">Take these tools:</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-living-earth text-xl">→</span>
+                <span><strong>Re:Practise Framework</strong> (ethics model)</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-living-earth text-xl">→</span>
+                <span><strong>arc^ GitHub</strong> (codebase)</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-living-earth text-xl">→</span>
+                <span><strong>AstroWind Template</strong> (website)</span>
+              </li>
+            </ul>
+          </div>
+          <a
+            href="https://repractise.xbyali.page"
+            target="_blank"
+            class="block text-center px-8 py-4 bg-living-earth hover:bg-living-earth/90 text-gray-900 rounded-xl font-mono font-bold text-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-lg hover:shadow-living-earth/50 active:scale-95"
+          >
+            Explore Re:Practise ↗
+          </a>
+        </div>
+
+        <!-- Path B -->
+        <div class="bg-arc-electric/5 border-2 border-arc-electric/30 rounded-2xl p-10 hover:scale-[1.02] hover:shadow-2xl hover:shadow-arc-electric/20 transition-all duration-300 group">
+          <h3 class="text-3xl md:text-4xl font-bold text-arc-electric mb-6 font-mono leading-tight">
+            Contribute<br/>to arc^?
+          </h3>
+          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+            Specifically interested in plasma applications for ecological regeneration? Let's align.
+          </p>
+          <div class="space-y-4 mb-8">
+            <p class="text-sm font-mono text-gray-400 uppercase tracking-wider">You'll need to understand:</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-arc-electric text-xl">→</span>
+                <span>Who this is for</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-arc-electric text-xl">→</span>
+                <span>The safety and ethics framework</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300">
+                <span class="text-arc-electric text-xl">→</span>
+                <span>Open licensing requirements</span>
+              </li>
+            </ul>
+          </div>
+          <button
+            onclick="document.getElementById('who-this-is-for').scrollIntoView({ behavior: 'smooth' })"
+            class="w-full text-center px-8 py-4 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-xl font-mono font-bold text-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-lg hover:shadow-arc-electric/50 active:scale-95"
+          >
+            Continue Below ↓
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- WHO THIS IS FOR - LEFT-ALIGNED, BIG TYPE -->
+  <!-- ============================================ -->
+  <section id="who-this-is-for" class="bg-primary-900 py-20 md:py-32 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <h2 class="text-4xl md:text-5xl font-bold text-white font-mono mb-16 leading-tight">
+        Who This<br/>Is For
+      </h2>
+
+      <div class="space-y-12 mb-20">
+
+        <!-- Students -->
+        <div class="border-l-4 border-yellow-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
+          <h3 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4 font-mono flex items-center gap-4">
+            <span class="text-4xl">🎓</span> Students
+          </h3>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl">
+            Integrate plasma research with your coursework. Build your portfolio while advancing open science. You'll need supervisor approval, agreement to open licensing, and commitment to safe practice.
+          </p>
+        </div>
+
+        <!-- Researchers -->
+        <div class="border-l-4 border-green-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
+          <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-4 font-mono flex items-center gap-4">
+            <span class="text-4xl">🔬</span> Researchers
+          </h3>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl">
+            Validate, replicate, and co-develop early frameworks. Your expertise shapes responsible methods for plasma-water research. Emerging questions await your scrutiny.
+          </p>
+        </div>
+
+        <!-- Practitioners -->
+        <div class="border-l-4 border-blue-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
+          <h3 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4 font-mono flex items-center gap-4">
+            <span class="text-4xl">🌍</span> Practitioners
+          </h3>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl">
+            Apply arc^ technologies locally under shared safety standards while contributing to the commons. Projects remain locally governed but strengthen collective knowledge.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Reflection Questions - Open Space -->
+      <div class="pt-16 border-t border-gray-700/50">
+        <h3 class="text-3xl md:text-4xl font-bold text-white font-mono mb-12 leading-tight">
+          Before You Join,<br/>Reflect
+        </h3>
+
+        <div class="space-y-10 max-w-4xl">
+          <div class="group hover:translate-x-4 transition-transform duration-200">
+            <p class="text-xl md:text-2xl font-bold text-white mb-3 flex items-start gap-4">
+              <span class="text-arc-electric text-3xl group-hover:scale-125 transition-transform">→</span>
+              What problems drive your curiosity?
+            </p>
+            <p class="text-base text-gray-300 ml-16">Note what you care about solving.</p>
+          </div>
+
+          <div class="group hover:translate-x-4 transition-transform duration-200">
+            <p class="text-xl md:text-2xl font-bold text-white mb-3 flex items-start gap-4">
+              <span class="text-arc-electric text-3xl group-hover:scale-125 transition-transform">→</span>
+              What can you contribute?
+            </p>
+            <p class="text-base text-gray-300 ml-16">Skills, time, equipment, or expertise.</p>
+          </div>
+
+          <div class="group hover:translate-x-4 transition-transform duration-200">
+            <p class="text-xl md:text-2xl font-bold text-white mb-3 flex items-start gap-4">
+              <span class="text-arc-electric text-3xl group-hover:scale-125 transition-transform">→</span>
+              How does this support planetary repair?
+            </p>
+            <p class="text-base text-gray-300 ml-16">Connect your work to the bigger picture.</p>
+          </div>
+        </div>
+
+        <p class="text-base text-gray-400 mt-12 font-mono italic">
+          Share these when you join the community.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- WHAT YOU NEED TO UNDERSTAND - SPLIT LAYOUT -->
+  <!-- ============================================ -->
+  <section class="bg-primary-900 py-20 md:py-32 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <h2 class="text-4xl md:text-5xl font-bold text-white font-mono mb-8 leading-tight">
+        What You Need<br/>to Understand
+      </h2>
+      <p class="text-xl md:text-2xl text-gray-400 font-mono mb-16 max-w-3xl">
+        Read these before contributing.<br/>Ten minutes now saves confusion later.
+      </p>
+
+      <!-- Essentials - Grid -->
+      <div class="mb-20 pb-16 border-b border-gray-700/50">
+        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-8">The Essentials</h3>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="/about" class="group">
+            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">About arc^</div>
+            <div class="text-sm text-gray-500">Purpose & structure</div>
+          </a>
+          <a href="/research" class="group">
+            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Research</div>
+            <div class="text-sm text-gray-500">Energy to ecosystems</div>
+          </a>
+          <a href="https://repractise.xbyali.page" target="_blank" class="group">
+            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Re:Practise ↗</div>
+            <div class="text-sm text-gray-500">Ethics & openness</div>
+          </a>
+          <a href="/pathways" class="group">
+            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Projects</div>
+            <div class="text-sm text-gray-500">See the work</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Safety & Ethics - 2 Column -->
+      <div class="mb-20 pb-16 border-b border-gray-700/50">
+        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-4">Safety & Ethics</h3>
+        <p class="text-lg text-gray-400 mb-10">
+          Every decision passes through four lenses: <span class="text-white">people, organisms, ecosystems, and future.</span>
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
+              <span class="text-4xl">👥</span> People
+            </h4>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Work must benefit communities without exploitation. Research conducted with consent and transparency.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
+              <span class="text-4xl">🌱</span> Organisms
+            </h4>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Non-invasive study using environmental sensing (eDNA, protein markers) to understand change without harm.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
+              <span class="text-4xl">🌍</span> Ecosystems
+            </h4>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Treated as dynamic systems. Monitoring extends to modelling feedbacks. If degradation appears, pause.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
+              <span class="text-4xl">🔮</span> Future
+            </h4>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Every project anticipates downstream effects. Success means continuity, not novelty.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-base text-gray-400 italic mt-10 max-w-3xl">
+          This links with Re:Practise to ensure science produces results aligned with human dignity and Earth's continuity.
+        </p>
+      </div>
+
+      <!-- Licensing - Left Border Style -->
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-4">Open Licensing</h3>
+        <p class="text-lg text-gray-400 mb-10">
+          All work is open. These licenses prevent enclosure.
+        </p>
+
+        <div class="space-y-6">
+          <div class="border-l-4 border-yellow-400 pl-6 py-3">
+            <div class="text-xl font-bold text-yellow-400 font-mono mb-2">Hardware</div>
+            <div class="text-base text-gray-400">
+              <strong class="text-white">CERN-OHL-S v2</strong> • Designs, CAD files, specs • Modifications stay open
+            </div>
+          </div>
+
+          <div class="border-l-4 border-green-400 pl-6 py-3">
+            <div class="text-xl font-bold text-green-400 font-mono mb-2">Documentation</div>
+            <div class="text-base text-gray-400">
+              <strong class="text-white">CC BY-NC-SA 4.0</strong> • Guides, protocols, materials • Non-commercial, share-alike
+            </div>
+          </div>
+
+          <div class="border-l-4 border-blue-400 pl-6 py-3">
+            <div class="text-xl font-bold text-blue-400 font-mono mb-2">Software</div>
+            <div class="text-base text-gray-400">
+              <strong class="text-white">AGPL-3.0</strong> • All code • Server-side changes shared
+            </div>
+          </div>
+        </div>
+
+        <p class="text-lg text-gray-400 mt-10">
+          Not anti-commercial. <strong class="text-white text-xl">Pro-commons.</strong>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CHOOSE YOUR LEVEL - HORIZONTAL CARDS -->
+  <!-- ============================================ -->
+  <section class="bg-primary-900 py-20 md:py-32 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <h2 class="text-4xl md:text-5xl font-bold text-white font-mono mb-8 leading-tight">
+        Choose<br/>Your Level
+      </h2>
+      <p class="text-xl md:text-2xl text-gray-400 font-mono mb-16">
+        Start where you are.<br/>Move deeper when ready.
+      </p>
+
+      <div class="space-y-6">
+
+        <!-- Observe -->
+        <div class="bg-gray-700/10 border-2 border-gray-700/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl transition-all duration-300 group">
+          <div class="flex flex-col md:flex-row md:items-center gap-8">
+            <div class="flex items-center gap-6 md:w-1/3">
+              <span class="text-6xl group-hover:scale-110 transition-transform duration-300">👀</span>
+              <div>
+                <h3 class="text-3xl font-bold text-white font-mono mb-1">Observe</h3>
+                <p class="text-base text-gray-400">Follow along, no commitment</p>
+              </div>
+            </div>
+            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
+              <p class="text-lg text-gray-300">Join newsletter, watch research unfold, explore at your pace</p>
+              <a
+                href="https://discord.com/invite/DA8BPA3VsN"
+                target="_blank"
+                class="whitespace-nowrap px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] active:scale-95"
+              >
+                Join Discord ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contribute -->
+        <div class="bg-living-earth/10 border-2 border-living-earth/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl hover:shadow-living-earth/20 transition-all duration-300 group">
+          <div class="flex flex-col md:flex-row md:items-center gap-8">
+            <div class="flex items-center gap-6 md:w-1/3">
+              <span class="text-6xl group-hover:scale-110 transition-transform duration-300">🔬</span>
+              <div>
+                <h3 class="text-3xl font-bold text-living-earth font-mono mb-1">Contribute</h3>
+                <p class="text-base text-gray-400">Run experiments independently</p>
+              </div>
+            </div>
+            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
+              <p class="text-lg text-gray-300">Replicate protocols, share verified data, improve methodologies</p>
+              <a
+                href="/workspace"
+                class="whitespace-nowrap px-6 py-3 bg-living-earth/20 border-2 border-living-earth hover:bg-living-earth/30 text-living-earth rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] active:scale-95"
+              >
+                Read Docs →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collaborate -->
+        <div class="bg-arc-electric/10 border-2 border-arc-electric/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl hover:shadow-arc-electric/20 transition-all duration-300 group">
+          <div class="flex flex-col md:flex-row md:items-center gap-8">
+            <div class="flex items-center gap-6 md:w-1/3">
+              <span class="text-6xl group-hover:scale-110 transition-transform duration-300">🤝</span>
+              <div>
+                <h3 class="text-3xl font-bold text-arc-electric font-mono mb-1">Collaborate</h3>
+                <p class="text-base text-gray-400">Co-build the framework</p>
+              </div>
+            </div>
+            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
+              <p class="text-lg text-gray-300">Join ongoing projects, shape governance, publish collectively</p>
+              <a
+                href="/workspace"
+                class="whitespace-nowrap px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] hover:shadow-lg hover:shadow-arc-electric/50 active:scale-95"
+              >
+                Enter Workspace →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-base text-gray-400 italic text-center mt-10 font-mono">
+        Note: Workspace handles onboarding, verification, and agreement to safety standards.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TAKE ACTION - BIG FINAL PUSH -->
+  <!-- ============================================ -->
+  <section class="bg-gradient-to-b from-primary-900 to-primary-950 py-24 md:py-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16">
+        <h2 class="text-5xl md:text-6xl font-bold text-white font-mono mb-8">Ready?</h2>
+        <p class="text-2xl md:text-3xl text-gray-300 font-mono">
+          Pick your path and begin.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+
+        <!-- Explore -->
+        <a href="/pathways" class="bg-gray-900/50 border-2 border-gray-700/50 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:border-gray-600 transition-all duration-300 group block">
+          <div class="text-6xl mb-6">🔍</div>
+          <h3 class="text-2xl font-bold text-white mb-3 font-mono group-hover:text-gray-300 transition-colors">Explore</h3>
+          <p class="text-gray-400 text-lg">See what's being built</p>
+        </a>
+
+        <!-- Community -->
+        <a href="https://discord.com/invite/DA8BPA3VsN" target="_blank" class="bg-living-earth/10 border-2 border-living-earth/30 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:shadow-living-earth/20 hover:border-living-earth/50 transition-all duration-300 group block">
+          <div class="text-6xl mb-6">💬</div>
+          <h3 class="text-2xl font-bold text-living-earth mb-3 font-mono group-hover:text-living-earth/90 transition-colors">Community</h3>
+          <p class="text-gray-400 text-lg">Ask questions, share ideas</p>
+        </a>
+
+        <!-- Start -->
+        <a href="/workspace" class="bg-arc-electric/10 border-2 border-arc-electric/30 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:shadow-arc-electric/20 hover:border-arc-electric/50 transition-all duration-300 group block">
+          <div class="text-6xl mb-6">🚀</div>
+          <h3 class="text-2xl font-bold text-arc-electric mb-3 font-mono group-hover:text-arc-electric/90 transition-colors">Start</h3>
+          <p class="text-gray-400 text-lg">Run experiments, share data</p>
+        </a>
+
+      </div>
+
+      <!-- Contact Links -->
+      <div class="text-center pt-12 border-t border-gray-800">
+        <p class="text-lg text-gray-400 mb-6 font-mono">Have questions?</p>
+        <div class="flex flex-wrap justify-center gap-8 text-base">
+          <a href="https://discord.com/invite/DA8BPA3VsN" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
+            Discord
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScyVWKDifYxaVWOhdW-SPEXXDVEjBmVezv7W668lizvRCQuaQ/viewform" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
+            Contact Form
+          </a>
+          <a href="https://www.youtube.com/@arc-arcup" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
+            YouTube
+          </a>
+          <a href="https://xbyali.page" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
+            Ali's Work
+          </a>
+          <a href="/about" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
+            About arc^
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    title="Questions?"
+    subtitle="The community is here to help."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Discord',
+        href: 'https://discord.com/invite/DA8BPA3VsN',
+        target: '_blank',
+      },
+      {
+        variant: 'secondary',
+        text: 'Read the Docs',
+        href: '/workspace',
+      },
+    ]}
+  />
+</Layout>

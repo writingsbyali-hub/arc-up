@@ -1,0 +1,91 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  showText?: boolean;
+  showMark?: boolean;
+  className?: string;
+}
+
+const {
+  size = 'md',
+  showText = true,
+  showMark = true,
+  className = ''
+} = Astro.props;
+
+const sizes = {
+  sm: {
+    text: 'text-xl',
+    caret: 'text-base',
+    svg: 70,
+    gap: 'gap-3'
+  },
+  md: {
+    text: 'text-3xl md:text-4xl',
+    caret: 'text-2xl md:text-3xl',
+    svg: 100,
+    gap: 'gap-4 md:gap-6'
+  },
+  lg: {
+    text: 'text-4xl md:text-5xl',
+    caret: 'text-3xl md:text-4xl',
+    svg: 140,
+    gap: 'gap-6 md:gap-8'
+  }
+};
+
+const currentSize = sizes[size];
+---
+
+<div class={`flex items-center ${currentSize.gap} ${className}`}>
+  {showText && (
+    <div
+      class={`text-white uppercase tracking-wide font-semibold ${currentSize.text}`}
+      style="font-family: 'Inter', 'Montserrat', sans-serif; letter-spacing: 0.05em;"
+    >
+      Arc<span class={`text-[#00FFFF] align-super ${currentSize.caret}`}>^</span>
+    </div>
+  )}
+
+  {showMark && (
+    <svg
+      width={currentSize.svg}
+      height={currentSize.svg}
+      viewBox="0 0 140 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Arc^ open container symbol - representing plasma-based ecological regeneration"
+      role="img"
+      class="flex-shrink-0"
+    >
+      <title>Arc^ Logo</title>
+
+      <!-- Bottom Arc - Living Earth Green (RE:EARTH/ecology) -->
+      <path
+        d="M 30 95 A 45 45 0 0 0 110 95"
+        stroke="#38B281"
+        stroke-width="8"
+        fill="none"
+        stroke-linecap="round"
+      />
+
+      <!-- Left Upper Arc - Arc Electric Teal (RE:TECH) -->
+      <path
+        d="M 20 85 A 50 50 0 0 1 35 45"
+        stroke="#00FFFF"
+        stroke-width="8"
+        fill="none"
+        stroke-linecap="round"
+      />
+
+      <!-- Right Upper Arc - Arc Electric Teal (RE:ALIGN) -->
+      <path
+        d="M 105 45 A 50 50 0 0 1 120 85"
+        stroke="#00FFFF"
+        stroke-width="8"
+        fill="none"
+        stroke-linecap="round"
+      />
+    </svg>
+  )}
+</div>

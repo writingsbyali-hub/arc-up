@@ -1,0 +1,43 @@
+site:
+  name: 'arc^'
+  site: 'https://example.com'
+  base: '/'
+  trailingSlash: false
+  googleSiteVerificationId: false
+
+# Default SEO metadata for arc^
+metadata:
+  title:
+    default: 'Plasma for the Planet'
+    template: '%s — arc^'
+  description: 'Open research framework developing plasma-based systems for ecological regeneration.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: 'arc^'
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@arc_up'
+    site: '@arc_up'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'dark:only'

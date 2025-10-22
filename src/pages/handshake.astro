@@ -1,0 +1,484 @@
+---
+// ====================================================================
+// THE HANDSHAKE - ALIGNMENT CHECKPOINT
+// This page helps visitors understand if they're aligned with arc^'s approach
+// before they commit to contributing through Workspace.
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'The Handshake — arc^',
+};
+
+const foundations = [
+  { title: 'About arc^', href: '/about', description: 'The purpose and structure of the framework' },
+  { title: 'Safety & Ethics', href: '/about#ethics', description: 'The four-lens model of care' },
+  { title: 'Re:Practise Framework', href: 'https://repractise.xbyali.page', external: true, description: 'The ethical base for openness and reproducibility' },
+  { title: 'Licensing Guidelines', href: '/about#licenses', description: 'How open hardware and documentation are shared' },
+];
+
+const entryPoints = [
+  {
+    level: 'Observe',
+    description: 'No commitment required',
+    actions: ['Sign up for newsletter', 'Watch what\'s being uploaded', 'Follow open research progress']
+  },
+  {
+    level: 'Independent Research',
+    description: 'Use or replicate protocols',
+    actions: ['Use or replicate any open protocol', 'Attribute and follow safety guidance', 'Share verified data through Workspace', 'Critique and scrutinize—improve protocols, methodology, experiments']
+  },
+  {
+    level: 'Collaborative Projects',
+    description: 'Co-build with the community',
+    actions: ['Join ongoing builds and co-design experiments', 'Publish results collectively', 'Refine shared systems', 'Help shape early team structure']
+  },
+  {
+    level: 'Framework Application',
+    description: 'Apply Re:Practise to your own work',
+    actions: ['Apply Re:Practise ethics and safety model to your own field', 'Build the future alongside arc^', 'Contribute to governance structures (commons-based)']
+  },
+  {
+    level: 'Community Network',
+    description: 'Connect and learn together',
+    actions: ['Discuss, troubleshoot, and share progress in real time', 'Connect with peers and mentors across the open field', 'Join Discord and YouTube for learning media']
+  }
+];
+
+const licenses = [
+  {
+    type: 'Hardware',
+    license: 'CERN-OHL-S v2 (strongly reciprocal)',
+    coverage: 'Physical designs, CAD files, technical specifications',
+    requirement: 'Modifications/derivatives must remain open',
+    color: 'yellow'
+  },
+  {
+    type: 'Documentation',
+    license: 'CC BY-NC-SA 4.0',
+    coverage: 'Written guides, protocols, educational materials',
+    requirement: 'Non-commercial, share-alike',
+    color: 'green'
+  },
+  {
+    type: 'Software',
+    license: 'AGPL-3.0',
+    coverage: 'All code',
+    requirement: 'Modifications (even server-side) must be shared openly',
+    color: 'blue'
+  }
+];
+
+const safetyLenses = [
+  {
+    lens: 'People',
+    description: 'Work must benefit communities without enabling exploitation or cultural erasure. Research conducted with consent, transparency, and respect for local knowledge systems.',
+    icon: '👥'
+  },
+  {
+    lens: 'Organisms',
+    description: 'All biological study follows a non-invasive ethic. Uses environmental and molecular sensing: eDNA, protein and stress-response markers. Understands organismal change without harm.',
+    icon: '🌱'
+  },
+  {
+    lens: 'Ecosystems',
+    description: 'Treated as dynamic, coupled systems, not static backdrops. Monitoring extends to modelling: feedbacks, fluxes, cross-scale interactions. If degradation appears: pause and re-evaluate.',
+    icon: '🌍'
+  },
+  {
+    lens: 'Future',
+    description: 'Every project anticipates downstream effects. Questions whether outcomes can be responsibly inherited. Measure of success: Not novelty, but continuity.',
+    icon: '🔮'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">
+        The Alignment Checkpoint
+      </p>
+      <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
+        The Handshake
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+        arc^ is my way of doing research—I want to do it right from the start. Before we work together, let's make sure we're aligned.
+      </p>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+        This page helps you understand what drives arc^ and whether contributing here is the right fit for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-20">
+
+      <!-- The Fork -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-8 font-mono text-center">Why Are You Here?</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Path 1: Similar Work Elsewhere -->
+          <div class="bg-living-earth/10 border border-living-earth/30 rounded-xl p-8 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-living-earth mb-4 font-mono">Doing Similar Work?</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              If you're inspired by arc^'s approach but want to build something similar in your own field, you don't need to contribute here.
+            </p>
+            <div class="space-y-3 mb-6">
+              <p class="text-sm text-gray-400">You can use:</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-living-earth">→</span>
+                  <span><strong>Re:Practise Framework</strong> (ethics + safety model)</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-living-earth">→</span>
+                  <span><strong>AstroWind Template</strong> (website template)</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-living-earth">→</span>
+                  <span><strong>arc^ GitHub</strong> (open-source codebase)</span>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="https://repractise.xbyali.page"
+              target="_blank"
+              class="inline-block px-6 py-3 bg-living-earth hover:bg-living-earth/90 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Explore Re:Practise ↗
+            </a>
+          </div>
+
+          <!-- Path 2: Contributing to arc^ -->
+          <div class="bg-arc-electric/10 border border-arc-electric/30 rounded-xl p-8 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-arc-electric mb-4 font-mono">Contributing to arc^?</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              If you're here because you resonate with my specific research direction—plasma applications for ecological regeneration—then keep reading.
+            </p>
+            <div class="space-y-3 mb-6">
+              <p class="text-sm text-gray-400">What's next:</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-arc-electric">→</span>
+                  <span>Understand the <strong>foundations</strong></span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-arc-electric">→</span>
+                  <span>Clarify <strong>your motivation</strong></span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-arc-electric">→</span>
+                  <span>Familiarize with <strong>safety, ethics, licensing</strong></span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300 text-sm">
+                  <span class="text-arc-electric">→</span>
+                  <span>Sign into <strong>Workspace</strong> when ready</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              onclick="document.getElementById('step1').scrollIntoView({ behavior: 'smooth' })"
+              class="inline-block px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Continue Below ↓
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 1: Learn the Foundation -->
+      <div id="step1">
+        <div class="text-center mb-12">
+          <span class="text-sm font-mono uppercase tracking-wider text-arc-electric">Step 1</span>
+          <h2 class="text-4xl font-bold text-white mt-2 font-mono">Learn the Foundation</h2>
+          <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Start by understanding how arc^ and Re:Practise define responsible research.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {foundations.map((item) => (
+            <a
+              href={item.href}
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm hover:scale-[1.02] transition-all duration-300 group"
+            >
+              <h3 class="text-lg font-bold text-living-earth mb-2 font-mono group-hover:text-arc-electric transition">
+                {item.title} {item.external && '↗'}
+              </h3>
+              <p class="text-sm text-gray-400">{item.description}</p>
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-sm text-gray-500 italic">
+            "Knowing the principles first prevents re-work later. Ten minutes of reading equals days of saved effort."
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2: Clarify Your Why -->
+      <div>
+        <div class="text-center mb-12">
+          <span class="text-sm font-mono uppercase tracking-wider text-arc-electric">Step 2</span>
+          <h2 class="text-4xl font-bold text-white mt-2 font-mono">Clarify Your Why</h2>
+          <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+            arc^ began with reflection: what if discovery were shared from the start? What world would this create?
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto bg-gray-900/30 border border-gray-700/50 rounded-2xl p-8 backdrop-blur-sm">
+          <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+            Before joining, define your own purpose for working in the open.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-arc-electric text-lg mt-1">→</span>
+              <div>
+                <p class="font-bold text-white">What problems or systems do you care about?</p>
+                <p class="text-sm text-gray-400">Note the challenges that drive your curiosity.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-arc-electric text-lg mt-1">→</span>
+              <div>
+                <p class="font-bold text-white">What skills can you offer?</p>
+                <p class="text-sm text-gray-400">Identify your strengths and how they might contribute.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-arc-electric text-lg mt-1">→</span>
+              <div>
+                <p class="font-bold text-white">How does your contribution support planetary repair?</p>
+                <p class="text-sm text-gray-400">Connect your work to the bigger picture.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-sm text-gray-500 mt-8 italic text-center">
+            You can include these notes when joining the community.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3: Find Your Entry Point -->
+      <div>
+        <div class="text-center mb-12">
+          <span class="text-sm font-mono uppercase tracking-wider text-arc-electric">Step 3</span>
+          <h2 class="text-4xl font-bold text-white mt-2 font-mono">Find Your Entry Point</h2>
+          <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Choose how you want to engage.
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto space-y-6">
+          {entryPoints.map((entry) => (
+            <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+              <div class="flex flex-col md:flex-row md:items-start gap-4">
+                <div class="md:w-1/4">
+                  <h3 class="text-xl font-bold text-arc-electric font-mono">{entry.level}</h3>
+                  <p class="text-sm text-gray-400">{entry.description}</p>
+                </div>
+                <div class="flex-1 md:border-l md:border-gray-700 md:pl-6">
+                  <ul class="space-y-2">
+                    {entry.actions.map((action) => (
+                      <li class="flex items-start gap-3 text-gray-300 text-sm">
+                        <span class="text-living-earth">→</span>
+                        <span>{action}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 text-center space-y-4">
+          <p class="text-gray-400">Ready to connect?</p>
+          <div class="flex justify-center gap-4">
+            <a
+              href="https://discord.com/invite/DA8BPA3VsN"
+              target="_blank"
+              class="px-6 py-3 bg-living-earth hover:bg-living-earth/90 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Join Discord ↗
+            </a>
+            <a
+              href="https://www.youtube.com/@arc-arcup"
+              target="_blank"
+              class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Watch YouTube ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Understand the Commitment -->
+      <div>
+        <div class="text-center mb-12">
+          <span class="text-sm font-mono uppercase tracking-wider text-arc-electric">Step 4</span>
+          <h2 class="text-4xl font-bold text-white mt-2 font-mono">Understand the Commitment</h2>
+          <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Familiarize yourself with safety, ethics, and licensing—you'll need to sign these when entering Workspace.
+          </p>
+        </div>
+
+        <!-- Safety & Ethics: 4 Lenses -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold text-living-earth mb-6 font-mono text-center">Safety & Ethics: Four Lenses</h3>
+          <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+            Every arc^ decision passes through four lenses of safety: people, organisms, ecosystems, and future.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {safetyLenses.map((lens) => (
+              <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-4xl">{lens.icon}</span>
+                  <h4 class="text-xl font-bold text-white font-mono">{lens.lens}</h4>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">{lens.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 text-center">
+            <p class="text-sm text-gray-500 italic max-w-3xl mx-auto">
+              "This triage links arc^ with the Re:Practise Ethical Framework. Together they ensure that science produces not only results, but results that remain aligned with human dignity, ecological integrity, and the living continuity of Earth."
+            </p>
+          </div>
+        </div>
+
+        <!-- Licensing Structure -->
+        <div>
+          <h3 class="text-2xl font-bold text-living-earth mb-6 font-mono text-center">Open Licensing: Three Types</h3>
+          <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+            All arc^ work is open. These licenses prevent enclosure and ensure improvements flow back to the commons.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {licenses.map((license) => (
+              <div class={`bg-${license.color}-400/5 border border-${license.color}-400/30 rounded-xl p-6 backdrop-blur-sm`}>
+                <h4 class={`text-lg font-bold text-${license.color}-400 mb-3 font-mono`}>{license.type}</h4>
+                <div class="space-y-2 text-sm">
+                  <p class="text-gray-300"><strong>License:</strong> {license.license}</p>
+                  <p class="text-gray-400"><strong>Coverage:</strong> {license.coverage}</p>
+                  <p class="text-gray-400"><strong>Rule:</strong> {license.requirement}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 text-center">
+            <p class="text-sm text-gray-400">
+              It's not anti-commercial—it's <strong class="text-white">pro-commons</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Sign Into Workspace -->
+      <div class="bg-gradient-to-br from-arc-electric/10 via-transparent to-living-earth/5 border border-gray-700/50 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
+        <div class="text-center mb-8">
+          <span class="text-sm font-mono uppercase tracking-wider text-arc-electric">Step 5</span>
+          <h2 class="text-4xl font-bold text-white mt-2 font-mono">Begin</h2>
+          <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+            Start small, stay consistent.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4 font-mono">For Contributors (Data/Methods)</h3>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-arc-electric">→</span>
+                <span>Must go through onboarding process on Workspace</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-arc-electric">→</span>
+                <span>Use standardized methods</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-arc-electric">→</span>
+                <span>Understand Re:Practise framework</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-arc-electric">→</span>
+                <span>Commit to open licensing</span>
+              </li>
+            </ul>
+            <a
+              href="https://workspace.xbyali.page"
+              target="_blank"
+              class="inline-block px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Enter Workspace ↗
+            </a>
+          </div>
+
+          <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4 font-mono">For Collaborators</h3>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-living-earth">→</span>
+                <span>Read and understand Re:Practise website (essential for commons governance)</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-living-earth">→</span>
+                <span>No formal governance structure yet (early formation)</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <span class="text-living-earth">→</span>
+                <span>Commitment to collective decision-making</span>
+              </li>
+            </ul>
+            <a
+              href="https://repractise.xbyali.page"
+              target="_blank"
+              class="inline-block px-6 py-3 bg-living-earth hover:bg-living-earth/90 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+            >
+              Read Re:Practise ↗
+            </a>
+          </div>
+
+          <div class="text-center pt-8 border-t border-gray-700/50">
+            <p class="text-sm text-gray-500 italic">
+              "Small, verified contributions accelerate collective learning far more than large unverified ones."
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    title="Ready to shake on it?"
+    subtitle="Join the community or dive straight into the work."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Discord',
+        href: 'https://discord.com/invite/DA8BPA3VsN',
+        target: '_blank',
+      },
+      {
+        variant: 'secondary',
+        text: 'Enter Workspace',
+        href: 'https://workspace.xbyali.page',
+        target: '_blank',
+      },
+    ]}
+  />
+</Layout>

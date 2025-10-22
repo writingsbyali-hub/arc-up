@@ -1,0 +1,49 @@
+---
+interface Props {
+  streamName: string;
+  pillarName?: string;
+  pillarColor?: string;
+}
+
+const { streamName, pillarName = 'this stream', pillarColor = 'arc-electric' } = Astro.props;
+---
+
+<div class="min-h-screen bg-primary-900 text-white flex items-center justify-center px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="mb-8">
+      <div class="text-8xl mb-6">🚧</div>
+      <h1 class="text-4xl md:text-5xl font-mono mb-4">
+        <span class={`text-${pillarColor}`}>{streamName}</span> is Under Construction
+      </h1>
+      <p class="text-xl text-gray-400 leading-relaxed mb-8">
+        This stream is being documented and built in public. <br/>
+        Check back soon, or contribute to help speed it up.
+      </p>
+    </div>
+
+    <div class="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
+      <h2 class="text-2xl font-mono mb-4 text-arc-electric">Want to Help Build This?</h2>
+      <p class="text-gray-300 mb-6">
+        {pillarName} needs contributors like you. Whether you're a researcher, maker, or curious mind—your contribution shapes what comes next.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contribute"
+          class="bg-arc-electric hover:bg-arc-electric/80 px-6 py-3 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 transition-all"
+        >
+          Join the Builders
+        </a>
+        <a
+          href="/"
+          class="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full font-bold text-white border border-gray-600 transition-all"
+        >
+          Back to Homepage
+        </a>
+      </div>
+    </div>
+
+    <p class="text-sm text-gray-500">
+      Built openly by Alisa. You're joining the foundation.
+    </p>
+  </div>
+</div>

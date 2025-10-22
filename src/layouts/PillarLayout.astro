@@ -1,0 +1,87 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+interface Props {
+  pillarName: string;
+  pillarDescription: string;
+  pillarColor: string;
+  streams: {
+    title: string;
+    icon: string;
+    status: string;
+    statusColor: string;
+    description: string;
+    slug: string;
+  }[];
+}
+
+const { pillarName, pillarDescription, pillarColor, streams } = Astro.props;
+---
+
+<Layout>
+  <div class="bg-primary-900 text-white min-h-screen py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <div class="mb-8">
+        <a href="/" class="text-gray-400 hover:text-white transition text-sm font-mono">
+          ← Back to Home
+        </a>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-mono mb-6">
+          <span class={`text-${pillarColor}`}>{pillarName}</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          {pillarDescription}
+        </p>
+      </div>
+
+      <!-- Streams Grid -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-mono mb-8 text-center">Explore the Streams</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {streams.map((stream) => (
+            <a
+              href={stream.slug}
+              class="group p-6 rounded-xl bg-gray-900/50 border border-gray-700 hover:border-arc-electric/60 hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div class="text-4xl mb-4">{stream.icon}</div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-arc-electric transition-colors">
+                {stream.title}
+              </h3>
+              <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                {stream.description}
+              </p>
+              <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                <span class={`text-xs font-semibold px-3 py-1 rounded-full bg-${stream.statusColor}-900/50 text-${stream.statusColor}-400`}>
+                  {stream.status}
+                </span>
+                <svg class="w-5 h-5 text-gray-500 group-hover:text-arc-electric group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- How to Contribute Section -->
+      <div class="bg-[#131A33] rounded-xl p-8 border border-gray-700">
+        <h2 class="text-2xl font-mono mb-4 text-living-earth text-center">How to Contribute to {pillarName}</h2>
+        <div class="text-gray-300 text-center mb-6">
+          <slot name="contribute-info" />
+        </div>
+        <div class="flex justify-center">
+          <a
+            href="/contribute"
+            class="bg-arc-electric hover:bg-arc-electric/80 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 transition-all"
+          >
+            View Contribution Guide
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

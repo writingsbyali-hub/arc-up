@@ -1,0 +1,199 @@
+---
+// ====================================================================
+// RESEARCH PAGE - FROM ENERGY TO ECOSYSTEMS
+// Explains the four connected scales of ArcUp research
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Research — From Energy to Ecosystems',
+};
+
+const scales = [
+  {
+    number: '01',
+    title: 'Technology',
+    subtitle: 'Building the Tools',
+    description: 'We develop and test plasma architectures that convert electrical energy into controlled discharge environments. Research spans community-built prototypes and institutional platforms, focusing on safety validation, reproducibility, and open-hardware standards.',
+    focus: [
+      'Dielectric-barrier discharges',
+      'Circuit optimization',
+      'Modular design',
+      'Scalable applications'
+    ],
+    color: 'yellow',
+    iconColor: 'text-yellow-400',
+    borderColor: 'border-yellow-400/30',
+    bgColor: 'bg-yellow-400/5',
+    connectorColor: 'from-yellow-400/30'
+  },
+  {
+    number: '02',
+    title: 'Water Systems',
+    subtitle: 'The First Interface',
+    description: 'Water is the first interface between plasma energy and matter. Studies measure how reactive species alter chemical composition, oxidation–reduction balance, and contaminant breakdown, linking bench results to field applications.',
+    focus: [
+      'Advanced oxidation mechanisms',
+      'Desalination and water reuse',
+      'Kinetics',
+      'Pollutant and pathogen degradation'
+    ],
+    color: 'green',
+    iconColor: 'text-green-400',
+    borderColor: 'border-green-400/30',
+    bgColor: 'bg-green-400/5',
+    connectorColor: 'from-green-400/30'
+  },
+  {
+    number: '03',
+    title: 'Organisms',
+    subtitle: 'Living Responses',
+    description: 'We examine how plasma-treated environments influence microbial populations, plants, and higher organisms. Experiments link molecular data with physiological responses to evaluate benefit, risk, and repeatability across taxa.',
+    focus: [
+      'Plant stress adaptation',
+      'Microbiome communities',
+      'Genetic and non-genetic responses',
+      'Inheritance and fitness'
+    ],
+    color: 'blue',
+    iconColor: 'text-blue-400',
+    borderColor: 'border-blue-400/30',
+    bgColor: 'bg-blue-400/5',
+    connectorColor: 'from-blue-400/30'
+  },
+  {
+    number: '04',
+    title: 'Ecosystems',
+    subtitle: 'Systemic Resilience',
+    description: 'At the largest scale, we test whether local plasma interventions can foster systemic resilience. Field and mesocosm studies integrate plasma processes into wetlands, soil–water interfaces, and regeneration designs to model long-term ecological repair.',
+    focus: [
+      'Ecological functionality',
+      'Systems theory',
+      'Coupling and cycling dynamics',
+      'Ecosystem processes and resilience',
+      'Adaptive regeneration modelling'
+    ],
+    color: 'purple',
+    iconColor: 'text-arc-electric',
+    borderColor: 'border-arc-electric/30',
+    bgColor: 'bg-arc-electric/5',
+    connectorColor: 'from-arc-electric/30'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section with Gradient -->
+  <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">
+        Four Connected Scales of Research
+      </p>
+      <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
+        From Energy to Ecosystems
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        ArcUp studies how plasma interacts across interconnected scales—from device to droplet, organisms to ecosystems. Each scale informs the next, creating a continuum of repair that moves from energy generation to ecological resilience.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Introduction -->
+      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-24">
+        <p class="text-xl text-gray-300 leading-relaxed">
+          Together, these scales form a <strong class="text-white">continuum of repair</strong>—from energy generation to ecological resilience.
+        </p>
+      </div>
+
+      <!-- Scales Grid -->
+      <div class="space-y-12 md:space-y-20">
+        {scales.map((scale, index) => (
+          <div
+            class={`relative ${scale.bgColor} border ${scale.borderColor} rounded-2xl p-8 md:p-12 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}
+          >
+            <!-- Scale Number -->
+            <div class="absolute -top-6 -left-4 md:-left-6">
+              <div class={`${scale.bgColor} border-2 ${scale.borderColor} rounded-xl px-4 py-2 font-mono text-2xl md:text-3xl font-bold ${scale.iconColor} backdrop-blur-sm`}>
+                {scale.number}
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-6">
+              <!-- Header -->
+              <div class="space-y-2">
+                <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor}`}>
+                  {scale.subtitle}
+                </p>
+                <h3 class="text-3xl md:text-4xl font-bold text-white font-mono">
+                  {scale.title}
+                </h3>
+              </div>
+
+              <!-- Description -->
+              <p class="text-lg text-gray-300 leading-relaxed">
+                {scale.description}
+              </p>
+
+              <!-- Focus Areas -->
+              <div class="pt-4">
+                <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor} mb-4`}>
+                  Focus Areas
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {scale.focus.map(item => (
+                    <li class="flex items-center gap-3 text-gray-300">
+                      <span class={`${scale.iconColor} text-lg`}>→</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Connector Line (except for last item) -->
+            {index < scales.length - 1 && (
+              <div class="hidden md:block absolute -bottom-10 left-1/2 transform -translate-x-1/2">
+                <div class={`w-0.5 h-20 bg-gradient-to-b ${scale.connectorColor} to-transparent`}></div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Message -->
+      <div class="max-w-3xl mx-auto text-center mt-16 md:mt-24 p-8 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
+        <p class="text-lg text-gray-300 leading-relaxed mb-4">
+          Detailed methods and safety information are available through <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">Workspace</a> once verification is complete.
+        </p>
+        <p class="text-base text-gray-400">
+          This keeps practice responsible while allowing anyone who wishes to learn to do so safely.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Ready to explore the pathways?"
+    subtitle="Dive into Lab, Framework, and Commons to see the work in action."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explore Pathways',
+        href: '/pathways',
+      },
+      {
+        variant: 'secondary',
+        text: 'Get Started',
+        href: '/get-started',
+      },
+    ]}
+  />
+</Layout>

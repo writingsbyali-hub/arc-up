@@ -1,0 +1,76 @@
+---
+import StatusBadge from './StatusBadge.astro';
+
+interface Project {
+  name: string;
+  href?: string;
+  lookingFor: string[];
+  status: 'ready-to-build' | 'coming-soon' | 'help-shape' | 'active' | 'in-development' | 'future-work';
+}
+
+interface Props {
+  projects: Project[];
+  pillar?: 'lab' | 'framework' | 'commons';
+  className?: string;
+}
+
+const {
+  projects,
+  pillar,
+  className = ''
+} = Astro.props;
+
+const pillarColors = {
+  lab: 'yellow-400',
+  framework: 'green-400',
+  commons: 'blue-400'
+};
+
+const accentColor = pillar ? pillarColors[pillar] : 'arc-electric';
+---
+
+<div class={`overflow-x-auto ${className}`}>
+  <table class="w-full border-collapse">
+    <thead>
+      <tr class="border-b border-gray-700">
+        <th class={`text-left py-4 px-4 font-semibold text-${accentColor}`}>Project</th>
+        <th class={`text-left py-4 px-4 font-semibold text-${accentColor}`}>Looking For</th>
+        <th class={`text-left py-4 px-4 font-semibold text-${accentColor}`}>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {projects.map((project, index) => (
+        <tr
+          class={`border-b border-gray-800 hover:bg-gray-800/30 transition-colors ${
+            index === projects.length - 1 ? 'border-b-0' : ''
+          }`}
+        >
+          <td class="py-4 px-4">
+            {project.href ? (
+              <a
+                href={project.href}
+                class={`text-white font-medium hover:text-${accentColor} transition-colors`}
+              >
+                {project.name}
+              </a>
+            ) : (
+              <span class="text-white font-medium">{project.name}</span>
+            )}
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex flex-wrap gap-2">
+              {project.lookingFor.map((skill) => (
+                <span class="text-sm text-gray-400 bg-gray-800/50 px-2 py-1 rounded">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <StatusBadge status={project.status} size="sm" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

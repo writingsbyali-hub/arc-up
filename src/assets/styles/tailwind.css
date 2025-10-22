@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-page {
+    background-color: var(--aw-color-bg-page);
+  }
+  .bg-dark {
+    background-color: var(--aw-color-bg-page-dark);
+  }
+  .bg-light {
+    background-color: var(--aw-color-bg-page);
+  }
+  .bg-clean-light {
+    background-color: var(--aw-color-bg-page);
+  }
+  .bg-surface {
+    background-color: var(--aw-color-surface);
+  }
+  .bg-surface-alt {
+    background-color: var(--aw-color-surface-alt);
+  }
+  .border-soft {
+    border-color: var(--aw-color-border-soft);
+  }
+  .bg-header {
+    background-color: var(--aw-color-header);
+  }
+  .text-page {
+    color: var(--aw-color-text-page);
+  }
+  .text-default {
+    color: var(--aw-color-text-default);
+  }
+  .text-muted {
+    color: var(--aw-color-text-muted);
+  }
+  .text-high {
+    color: var(--aw-color-text-high);
+  }
+  .shadow-soft {
+    box-shadow: 0 24px 48px -32px var(--aw-color-shadow-soft);
+  }
+  .hover\:bg-surface:hover {
+    background-color: var(--aw-color-surface);
+  }
+  .hover\:bg-surface-alt:hover {
+    background-color: var(--aw-color-surface-alt);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border border-soft bg-transparent font-medium text-center text-base text-default leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-arc-electric focus:ring-2 focus:ring-offset-2 hover:bg-surface-alt hover:border-arc-electric cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn font-semibold bg-arc-electric text-white border-arc-electric hover:bg-arc-electric/90 hover:border-arc-electric hover:text-white dark:text-white dark:bg-arc-electric dark:border-arc-electric dark:hover:border-arc-electric dark:hover:bg-arc-electric/90;
+  }
+
+  .btn-secondary {
+    @apply btn font-semibold bg-[#14B8A6] text-white border-[#14B8A6] hover:bg-[#12a594] hover:border-[#12a594] hover:text-white dark:text-white dark:bg-[#14B8A6] dark:border-[#14B8A6] dark:hover:border-[#12a594] dark:hover:bg-[#12a594];
+  }
+
+  .btn-tertiary {
+    @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border-gray-600 text-white hover:bg-gray-800 hover:border-gray-500;
+  }
+
+  .btn-success {
+    @apply btn font-semibold bg-[#10B981] text-white border-[#10B981] hover:bg-[#059669] hover:border-[#059669];
+  }
+
+  .btn-warning {
+    @apply btn font-semibold bg-[#F59E0B] text-white border-[#F59E0B] hover:bg-[#D97706] hover:border-[#D97706];
+  }
+
+  .btn-error {
+    @apply btn font-semibold bg-[#EF4444] text-white border-[#EF4444] hover:bg-[#DC2626] hover:border-[#DC2626];
+  }
+
+  .btn-disabled {
+    @apply btn opacity-50 cursor-not-allowed hover:bg-transparent;
+  }
+}
+
+.aw-link-active {
+  @apply text-arc-electric font-semibold;
+}
+
+#header.scroll > div:first-child {
+  background-color: var(--aw-color-header);
+  @apply border-b border-white/10 md:backdrop-blur-xl;
+  box-shadow: none;
+}
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
+  background-color: var(--aw-color-header);
+  @apply border-b border-white/10 md:backdrop-blur-xl;
+}
+/* #header.scroll > div:last-child {
+  @apply py-3;
+} */
+
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+.dropdown:focus .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+/* To deprecated */
+
+.dd *:first-child {
+  margin-top: 0;
+}

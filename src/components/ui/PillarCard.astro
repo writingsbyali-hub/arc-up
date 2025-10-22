@@ -1,0 +1,81 @@
+---
+interface Props {
+  pillar: 'lab' | 'framework' | 'commons';
+  title: string;
+  description: string;
+  href?: string;
+  action?: string;
+  className?: string;
+}
+
+const {
+  pillar,
+  title,
+  description,
+  href,
+  action = 'Learn More',
+  className = ''
+} = Astro.props;
+
+const pillarConfig = {
+  lab: {
+    color: 'yellow-400',
+    hoverColor: 'yellow-500',
+    gradient: 'from-yellow-500/20 to-transparent',
+    icon: '🔬'
+  },
+  framework: {
+    color: 'green-400',
+    hoverColor: 'green-500',
+    gradient: 'from-green-500/20 to-transparent',
+    icon: '📋'
+  },
+  commons: {
+    color: 'blue-400',
+    hoverColor: 'blue-500',
+    gradient: 'from-blue-500/20 to-transparent',
+    icon: '📊'
+  }
+};
+
+const config = pillarConfig[pillar];
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  href={href}
+  class={`group relative block rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 p-6 transition-all duration-300 hover:border-${config.color} hover:shadow-lg hover:shadow-${config.color}/20 ${className}`}
+>
+  <!-- Gradient overlay on hover -->
+  <div
+    class={`absolute inset-0 rounded-lg bg-gradient-to-br ${config.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
+  ></div>
+
+  <div class="relative z-10">
+    <!-- Icon -->
+    <div class="text-4xl mb-4">
+      {config.icon}
+    </div>
+
+    <!-- Title -->
+    <h3 class={`text-2xl font-semibold text-${config.color} mb-3 group-hover:text-${config.hoverColor} transition-colors`}>
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-gray-300 leading-relaxed mb-4">
+      {description}
+    </p>
+
+    <!-- Action link (if href provided) -->
+    {href && (
+      <div class={`flex items-center gap-2 text-${config.color} font-medium group-hover:text-${config.hoverColor} transition-colors`}>
+        <span>{action}</span>
+        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+      </div>
+    )}
+
+    <!-- Slot for additional content -->
+    <slot />
+  </div>
+</Tag>

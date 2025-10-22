@@ -1,0 +1,225 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Framework — Protocols & Governance',
+};
+
+const streams = [
+  {
+    id: 'protocols',
+    title: 'I. Protocols',
+    status: 'Active',
+    statusColor: 'green',
+    workDescription: 'Create methodology templates that others can follow. Build version control systems for experimental workflows. Document procedures so thoroughly that replication becomes trivial. Establish open-hardware specification standards that turn ideas into buildable reality.',
+    backgrounds: 'Research methodology, technical writing, open-source documentation, experimental design',
+    projects: [
+      { title: 'Methodology Templates', lookingFor: 'Researchers, technical writers', status: 'Future Work' },
+      { title: 'Version Control Standards', lookingFor: 'Documentation specialists', status: 'Future Work' },
+    ],
+  },
+  {
+    id: 'governance',
+    title: 'II. Governance',
+    status: 'In Development',
+    statusColor: 'yellow',
+    workDescription: 'Define and uphold the Non-Lethal Mandate. Work in alignment with Re:Practise (re:earth, re:tech, re:align) to build ethical research infrastructure. Design transparent decision-making processes that scale. Create conflict resolution protocols that preserve community. Develop commons-based intellectual property frameworks. Provide legal support and community care. Shape how ArcUp makes choices collectively.',
+    backgrounds: 'Ethics, community organizing, legal frameworks, conflict mediation, commons governance, care work',
+    projects: [
+      { title: 'Non-Lethal Mandate Documentation', lookingFor: 'Ethicists, writers', status: 'In Development' },
+      { title: 'Decision-Making Framework', lookingFor: 'Community organizers, governance designers', status: 'Future Work' },
+      { title: 'IP & Licensing Guide', lookingFor: 'Legal scholars, open-source advocates', status: 'Future Work' },
+    ],
+  },
+  {
+    id: 'validation',
+    title: 'III. Validation',
+    status: 'Future Work',
+    statusColor: 'red',
+    workDescription: 'Build peer review systems that work openly. Create pre-registration workflows that prevent p-hacking and publication bias. Design decentralized verification methods so trust doesn\'t depend on institutions. Write code review tools for analysis pipelines. Make science actually reproducible.',
+    backgrounds: 'Statistics, software development, data science, peer review, scientific integrity',
+    projects: [
+      { title: 'Open Peer Review System', lookingFor: 'Software developers, researchers', status: 'Future Work' },
+      { title: 'Pre-Registration Platform', lookingFor: 'Data scientists, UX designers', status: 'Future Work' },
+      { title: 'Code Review Tools', lookingFor: 'Developers, statisticians', status: 'Future Work' },
+    ],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-primary-900 text-white min-h-screen">
+
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm">
+          <ol class="flex items-center space-x-2 text-gray-400">
+            <li><a href="/pathways" class="hover:text-arc-electric transition">Pathways</a></li>
+            <li><span class="text-gray-600">/</span></li>
+            <li class="text-white font-medium">Framework</li>
+          </ol>
+        </nav>
+
+        <div class="text-center">
+          <p class="text-sm font-mono text-green-400 uppercase tracking-widest mb-4">
+            Protocols & Governance
+          </p>
+          <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
+            The Framework
+          </h1>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            The adaptive methodology and ethical standard for practice. This ensures all work is reproducible, safe, and aligned with ecological principles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="bg-gray-900/30 border-b border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+        <p class="text-sm text-gray-400 mb-3 text-center">Jump to stream:</p>
+        <nav class="flex flex-wrap justify-center gap-4">
+          <a href="#protocols" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline">
+            📝 Protocols
+          </a>
+          <span class="text-gray-600">|</span>
+          <a href="#governance" class="text-green-400 hover:text-green-300 transition font-mono hover:underline">
+            ⚖️ Governance
+          </a>
+          <span class="text-gray-600">|</span>
+          <a href="#validation" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline">
+            ✅ Validation
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Streams Sections -->
+    <section class="bg-primary-900 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
+
+        {streams.map((stream) => (
+          <div id={stream.id} class="scroll-mt-20">
+            {/* Stream Header */}
+            <div class="flex items-start justify-between mb-6">
+              <h2 class="text-3xl md:text-4xl font-mono text-white">{stream.title}</h2>
+              <span
+                class:list={[
+                  'inline-block text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap ml-4',
+                  stream.statusColor === 'green'
+                    ? 'bg-green-900/50 text-green-400'
+                    : stream.statusColor === 'blue'
+                    ? 'bg-blue-900/50 text-blue-400'
+                    : stream.statusColor === 'yellow'
+                    ? 'bg-yellow-900/50 text-yellow-400'
+                    : 'bg-red-900/50 text-red-400',
+                ]}
+              >
+                {stream.status}
+              </span>
+            </div>
+
+            {/* Work Description */}
+            <div class="mb-6 p-6 rounded-xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
+              <p class="text-sm font-mono text-living-earth uppercase tracking-wide mb-2">Your work here:</p>
+              <p class="text-gray-300 leading-relaxed">{stream.workDescription}</p>
+            </div>
+
+            {/* Useful Backgrounds */}
+            <div class="mb-8 p-4 rounded-lg bg-gray-800/30 border border-gray-700/30">
+              <p class="text-xs font-mono text-arc-electric uppercase tracking-wide mb-1">Useful backgrounds:</p>
+              <p class="text-sm text-gray-400">{stream.backgrounds}</p>
+            </div>
+
+            {/* Projects Table */}
+            <div>
+              <h3 class="text-xl font-mono text-white mb-4">Projects in this stream:</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                  <thead>
+                    <tr class="border-b-2 border-gray-700">
+                      <th class="text-left py-3 px-4 text-sm font-mono text-gray-400 uppercase tracking-wide">Project</th>
+                      <th class="text-left py-3 px-4 text-sm font-mono text-gray-400 uppercase tracking-wide">Looking For</th>
+                      <th class="text-left py-3 px-4 text-sm font-mono text-gray-400 uppercase tracking-wide">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {stream.projects.map((project) => (
+                      <tr class="border-b border-gray-800 hover:bg-gray-800/30 transition-colors">
+                        <td class="py-4 px-4">
+                          {project.link ? (
+                            <a href={project.link} class="text-white hover:text-arc-electric transition-colors font-medium">
+                              {project.title} →
+                            </a>
+                          ) : (
+                            <span class="text-gray-300">{project.title}</span>
+                          )}
+                        </td>
+                        <td class="py-4 px-4 text-sm text-gray-400">{project.lookingFor}</td>
+                        <td class="py-4 px-4">
+                          <span
+                            class:list={[
+                              'inline-block text-xs font-semibold px-2.5 py-1 rounded-full',
+                              project.status === 'In Development'
+                                ? 'bg-yellow-900/50 text-yellow-400'
+                                : project.status === 'Active'
+                                ? 'bg-green-900/50 text-green-400'
+                                : 'bg-gray-800/50 text-gray-400',
+                            ]}
+                          >
+                            {project.status}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Divider between streams */}
+            {stream.id !== 'validation' && (
+              <div class="mt-16 pt-16 border-t-2 border-gray-800/70">
+                <div class="flex items-center justify-center mb-8">
+                  <div class="h-px w-16 bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+                  <span class="mx-4 text-xs text-gray-600 font-mono uppercase tracking-widest">◆</span>
+                  <div class="h-px w-16 bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-[radial-gradient(circle_at_bottom,#181f3d_0%,#080E21_90%)] border-t border-gray-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-3xl font-mono text-white mb-4">Ready to Contribute?</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Whether you design protocols, review ethics, write documentation, or help shape governance—your contribution ensures ArcUp stays aligned with its values.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/get-started"
+            class="bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 text-lg transition-all"
+          >
+            Get Started
+          </a>
+          <a
+            href="https://workspace.xbyali.page"
+            target="_blank"
+            class="bg-living-earth hover:bg-living-earth/90 hover:scale-105 py-4 px-8 text-lg rounded-full font-bold shadow-lg shadow-living-earth/40 transition-all text-gray-900"
+          >
+            Access Workspace
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Layout>
