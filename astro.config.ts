@@ -22,8 +22,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  site: 'https://writingsbyali-hub.github.io',
-  base: '/arc-up',
+  site: 'https://arcup.xbyali.page',
+  base: '/',
   output: 'static',
 
   integrations: [
