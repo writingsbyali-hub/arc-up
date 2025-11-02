@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Workspace — ArcUp',
@@ -10,7 +11,9 @@ const metadata = {
   <div class="min-h-screen bg-primary-900 text-white flex items-center justify-center px-4 py-16">
     <div class="max-w-3xl mx-auto text-center">
       <div class="mb-8">
-        <div class="text-8xl mb-6">🔐</div>
+        <div class="mb-6 flex justify-center" role="img" aria-label="Locked icon">
+          <Icon name="tabler:lock" class="w-24 h-24 text-arc-electric" />
+        </div>
         <h1 class="text-4xl md:text-5xl font-mono mb-4">
           <span class="text-arc-electric">Workspace</span> Coming Soon
         </h1>
@@ -24,25 +27,25 @@ const metadata = {
         <h2 class="text-2xl font-mono mb-4 text-living-earth">What Will the Workspace Include?</h2>
         <div class="text-left text-gray-300 space-y-4 mb-6">
           <div class="flex items-start gap-3">
-            <span class="text-arc-electric text-2xl">⚡️</span>
+            <Icon name="tabler:bolt" class="w-8 h-8 text-arc-electric flex-shrink-0" />
             <div>
               <strong class="text-white">Technical Schematics:</strong> Open-source blueprints for plasma systems, hardware designs, and 3D-printable components
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-arc-electric text-2xl">📊</span>
+            <Icon name="tabler:chart-bar" class="w-8 h-8 text-arc-electric flex-shrink-0" />
             <div>
               <strong class="text-white">Raw Data & Protocols:</strong> Experimental data, methodology templates, and reproducible protocols
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-arc-electric text-2xl">🔬</span>
+            <Icon name="tabler:microscope" class="w-8 h-8 text-arc-electric flex-shrink-0" />
             <div>
               <strong class="text-white">Verification System:</strong> Peer validation workflows and quality control mechanisms
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-arc-electric text-2xl">🌍</span>
+            <Icon name="tabler:world" class="w-8 h-8 text-arc-electric flex-shrink-0" />
             <div>
               <strong class="text-white">Collaboration Tools:</strong> Real-time collaboration for distributed research teams
             </div>
@@ -67,10 +70,6 @@ const metadata = {
           Back to Homepage
         </a>
       </div>
-
-      <p class="text-sm text-gray-500 mt-12">
-        Built openly by Alisa. You're joining the foundation.
-      </p>
     </div>
   </div>
 </Layout>

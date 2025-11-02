@@ -145,3 +145,51 @@
 .dd *:first-child {
   margin-top: 0;
 }
+
+/* ============================================ */
+/* MOTION PREFERENCES - ACCESSIBILITY */
+/* ============================================ */
+/* Respect users who prefer reduced motion (vestibular disorders, motion sensitivity) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable all transform animations */
+  .hover\:scale-105:hover,
+  .hover\:scale-\[1\.02\]:hover,
+  .hover\:scale-\[1\.03\]:hover,
+  .hover\:scale-\[1\.05\]:hover,
+  .hover\:translate-x-1:hover,
+  .hover\:translate-x-2:hover,
+  .hover\:-translate-y-1:hover,
+  .group:hover .group-hover\:translate-x-1,
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:scale-125,
+  .group:hover .group-hover\:scale-\[1\.05\] {
+    transform: none !important;
+  }
+
+  /* Disable animated elements */
+  .animate-fade,
+  .animate-ping,
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+  }
+
+  /* Disable transition-all */
+  .transition-all,
+  .transition,
+  .transition-transform,
+  .transition-colors,
+  .transition-opacity {
+    transition: none !important;
+  }
+}

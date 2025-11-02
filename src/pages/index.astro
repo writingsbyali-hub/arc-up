@@ -3,20 +3,21 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
 const featuresTheChallenge = [
   {
-    icon: '🔒',
+    icon: 'tabler:lock',
     title: 'The Knowledge Lock',
     description: 'Critical technologies locked behind patents. Communities cannot adapt. Innovation stalls.',
-    responseTitle: 'The ArcUp Response',
+    responseTitle: 'the arc^ response',
     response: '<strong>Open-Source Blueprints.</strong> Technical schematics and methodologies released under open licenses.',
   },
   {
-    icon: '🌍',
+    icon: 'tabler:world',
     title: 'The Planetary Drift',
     description: 'Pollution and ecosystem disruption accelerate faster than siloed science can respond.',
-    responseTitle: 'The ArcUp Response',
+    responseTitle: 'the arc^ response',
     response: '<strong>Plasma for Regeneration.</strong> Controlled plasma energy as a tool for pollutant breakdown and ecological resilience.',
   },
 ];
@@ -24,15 +25,15 @@ const featuresTheChallenge = [
 const tabContent = [
   {
     id: 'lab',
-    title: 'THE LAB',
-    headline: 'Multi-Stream Experimental Research',
+    title: 'the Lab',
+    headline: 'multi-stream experimental research',
     body:
-      'The engine for research. We link engineering with ecology by designing plasma systems and open-hardware standards. We pursue non-lethal, non-invasive techniques across three integrated streams.',
+      'the engine for research. we link engineering with ecology by designing plasma systems and open-hardware standards. we pursue non-lethal, non-invasive techniques across three integrated Streams.',
     streams: [
       {
         id: 'physical',
         title: 'I. Physical Plasma Systems',
-        icon: '⚡️',
+        icon: 'tabler:bolt',
         status: 'Coming Soon',
         color: 'text-yellow-400',
         focusAreas: [
@@ -46,7 +47,7 @@ const tabContent = [
       {
         id: 'water',
         title: 'II. Plasma-Water Interface',
-        icon: '💧',
+        icon: 'tabler:droplet',
         status: 'Ready to Build',
         color: 'text-green-400',
         focusAreas: [
@@ -60,7 +61,7 @@ const tabContent = [
       {
         id: 'ecosystem',
         title: 'III. Ecosystem Dynamics',
-        icon: '🌲',
+        icon: 'tabler:tree',
         status: 'Help Shape This',
         color: 'text-blue-400',
         focusAreas: [
@@ -75,15 +76,15 @@ const tabContent = [
   },
   {
     id: 'framework',
-    title: 'THE FRAMEWORK',
-    headline: 'Governance, Ethics, and Reproducibility',
+    title: 'the Framework',
+    headline: 'governance, ethics, and reproducibility',
     body:
-      'The adaptive methodology and ethical standard for practice. This ensures all work is reproducible, safe, and aligned with ecological principles.',
+      'the adaptive methodology and ethical standard for practice. this ensures all work is reproducible, safe, and aligned with ecological principles.',
     streams: [
       {
         id: 'protocols',
         title: 'I. Protocols',
-        icon: '📝',
+        icon: 'tabler:file-text',
         status: 'Active',
         color: 'text-green-400',
         focusAreas: [
@@ -97,7 +98,7 @@ const tabContent = [
       {
         id: 'governance',
         title: 'II. Governance',
-        icon: '⚖️',
+        icon: 'tabler:scale',
         status: 'In Development',
         color: 'text-yellow-400',
         focusAreas: [
@@ -111,7 +112,7 @@ const tabContent = [
       {
         id: 'validation',
         title: 'III. Validation',
-        icon: '✅',
+        icon: 'tabler:circle-check',
         status: 'Coming Soon',
         color: 'text-blue-400',
         focusAreas: [
@@ -126,15 +127,15 @@ const tabContent = [
   },
   {
     id: 'commons',
-    title: 'THE COMMONS',
-    headline: 'Global Data Infrastructure & Access',
+    title: 'the Commons',
+    headline: 'global data infrastructure & access',
     body:
-      'The future home for a global, decentralized dashboard. Every builder is a co-contributor, sharing data to validate and improve the next design.',
+      'the future home for a global, decentralized dashboard. every builder is a co-contributor, sharing data to validate and improve the next design.',
     streams: [
       {
         id: 'data',
         title: 'I. Data',
-        icon: '🔗',
+        icon: 'tabler:link',
         status: 'In Development',
         color: 'text-blue-400',
         focusAreas: [
@@ -148,7 +149,7 @@ const tabContent = [
       {
         id: 'visualization',
         title: 'II. Visualization',
-        icon: '📊',
+        icon: 'tabler:chart-bar',
         status: 'Coming Soon',
         color: 'text-yellow-400',
         focusAreas: [
@@ -162,7 +163,7 @@ const tabContent = [
       {
         id: 'modeling',
         title: 'III. Modeling',
-        icon: '🔬',
+        icon: 'tabler:microscope',
         status: 'Future Work',
         color: 'text-red-400',
         focusAreas: [
@@ -181,11 +182,11 @@ const tabContent = [
 <Layout>
   <div class="bg-primary-900 text-white min-h-screen">
     <Hero
-      tagline="FOR A BETTER WORLD - FOR EVERYONE"
+      tagline="for a better world - for everyone"
       actions={[
         {
           variant: 'primary',
-          text: 'EXPLORE PATHWAYS',
+          text: 'explore pathways',
           href: '/pathways',
           class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 text-lg px-8 py-4 transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
         },
@@ -197,8 +198,8 @@ const tabContent = [
       </Fragment>
       <Fragment slot="subtitle">
         <span>
-          Open plasma research for ecological regeneration.<br/>
-          <strong>For those ready to build a different future—experimentally, collaboratively, openly.</strong>
+          open plasma research for ecological regeneration.<br/>
+          <strong>for those ready to build a different future—experimentally, collaboratively, openly.</strong>
         </span>
       </Fragment>
       <Fragment slot="content">
@@ -215,13 +216,13 @@ const tabContent = [
       </Fragment>
     </Hero>
 
-    <section class="py-16 md:py-20 lg:py-24 bg-[#131A33] border-t border-b border-gray-800">
+    <section aria-labelledby="systems-heading" class="py-16 md:py-20 lg:py-24 bg-[#131A33] border-t border-b border-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center pb-4 md:pb-6">
-          <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">Why ArcUp Exists</p>
-          <h2 class="text-3xl md:text-4xl font-mono tracking-tight mb-4">The Systems We're Changing</h2>
+          <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">why arc^ exists</p>
+          <h2 id="systems-heading" class="text-3xl md:text-4xl font-mono tracking-tight mb-4">the systems we're changing</h2>
           <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-            Two systemic barriers lock humanity out of the solutions we need. ArcUp is the response.
+            two systemic barriers lock humanity out of the solutions we need. arc^ is the response.
           </p>
         </div>
 
@@ -229,7 +230,9 @@ const tabContent = [
           {
             featuresTheChallenge.map((feature) => (
               <div class="group p-8 rounded-2xl bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hover:border-arc-electric/50 hover:bg-gray-900/40 transition-all duration-300 text-center">
-                <div class="text-7xl mb-6">{feature.icon}</div>
+                <div class="mb-6 flex justify-center" role="img" aria-label={`${feature.title} icon`}>
+                  <Icon name={feature.icon} class="w-20 h-20 text-arc-electric" />
+                </div>
                 <h3 class="text-2xl font-mono text-white mb-4">{feature.title}</h3>
                 <p class="text-gray-350 leading-relaxed">{feature.description}</p>
 
@@ -248,14 +251,17 @@ const tabContent = [
       </div>
     </section>
 
-    <section id="pathways" class="py-16 md:py-20 lg:py-24 bg-primary-900 scroll-mt-20">
+    <section id="pathways" aria-labelledby="pathways-heading" class="py-16 md:py-20 lg:py-24 bg-primary-900 scroll-mt-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center pb-12 md:pb-16">
-          <p class="text-sm font-mono text-living-earth uppercase tracking-widest mb-4">Three Pathways</p>
-          <h2 class="text-3xl md:text-4xl font-mono tracking-tight mb-4">Three Pillars. One Vision.</h2>
+          <p class="text-sm font-mono text-living-earth uppercase tracking-widest mb-4">three pathways</p>
+          <h2 id="pathways-heading" class="text-3xl md:text-4xl font-mono tracking-tight mb-4">three Pillars. one vision.</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
             From research to governance to global data—explore where you fit. <br/>
-            <span class="text-base text-gray-500">👇 Click a pillar to view its streams. Click a card to dive deeper.</span>
+            <span class="text-base text-gray-500 flex items-center justify-center gap-1">
+              <Icon name="tabler:arrow-down" class="w-4 h-4" />
+              Click a pillar to view its streams. Click a card to dive deeper.
+            </span>
           </p>
         </div>
 
@@ -266,21 +272,33 @@ const tabContent = [
           <input type="radio" name="pillar-tabs" id="tab-commons" class="hidden" />
 
           <!-- Tab buttons (labels) -->
-          <div class="flex flex-col sm:flex-row justify-center items-center rounded-2xl p-2 space-y-2 sm:space-y-0 sm:space-x-2 bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
+          <div role="tablist" aria-label="Pathways navigation" class="flex flex-col sm:flex-row justify-center items-center rounded-2xl p-2 space-y-2 sm:space-y-0 sm:space-x-2 bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
             <label
               for="tab-lab"
+              role="tab"
+              aria-controls="lab"
+              aria-selected="true"
+              tabindex="0"
               class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-yellow-500/20"
             >
               THE LAB
             </label>
             <label
               for="tab-framework"
+              role="tab"
+              aria-controls="framework"
+              aria-selected="false"
+              tabindex="-1"
               class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-green-400/20"
             >
               THE FRAMEWORK
             </label>
             <label
               for="tab-commons"
+              role="tab"
+              aria-controls="commons"
+              aria-selected="false"
+              tabindex="-1"
               class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-blue-400/20"
             >
               THE COMMONS
@@ -293,6 +311,8 @@ const tabContent = [
               tabContent.map((tab) => (
                 <div
                   id={tab.id}
+                  role="tabpanel"
+                  aria-labelledby={`tab-${tab.id}`}
                   class="tab-panel rounded-2xl p-8 md:p-10 bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hidden"
                   data-tab={tab.id}
                 >
@@ -300,7 +320,10 @@ const tabContent = [
                   <p class="mb-10 text-gray-300 border-b-2 border-gray-800/50 pb-6 leading-relaxed" set:html={tab.body}></p>
 
                   <div class="text-center mb-6">
-                    <p class="text-sm text-gray-500">👇 Choose your stream. Click to dive deeper.</p>
+                    <p class="text-sm text-gray-500 flex items-center justify-center gap-1">
+                      <Icon name="tabler:arrow-down" class="w-4 h-4" />
+                      Choose your stream. Click to dive deeper.
+                    </p>
                   </div>
 
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -350,7 +373,7 @@ const tabContent = [
                             </span>
                             <div class="flex items-center text-xs text-gray-500 group-hover:text-arc-electric transition-colors font-mono">
                               <span>Explore this stream</span>
-                              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                               </svg>
                             </div>
@@ -371,7 +394,7 @@ const tabContent = [
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <CallToAction
           title="<span class='text-living-earth'>Ready to Build?</span> Start Here."
-          subtitle="ArcUp is at foundation stage. Built in public. <strong>Your contribution shapes what comes next.</strong>"
+          subtitle="arc^ is at foundation stage. built in public. <strong>your contribution shapes what comes next.</strong>"
           actions={[
             {
               variant: 'primary',
@@ -388,9 +411,6 @@ const tabContent = [
           ]}
           bg="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50"
         />
-        <p class="text-center text-sm text-gray-500 mt-8">
-          Built openly by Alisa. You're joining the foundation.
-        </p>
       </div>
     </section>
 
@@ -403,7 +423,7 @@ const tabContent = [
     class="fixed bottom-6 right-6 bg-arc-electric hover:bg-arc-electric/90 text-white p-4 rounded-full shadow-2xl shadow-arc-electric/40 opacity-0 invisible transition-all duration-300 z-50 hover:scale-110"
     aria-label="Back to top"
   >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
     </svg>
   </button>

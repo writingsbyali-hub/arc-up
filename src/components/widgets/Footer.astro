@@ -11,8 +11,8 @@ import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 // Hardcoded ArcUp Navigation
 const navList = [
   { text: 'Home', href: getHomePermalink() },
-  { text: 'Workspace', href: getPermalink('/documentation') },
-  { text: 'Re-Practice', href: 'https://re-practice-placeholder.org', external: true },
+  { text: 'Workspace', href: getPermalink('/workspace') },
+  { text: 'Re:Practise', href: 'https://repractise.xbyali.page', external: true },
 ];
 
 const socialList = [
@@ -53,6 +53,7 @@ const { theme = 'dark' } = Astro.props;
         <p class="text-gray-400 text-md">
           Built openly by Ali Al Saleh. For a world where science serves life and the future!
         </p>
+        <p class="text-xs text-gray-600 italic">arc^ · pronounced "arc-up"</p>
         <div class="flex space-x-4">
           {socialList.map((item) => (
             <a

@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Lab — Build & Test Plasma Systems',
@@ -83,18 +84,21 @@ const streams = [
     <!-- Quick Navigation -->
     <section class="bg-gray-900/30 border-b border-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-        <p class="text-sm text-gray-400 mb-3 text-center">Jump to stream:</p>
+        <p class="text-sm text-gray-400 mb-3 text-center">jump to Stream:</p>
         <nav class="flex flex-wrap justify-center gap-4">
-          <a href="#physical" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline">
-            ⚡️ Physical Systems
+          <a href="#physical" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:bolt" class="w-4 h-4" />
+            Physical Systems
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#water" class="text-green-400 hover:text-green-300 transition font-mono hover:underline">
-            💧 Water Interface
+          <a href="#water" class="text-green-400 hover:text-green-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:droplet" class="w-4 h-4" />
+            Water Interface
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#ecosystem" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline">
-            🌲 Ecosystems
+          <a href="#ecosystem" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:tree" class="w-4 h-4" />
+            Ecosystems
           </a>
         </nav>
       </div>

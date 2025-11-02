@@ -4,7 +4,7 @@ Open research framework developing plasma-based systems for ecological regenerat
 
 ## 🌍 About
 
-arc^ is Ali Al Saleh's honours research project at RMIT exploring plasma applications for ecological repair. This project is built in the open from day one — no patents, no closed labs, no waiting years to publish.
+arc^ byali is Ali Al Saleh's honours research project at RMIT exploring plasma applications for ecological repair. Part of the xbyali ecosystem. This project is built in the open from day one — no patents, no closed labs, no waiting years to publish.
 
 **Current Status**: Early development. No lab, no funding, no team yet. Just a framework, a vision, and a commitment to doing research differently.
 
@@ -69,9 +69,9 @@ arcup-site/
 ## 🎨 Design System
 
 ### Colors
-- **arc-electric**: `#00D9FF` - Primary action color, links
-- **living-earth**: `#7CFC00` - Nature, growth, ecological themes
-- **primary-900**: `#0A0E1A` - Dark background
+- **arc-electric**: `#674EF3` - Primary action color, links, highlights
+- **living-earth**: `#14B8A6` - Nature, growth, ecological themes
+- **primary-900**: `#080E21` - Dark background
 
 ### Typography
 - **Font**: System mono stack for technical aesthetic

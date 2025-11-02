@@ -1,24 +1,105 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
-const title = `Error 404`;
+const metadata = {
+  title: '404 - Page Not Found — arc^',
+};
 ---
 
-<Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+<Layout metadata={metadata}>
+  <div class="min-h-screen bg-primary-900 text-white flex items-center justify-center px-4 py-16">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Icon/Visual -->
+      <div class="mb-8 flex justify-center">
+        <Icon name="tabler:error-404" class="w-32 h-32 text-arc-electric opacity-50" />
       </div>
+
+      <!-- Error Code -->
+      <div class="mb-6">
+        <h1 class="text-8xl md:text-9xl font-mono font-bold text-arc-electric mb-4">
+          404
+        </h1>
+        <p class="text-2xl md:text-3xl font-mono text-white mb-4">
+          Page Not Found
+        </p>
+      </div>
+
+      <!-- Message -->
+      <div class="mb-12 space-y-4">
+        <p class="text-xl text-gray-300 leading-relaxed">
+          This path doesn't exist in the current state space.
+        </p>
+        <p class="text-base text-gray-400 max-w-2xl mx-auto">
+          The page you're looking for may have been moved, removed, or never existed. Like plasma in equilibrium, we're constantly evolving—some paths change.
+        </p>
+      </div>
+
+      <!-- Helpful Navigation -->
+      <div class="bg-gray-900/50 border border-gray-700 rounded-xl p-8 mb-8">
+        <h2 class="text-xl font-mono text-living-earth mb-6">Where did you mean to go?</h2>
+        <div class="grid md:grid-cols-2 gap-4 text-left">
+          <a href="/" class="flex items-start gap-3 p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 border border-gray-700/50 hover:border-arc-electric/50 transition-all duration-300 group">
+            <Icon name="tabler:home" class="w-6 h-6 text-arc-electric flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="font-mono text-white group-hover:text-arc-electric transition-colors">Homepage</h3>
+              <p class="text-sm text-gray-400">Start from the beginning</p>
+            </div>
+          </a>
+
+          <a href="/about" class="flex items-start gap-3 p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 border border-gray-700/50 hover:border-arc-electric/50 transition-all duration-300 group">
+            <Icon name="tabler:info-circle" class="w-6 h-6 text-arc-electric flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="font-mono text-white group-hover:text-arc-electric transition-colors">About arc^</h3>
+              <p class="text-sm text-gray-400">Learn what we're building</p>
+            </div>
+          </a>
+
+          <a href="/pathways" class="flex items-start gap-3 p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 border border-gray-700/50 hover:border-arc-electric/50 transition-all duration-300 group">
+            <Icon name="tabler:map" class="w-6 h-6 text-living-earth flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="font-mono text-white group-hover:text-living-earth transition-colors">Pathways</h3>
+              <p class="text-sm text-gray-400">explore our research Streams</p>
+            </div>
+          </a>
+
+          <a href="/get-started" class="flex items-start gap-3 p-4 rounded-lg bg-gray-800/50 hover:bg-gray-800 border border-gray-700/50 hover:border-arc-electric/50 transition-all duration-300 group">
+            <Icon name="tabler:rocket" class="w-6 h-6 text-living-earth flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="font-mono text-white group-hover:text-living-earth transition-colors">Get Started</h3>
+              <p class="text-sm text-gray-400">Join the foundation</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Alternative Actions -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="/"
+          class="bg-arc-electric hover:bg-arc-electric/80 px-8 py-3 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 transition-all hover:scale-105"
+        >
+          Back to Homepage
+        </a>
+        <a
+          href="https://discord.com/invite/DA8BPA3VsN"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-bold text-white border border-gray-600 transition-all hover:scale-105"
+        >
+          <Icon name="tabler:brand-discord" class="w-5 h-5" />
+          Ask Community
+        </a>
+      </div>
+
+      <!-- Fun Easter Egg -->
+      <div class="mt-12 pt-8 border-t border-gray-800">
+        <p class="text-xs text-gray-600 font-mono">
+          Error code: PLASMA_PATH_NOT_FOUND | State: Non-equilibrium | Recommendation: Redirect to known coordinates
+        </p>
+      </div>
+
     </div>
-  </section>
+  </div>
 </Layout>

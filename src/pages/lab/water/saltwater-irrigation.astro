@@ -6,6 +6,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Saltwater Irrigation — ArcUp Lab',
@@ -43,25 +44,25 @@ const researchQuestions = [
 const contributions = [
   {
     title: 'Run Trials',
-    icon: '🌱',
+    icon: 'tabler:plant',
     description: 'Have access to agricultural land or greenhouse space? You can help test PAW treatments on different soil types and crop species.',
     color: 'green'
   },
   {
     title: 'Monitor & Document',
-    icon: '📊',
+    icon: 'tabler:chart-bar',
     description: 'Deploy sensor kits for soil monitoring, collect data systematically, and document observations for the research commons.',
     color: 'blue'
   },
   {
     title: 'Analyze Data',
-    icon: '📈',
+    icon: 'tabler:chart-line',
     description: 'Help process salinity/yield datasets, create visualizations, identify patterns, and contribute to publications.',
     color: 'purple'
   },
   {
     title: 'Build Protocols',
-    icon: '📝',
+    icon: 'tabler:file-text',
     description: 'Document replication protocols, create guides for other researchers, and contribute to open-source methodologies.',
     color: 'yellow'
   }
@@ -265,7 +266,7 @@ const lookingFor = [
           {contributions.map((contrib) => (
             <div class={`bg-${contrib.color}-400/5 border border-${contrib.color}-400/30 rounded-xl p-6 backdrop-blur-sm hover:scale-[1.02] transition-all duration-300`}>
               <div class="flex items-center gap-3 mb-4">
-                <span class="text-3xl">{contrib.icon}</span>
+                <Icon name={contrib.icon} class={`w-8 h-8 text-${contrib.color}-400`} />
                 <h3 class="text-xl font-bold text-white font-mono">{contrib.title}</h3>
               </div>
               <p class="text-gray-300 leading-relaxed">{contrib.description}</p>

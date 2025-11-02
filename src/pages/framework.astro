@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Framework — Protocols & Governance',
@@ -23,7 +24,7 @@ const streams = [
     title: 'II. Governance',
     status: 'In Development',
     statusColor: 'yellow',
-    workDescription: 'Define and uphold the Non-Lethal Mandate. Work in alignment with Re:Practise (re:earth, re:tech, re:align) to build ethical research infrastructure. Design transparent decision-making processes that scale. Create conflict resolution protocols that preserve community. Develop commons-based intellectual property frameworks. Provide legal support and community care. Shape how ArcUp makes choices collectively.',
+    workDescription: 'Define and uphold the Non-Lethal Mandate. Work in alignment with Re:Practise (re:earth, re:tech, re:align) to build ethical research infrastructure. Design transparent decision-making processes that scale. Create conflict resolution protocols that preserve community. Develop commons-based intellectual property frameworks. Provide legal support and community care. Shape how arc^ makes choices collectively.',
     backgrounds: 'Ethics, community organizing, legal frameworks, conflict mediation, commons governance, care work',
     projects: [
       { title: 'Non-Lethal Mandate Documentation', lookingFor: 'Ethicists, writers', status: 'In Development' },
@@ -80,18 +81,21 @@ const streams = [
     <!-- Quick Navigation -->
     <section class="bg-gray-900/30 border-b border-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-        <p class="text-sm text-gray-400 mb-3 text-center">Jump to stream:</p>
+        <p class="text-sm text-gray-400 mb-3 text-center">jump to Stream:</p>
         <nav class="flex flex-wrap justify-center gap-4">
-          <a href="#protocols" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline">
-            📝 Protocols
+          <a href="#protocols" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:file-text" class="w-4 h-4" />
+            Protocols
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#governance" class="text-green-400 hover:text-green-300 transition font-mono hover:underline">
-            ⚖️ Governance
+          <a href="#governance" class="text-green-400 hover:text-green-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:scale" class="w-4 h-4" />
+            Governance
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#validation" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline">
-            ✅ Validation
+          <a href="#validation" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:circle-check" class="w-4 h-4" />
+            Validation
           </a>
         </nav>
       </div>
@@ -201,7 +205,7 @@ const streams = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <h2 class="text-3xl font-mono text-white mb-4">Ready to Contribute?</h2>
         <p class="text-xl text-gray-300 mb-8">
-          Whether you design protocols, review ethics, write documentation, or help shape governance—your contribution ensures ArcUp stays aligned with its values.
+          whether you design protocols, review ethics, write documentation, or help shape governance—your contribution ensures arc^ stays aligned with its values.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
