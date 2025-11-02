@@ -47,8 +47,8 @@ const principles = [
     icon: 'tabler:bolt',
     title: 'RE:TECH',
     label: 'Design Posture',
-    summary: 'Open-source, non-extractive tools that serve living systems.',
-    description: 'Technology must be open-source, non-extractive by design, and future-conscious. We build tools that serve living systems, not market capture.',
+    summary: 'Non-extractive tools that serve living systems.',
+    description: 'Technology must be open, non-extractive by design, and future-conscious. We build tools that serve living systems, not market capture.',
     color: 'bg-yellow-400',
     textColor: 'text-yellow-400',
     hoverBorder: 'hover:border-yellow-400/60'
@@ -58,7 +58,7 @@ const principles = [
     title: 'RE:ALIGN',
     label: 'Ethics',
     summary: 'Dignity, restoration, and safety guide every choice.',
-    description: 'Our core commitment to dignity, restoration, and safety. This is the guiding ethical principle that governs all research choices—from data use to real-world integration.',
+    description: 'Our core commitment to dignity, restoration, and safety. This is the guiding ethical principle that governs all our choices and activities.',
     color: 'bg-blue-400',
     textColor: 'text-blue-400',
     hoverBorder: 'hover:border-blue-400/60'
@@ -70,32 +70,41 @@ const principles = [
   <div class="bg-primary-900 text-white min-h-screen">
 
     <!-- HERO SECTION -->
-    <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
-          ABOUT ARC<span class="text-living-earth">^</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-200 mb-4 font-semibold">
-          Plasma for the Planet.
-        </p>
-        <p class="text-base md:text-lg text-gray-350 max-w-3xl mx-auto leading-relaxed">
-          What if the next breakthrough was built in the open—together?
-        </p>
+    <section class="relative py-8 md:py-12 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2 text-gray-400">
+            <li><a href="/" class="hover:text-arc-electric transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded">home</a></li>
+            <li><span class="text-gray-600">/</span></li>
+            <li class="text-white font-medium" aria-current="page">about</li>
+          </ol>
+        </nav>
+
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-mono mb-4 tracking-tight text-white">
+            about arc<span class="text-living-earth">^</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-200 mb-3 font-semibold">
+            What if the next breakthrough was built together - in the open?
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 1: THE MEANING -->
-    <section aria-labelledby="meaning-heading" class="py-16 md:py-24 bg-primary-900">
+    <section aria-labelledby="meaning-heading" class="py-6 md:py-10 bg-primary-900">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
-          <h2 id="meaning-heading" class="text-3xl md:text-4xl font-mono mb-4 text-arc-electric">what does arc^ mean?</h2>
-          <p class="text-gray-400 text-lg">a name that holds three meanings.</p>
-          <p class="text-sm text-gray-500 mt-2 italic">pronounced: "arc-up"</p>
+        <div class="text-center mb-8">
+          <h2 id="meaning-heading" class="text-2xl md:text-3xl font-mono mb-3 text-arc-electric">what does arc^ mean</h2>
+          <p class="text-gray-400 text-base">Pronounced: "arc-up" </p>
+          <p class="text-s text-gray-500 mt-2 italic">A name that holds three meanings:</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {nameMeaning.map((item) => (
-            <div class="p-8 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 hover:border-arc-electric/60 hover:bg-gray-900/40 hover:scale-[1.02] transition-all duration-300 text-center group">
+            <div class="p-5 md:p-6 rounded-xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 hover:border-arc-electric/60 hover:bg-gray-900/40 hover:scale-[1.02] transition-all duration-300 text-center group">
               {item.icon === '^' ? (
                 <div class:list={["text-6xl mb-4", item.color]} role="img" aria-label={`${item.title} symbol`}>{item.icon}</div>
               ) : (
@@ -103,8 +112,8 @@ const principles = [
                   <Icon name={item.icon} class:list={["w-16 h-16", item.color]} />
                 </div>
               )}
-              <h3 class="text-xl font-mono text-white mb-3 group-hover:text-arc-electric transition-colors">{item.title}</h3>
-              <p class="text-gray-350 leading-relaxed">{item.description}</p>
+              <h3 class="text-lg font-mono text-white mb-2 group-hover:text-arc-electric transition-colors">{item.title}</h3>
+              <p class="text-sm text-gray-350 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
@@ -112,38 +121,32 @@ const principles = [
     </section>
 
     <!-- SECTION 2: THE PROBLEM -->
-    <section class="py-16 md:py-24 bg-[#131A33] border-t border-b border-gray-800">
+    <section class="py-6 md:py-10 bg-[#131A33] border-t border-b border-gray-800">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-mono mb-12 text-living-earth">why this matters</h2>
+        <h2 class="text-2xl md:text-3xl font-mono mb-8 text-living-earth">why we need change</h2>
 
-        <div class="space-y-10 mb-12">
-          <p class="text-2xl md:text-3xl font-bold text-white leading-tight">
+        <div class="space-y-6 mb-8">
+          <p class="text-xl md:text-2xl font-bold text-white leading-tight">
             Technology isn't neutral.<br/>
             It amplifies the power behind it.
           </p>
 
-          <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p class="text-sm md:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed">
             For a century, innovation followed the same pattern:
           </p>
 
-          <p class="text-xl md:text-2xl text-gray-400 font-mono">
+          <p class="text-lg md:text-xl text-gray-400 font-mono">
             War → Patents → Market Capture → Collapse
           </p>
 
-          <p class="text-xl md:text-2xl font-bold text-arc-electric">
+          <p class="text-lg md:text-xl font-bold text-arc-electric">
             We're breaking the cycle.
           </p>
         </div>
 
-        <div class="mt-16 p-8 md:p-12 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 text-center">
-          <h3 class="text-xl md:text-2xl font-mono text-living-earth mb-6">our worldview</h3>
-          <p class="text-lg md:text-xl text-white font-semibold leading-relaxed mb-4">
-            Earth isn't a resource to extract.
-          </p>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
-            It's a <strong class="text-white">living system</strong> that responds, evolves, and repairs itself.
-          </p>
-          <p class="text-base md:text-lg text-arc-electric font-semibold">
+        <div class="mt-10 p-6 md:p-8 rounded-xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 text-center">
+          <h3 class="text-lg md:text-xl font-mono text-living-earth mb-4">Earth is a living system, not a resource to extract.</h3>
+          <p class="text-base md:text-lg text-arc-electric font-semibold leading-relaxed mb-3">
             Our job? Support that process.
           </p>
         </div>
@@ -151,119 +154,78 @@ const principles = [
     </section>
 
     <!-- SECTION 3: THE MANIFESTO -->
-    <section id="manifesto" aria-labelledby="manifesto-heading" class="py-16 md:py-24 bg-primary-900 scroll-mt-20">
+    <section id="manifesto" aria-labelledby="manifesto-heading" class="py-6 md:py-10 bg-primary-900 scroll-mt-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-mono text-living-earth uppercase tracking-widest mb-4">the arc^ manifesto</p>
-          <h2 id="manifesto-heading" class="text-4xl md:text-5xl font-mono mb-6 text-white">our foundation for change</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            three pillars guide everything we build.
+        <div class="text-center mb-10">
+          <h2 id="manifesto-heading" class="text-3xl md:text-4xl font-mono mb-4 text-arc-electric">our foundation for change</h2>
+          <p class="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
+            Pillars that guide our approach to research, innovation, and technology. 
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {principles.map((pillar) => (
             <div class:list={[
-              "p-8 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50",
-              "hover:bg-gray-900/40 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300",
+              "p-5 md:p-6 rounded-xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50",
+              "hover:bg-gray-900/40 hover:scale-[1.02] hover:shadow-xl transition-all duration-300",
               "text-center group cursor-pointer",
               pillar.hoverBorder
             ]}>
-              <div class="mb-4 flex justify-center" role="img" aria-label={`${pillar.title} icon`}>
-                <Icon name={pillar.icon} class:list={["w-16 h-16", pillar.textColor]} />
+              <div class="mb-3 flex justify-center" role="img" aria-label={`${pillar.title} icon`}>
+                <Icon name={pillar.icon} class:list={["w-12 h-12 md:w-14 md:h-14", pillar.textColor]} />
               </div>
-              <h3 class="text-2xl font-mono text-white mb-2 group-hover:text-arc-electric transition-colors">{pillar.title}</h3>
-              <p class:list={["text-sm font-semibold mb-4", pillar.textColor]}>{pillar.label}</p>
-              <p class="text-base text-gray-200 font-semibold mb-4 leading-relaxed">{pillar.summary}</p>
-              <div class="pt-4 border-t border-gray-700/50">
-                <p class="text-sm text-gray-350 leading-relaxed">{pillar.description}</p>
+              <h3 class="text-lg md:text-xl font-mono text-white mb-2 group-hover:text-arc-electric transition-colors">{pillar.title}</h3>
+              <p class:list={["text-xs font-semibold mb-3", pillar.textColor]}>{pillar.label}</p>
+              <p class="text-sm text-gray-200 font-semibold mb-3 leading-relaxed">{pillar.summary}</p>
+              <div class="pt-3 border-t border-gray-700/50">
+                <p class="text-xs md:text-sm text-gray-350 leading-relaxed">{pillar.description}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div class="mt-12 text-center">
-          <p class="text-base text-gray-400">
-            these three Pillars form
+        <div class="mt-8 text-center">
+          <p class="text-sm text-gray-400">
+            These Pillars are from the
             <a href="#manifesto" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2 mx-1">
-              re:practice
-            </a>
-            —the framework guiding our approach to research, innovation, and technology.
+            re:practice</a> research framework.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: WHAT WE DO -->
-    <section class="py-16 md:py-24 bg-[#131A33] border-t border-b border-gray-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-mono mb-4 text-arc-electric">what we do</h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            open research. real impact.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="p-8 md:p-10 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 hover:border-yellow-400/60 transition-all duration-300">
-            <div class="mb-6 flex justify-center" role="img" aria-label="Open book icon">
-              <Icon name="tabler:book-2" class="w-14 h-14 text-yellow-400" />
-            </div>
-            <h3 class="text-2xl font-mono text-white mb-4">open by design</h3>
-            <p class="text-gray-350 leading-relaxed text-lg">
-              Plasma research accessible to everyone. No paywalls. No patents. Pure commons.
-            </p>
-          </div>
-
-          <div class="p-8 md:p-10 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 hover:border-green-400/60 transition-all duration-300">
-            <div class="mb-6 flex justify-center" role="img" aria-label="Seedling icon">
-              <Icon name="tabler:plant" class="w-14 h-14 text-green-400" />
-            </div>
-            <h3 class="text-2xl font-mono text-white mb-4">regeneration as practice</h3>
-            <p class="text-gray-350 leading-relaxed text-lg">
-              Every experiment explores how plasma supports living systems. Science as an act of care.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: THE ORIGIN STORY -->
-    <section class="py-16 md:py-24 bg-primary-900">
+    <!-- SECTION 4: THE ORIGIN STORY -->
+    <section class="py-6 md:py-10 bg-[#131A33] border-t border-b border-gray-800">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-mono mb-4 text-living-earth">how arc^ began</h2>
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-mono mb-3 text-living-earth">how arc^ began</h2>
         </div>
 
-        <div class="p-10 md:p-16 rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
-          <p class="text-2xl md:text-3xl font-bold text-white text-center mb-12 italic leading-tight">
+        <div class="p-6 md:p-10 rounded-xl bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
+          <p class="text-xl md:text-2xl font-bold text-white text-center mb-8 italic leading-tight">
             "What if everyone made the same choices as me?<br/>
             What world would that lead to?"
           </p>
 
-          <div class="space-y-6 text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+          <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto">
             <p>
-              It started with plasma-water experiments.<br/>
-              Testing if plasma could influence seed germination.
-            </p>
-            <p>
-              <strong class="text-white text-lg md:text-xl">It did.</strong>
+              It started with testing if plasma could influence seed germination.
             </p>
             <p>
-              That small moment revealed a larger truth: <strong class="text-white">plasma can alter biological processes.</strong>
+              <strong class="text-living-earth text-base md:text-lg">It did.</strong>
             </p>
+            <p class="text-white underline decoration-arc-electric decoration-2"> Plasma can alter biological processes.</p>
             <p>
-              The tools to study it? <strong class="text-white">Found within our household appliances.</strong>
+              and the technology can be found in <strong class="text-white">our household appliances.</strong>
             </p>
-            <p class="text-white text-base md:text-lg italic pt-4">
-              How long will it take to improve the system?<br/>
-              What if I shared it on youtube and people around the world could work together ...
+            <p class="text-white text-sm md:text-base italic pt-3">
+              I wondered, it would take too long to build it myself...
             </p>
-            <p class="text-xl md:text-2xl font-bold text-arc-electric text-center pt-8">
+            <p class="text-white text-sm md:text-base pt-0.5">
+              What if I shared it on youtube ...
+            </p>
+            <p class="text-lg md:text-xl font-bold text-arc-electric text-center pt-6">
               <span class="text-living-earth">arc^</span> was born from this thought process.
-            </p>
-            <p class="text-center text-gray-400">
-              A research framework for open plasma systems and ecological regeneration.
             </p>
           </div>
         </div>
@@ -271,23 +233,23 @@ const principles = [
     </section>
 
     <!-- FINAL CTA -->
-    <section class="py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <section class="py-6 md:py-10 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <CallToAction
-          title="<span class='text-living-earth'>Ready to Build?</span> Start Here."
-          subtitle="Your path starts with agreement. Read the Handshake—our rules for collaboration."
+          title="<span class='text-arc-electric'>Ready to explore?</span>"
+          subtitle="Understand our research approach, then choose your path."
           actions={[
             {
               variant: 'primary',
-              text: 'READ THE HANDSHAKE',
-              href: '/handshake',
-              class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 text-lg transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
+              text: 'View Research',
+              href: '/research',
+              class: 'bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
             },
             {
               variant: 'secondary',
-              text: 'JOIN THE BUILDERS',
-              href: '/contribute',
-              class: 'bg-living-earth hover:bg-living-earth/90 hover:scale-105 py-4 px-8 text-lg rounded-full font-bold shadow-2xl shadow-living-earth/50 transition-all focus:ring-2 focus:ring-living-earth focus:ring-offset-2 focus:ring-offset-primary-900',
+              text: 'Explore Projects',
+              href: '/projects',
+              class: 'bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
             },
           ]}
           bg="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50"

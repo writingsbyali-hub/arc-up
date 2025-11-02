@@ -1,0 +1,535 @@
+---
+// ====================================================================
+// PROJECTS HUB PAGE - STREAM-LEVEL VIEW
+// Shows all 9 streams directly with interest matching
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Projects — Find Your Contribution',
+};
+
+// All 9 streams with full details
+const streams = [
+  // LAB STREAMS
+  {
+    id: 'physical',
+    name: 'Physical Plasma Systems',
+    pillar: 'lab',
+    pillarLabel: 'Lab',
+    href: '/lab/physical',
+    tagline: 'Hardware design and plasma generation',
+    description: 'Design and test plasma architectures. Build modular components that can be 3D-printed, assembled safely, and replicated globally.',
+    skills: ['Hardware', 'Electronics', 'Engineering', 'Prototyping'],
+    color: 'yellow',
+    bgGradient: 'from-yellow-500/10 via-yellow-500/5 to-transparent',
+    borderColor: 'border-yellow-400/30',
+    hoverBorder: 'hover:border-yellow-400',
+    textColor: 'text-yellow-400',
+    icon: 'tabler:bolt'
+  },
+  {
+    id: 'water',
+    name: 'Plasma-Water Interface',
+    pillar: 'lab',
+    pillarLabel: 'Lab',
+    href: '/lab/water',
+    tagline: 'Water treatment and chemistry',
+    description: 'Investigate how plasma-treated water behaves. Test oxidation mechanisms, desalination methods, and pollutant breakdown pathways.',
+    skills: ['Chemistry', 'Water', 'Field Research', 'Analysis'],
+    color: 'yellow',
+    bgGradient: 'from-yellow-500/10 via-yellow-500/5 to-transparent',
+    borderColor: 'border-yellow-400/30',
+    hoverBorder: 'hover:border-yellow-400',
+    textColor: 'text-yellow-400',
+    icon: 'tabler:droplet'
+  },
+  {
+    id: 'ecosystem',
+    name: 'Ecosystem Dynamics',
+    pillar: 'lab',
+    pillarLabel: 'Lab',
+    href: '/lab/ecosystem',
+    tagline: 'Ecological responses and resilience',
+    description: 'Study how organisms and ecosystems respond to plasma-treated environments. Track genetic changes, monitor microbiome shifts, measure resilience.',
+    skills: ['Biology', 'Ecology', 'Field Research', 'Modeling'],
+    color: 'yellow',
+    bgGradient: 'from-yellow-500/10 via-yellow-500/5 to-transparent',
+    borderColor: 'border-yellow-400/30',
+    hoverBorder: 'hover:border-yellow-400',
+    textColor: 'text-yellow-400',
+    icon: 'tabler:plant-2'
+  },
+  // FRAMEWORK STREAMS
+  {
+    id: 'protocols',
+    name: 'Protocols',
+    pillar: 'framework',
+    pillarLabel: 'Framework',
+    href: '/framework/protocols',
+    tagline: 'Methodology and standards',
+    description: 'Create reproducible experimental workflows. Build documentation so thorough that replication becomes trivial. Establish open-hardware standards.',
+    skills: ['Documentation', 'Technical Writing', 'Research Methods'],
+    color: 'green',
+    bgGradient: 'from-green-400/10 via-green-400/5 to-transparent',
+    borderColor: 'border-green-400/30',
+    hoverBorder: 'hover:border-green-400',
+    textColor: 'text-green-400',
+    icon: 'tabler:clipboard-list'
+  },
+  {
+    id: 'governance',
+    name: 'Governance',
+    pillar: 'framework',
+    pillarLabel: 'Framework',
+    href: '/framework/governance',
+    tagline: 'Ethics and decision-making',
+    description: 'Define and uphold the Non-Lethal Mandate. Design transparent decision-making processes. Develop commons-based IP frameworks.',
+    skills: ['Ethics', 'Governance', 'Policy', 'Community Organizing'],
+    color: 'green',
+    bgGradient: 'from-green-400/10 via-green-400/5 to-transparent',
+    borderColor: 'border-green-400/30',
+    hoverBorder: 'hover:border-green-400',
+    textColor: 'text-green-400',
+    icon: 'tabler:users-group'
+  },
+  {
+    id: 'validation',
+    name: 'Validation',
+    pillar: 'framework',
+    pillarLabel: 'Framework',
+    href: '/framework/validation',
+    tagline: 'Peer review and reproducibility',
+    description: 'Build peer review systems that work openly. Create pre-registration workflows. Design decentralized verification methods.',
+    skills: ['Research Methods', 'Statistics', 'Peer Review'],
+    color: 'green',
+    bgGradient: 'from-green-400/10 via-green-400/5 to-transparent',
+    borderColor: 'border-green-400/30',
+    hoverBorder: 'hover:border-green-400',
+    textColor: 'text-green-400',
+    icon: 'tabler:checklist'
+  },
+  // COMMONS STREAMS
+  {
+    id: 'data',
+    name: 'Data',
+    pillar: 'commons',
+    pillarLabel: 'Commons',
+    href: '/commons/data',
+    tagline: 'APIs and infrastructure',
+    description: 'Design APIs that make data ingestion seamless. Build standardized schemas so datasets talk to each other. Create distributed storage systems.',
+    skills: ['Software', 'Backend', 'APIs', 'Databases'],
+    color: 'blue',
+    bgGradient: 'from-blue-400/10 via-blue-400/5 to-transparent',
+    borderColor: 'border-blue-400/30',
+    hoverBorder: 'hover:border-blue-400',
+    textColor: 'text-blue-400',
+    icon: 'tabler:database'
+  },
+  {
+    id: 'visualization',
+    name: 'Visualization',
+    pillar: 'commons',
+    pillarLabel: 'Commons',
+    href: '/commons/visualization',
+    tagline: 'Dashboards and data viz',
+    description: 'Design real-time monitoring dashboards. Build open-source visualization libraries. Create public data access interfaces.',
+    skills: ['Frontend', 'Design', 'Data Viz', 'UX'],
+    color: 'blue',
+    bgGradient: 'from-blue-400/10 via-blue-400/5 to-transparent',
+    borderColor: 'border-blue-400/30',
+    hoverBorder: 'hover:border-blue-400',
+    textColor: 'text-blue-400',
+    icon: 'tabler:chart-line'
+  },
+  {
+    id: 'modeling',
+    name: 'Modeling',
+    pillar: 'commons',
+    pillarLabel: 'Commons',
+    href: '/commons/modeling',
+    tagline: 'Systems theory and simulation',
+    description: 'Apply systems theory to ecosystem dynamics. Build resilience models that predict tipping points. Simulate coupling dynamics across scales.',
+    skills: ['Modeling', 'Systems Theory', 'Mathematics', 'Simulation'],
+    color: 'blue',
+    bgGradient: 'from-blue-400/10 via-blue-400/5 to-transparent',
+    borderColor: 'border-blue-400/30',
+    hoverBorder: 'hover:border-blue-400',
+    textColor: 'text-blue-400',
+    icon: 'tabler:atom-2'
+  }
+];
+
+// Interest tags mapped to specific streams
+const interestTags = [
+  { name: 'Hardware/Electronics', matches: ['physical'] },
+  { name: 'Chemistry/Water', matches: ['water'] },
+  { name: 'Biology/Ecology', matches: ['ecosystem'] },
+  { name: 'Software/Data', matches: ['data'] },
+  { name: 'Frontend/Design', matches: ['visualization'] },
+  { name: 'Modeling/Systems', matches: ['modeling', 'ecosystem'] },
+  { name: 'Documentation', matches: ['protocols'] },
+  { name: 'Governance/Ethics', matches: ['governance'] },
+  { name: 'Field Research', matches: ['water', 'ecosystem'] },
+  { name: 'Backend/APIs', matches: ['data'] },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative py-6 md:py-10 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-gray-400">
+          <li><a href="/" class="hover:text-arc-electric transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded">home</a></li>
+          <li><span class="text-gray-600">/</span></li>
+          <li class="text-white font-medium" aria-current="page">projects</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">
+          Nine Active Streams
+        </p>
+        <h1 class="text-lg md:text-xl font-mono mb-6 tracking-tight text-white">
+          Find Your Contribution
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Browse active research streams, or tell us your skills and we'll suggest where to start.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-6 md:py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <!-- Decision Helper - Not Sure Where to Start? -->
+      <div class="max-w-4xl mx-auto mb-10">
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 font-mono text-center">Not sure where to start?</h2>
+
+          <!-- Expandable Interest Tags -->
+          <details class="group" open>
+            <summary class="cursor-pointer text-center py-2 text-gray-400 hover:text-arc-electric transition-colors list-none mb-4">
+              <span class="font-mono text-lg">Select your skills & interests</span>
+              <span class="inline-block ml-2 transform transition-transform group-open:rotate-180">▼</span>
+            </summary>
+
+            <div class="space-y-6">
+              <p class="text-base text-gray-300 text-center">
+                Select what you're interested in or good at, and we'll highlight matching streams:
+              </p>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                {interestTags.map((tag) => (
+                  <label class="interest-tag flex items-center gap-2 p-3 bg-gray-900/30 rounded-lg border border-gray-700/30 hover:border-arc-electric/50 cursor-pointer transition-all">
+                    <input
+                      type="checkbox"
+                      data-matches={JSON.stringify(tag.matches)}
+                      class="interest-checkbox w-4 h-4 rounded border-gray-600 text-arc-electric focus:ring-arc-electric focus:ring-offset-primary-900"
+                    />
+                    <span class="text-sm text-gray-300">{tag.name}</span>
+                  </label>
+                ))}
+              </div>
+
+              <div class="text-center pt-4">
+                <p class="text-sm text-gray-400 font-mono">
+                  <span id="match-status">Select interests to see matching streams highlighted below</span>
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Pillar Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button
+          data-filter="all"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-arc-electric text-white"
+        >
+          All Streams
+        </button>
+        <button
+          data-filter="lab"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+        >
+          Lab
+        </button>
+        <button
+          data-filter="framework"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+        >
+          Framework
+        </button>
+        <button
+          data-filter="commons"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+        >
+          Commons
+        </button>
+      </div>
+
+      <!-- Navigation Guide -->
+      <div class="max-w-4xl mx-auto mb-10">
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+          <h3 class="text-2xl font-bold text-white mb-6 font-mono">How to Navigate</h3>
+          <div class="grid md:grid-cols-2 gap-6 text-gray-300">
+            <div class="flex gap-4">
+              <span class="text-2xl flex-shrink-0">01</span>
+              <div>
+                <p class="font-semibold text-white mb-2">Choose a Stream</p>
+                <p class="text-sm">Each stream focuses on a specific area—hardware, water, governance, data, etc.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-2xl flex-shrink-0">02</span>
+              <div>
+                <p class="font-semibold text-white mb-2">Explore Projects</p>
+                <p class="text-sm">Within each stream, discover projects, research questions, and contribution opportunities.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-2xl flex-shrink-0">03</span>
+              <div>
+                <p class="font-semibold text-white mb-2">Pick Your Level</p>
+                <p class="text-sm">Observe, contribute independently, or collaborate directly. Choose what fits your capacity.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-2xl flex-shrink-0">04</span>
+              <div>
+                <p class="font-semibold text-white mb-2">Get Started</p>
+                <p class="text-sm">Visit <a href="/get-started" class="text-living-earth hover:text-arc-electric transition underline">Get Started</a> to choose your persona and begin contributing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Streams Grid -->
+      <div id="streams-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10">
+        {streams.map((stream) => (
+          <a
+            href={stream.href}
+            data-stream={stream.id}
+            data-pillar={stream.pillar}
+            class={`stream-card group bg-gradient-to-br ${stream.bgGradient} border ${stream.borderColor} ${stream.hoverBorder} rounded-xl p-5 md:p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-xl block`}
+          >
+            <!-- Stream Header -->
+            <div class="flex items-start justify-between mb-4">
+              <Icon name={stream.icon} class={`w-10 h-10 ${stream.textColor} flex-shrink-0`} />
+            </div>
+
+            <!-- Stream Content -->
+            <div class="space-y-3">
+              <div>
+                <h3 class={`text-xl font-bold font-mono ${stream.textColor} mb-1 group-hover:text-white transition`}>
+                  {stream.name}
+                </h3>
+                <p class="text-xs font-mono text-gray-500 uppercase tracking-wider">
+                  {stream.pillarLabel} Stream
+                </p>
+              </div>
+
+              <p class="text-sm text-gray-400">
+                {stream.tagline}
+              </p>
+
+              <p class="text-sm text-gray-300 leading-relaxed line-clamp-3">
+                {stream.description}
+              </p>
+
+              <!-- Skills Tags -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {stream.skills.map((skill) => (
+                  <span class="px-2 py-1 bg-gray-800/50 text-gray-400 text-xs rounded font-mono">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              <!-- View Stream Link -->
+              <div class="flex items-center gap-2 text-sm font-mono text-gray-400 group-hover:text-arc-electric transition pt-2">
+                <span>View Stream</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Bottom Info -->
+      <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Alternative Paths -->
+        <div class="text-center p-6 md:p-8 bg-arc-electric/5 border border-arc-electric/30 rounded-2xl backdrop-blur-sm">
+          <h3 class="text-xl font-bold text-white mb-3 font-mono">Want to understand the research first?</h3>
+          <p class="text-gray-300 mb-6">
+            Learn about our four-scale approach before diving into specific streams.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/research"
+              class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
+            >
+              ← Read About Research
+            </a>
+            <a
+              href="/get-started"
+              class="px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
+            >
+              Get Started →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Stream Matcher JavaScript -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const streamsGrid = document.getElementById('streams-grid');
+      const streamCards = document.querySelectorAll('.stream-card');
+      const interestCheckboxes = document.querySelectorAll('.interest-checkbox');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+
+      // Handle URL parameters for persona-based navigation
+      const urlParams = new URLSearchParams(window.location.search);
+      const pillarParam = urlParams.get('pillar');
+
+      if (pillarParam) {
+        // Auto-select the pillar filter and scroll to streams
+        filterButtons.forEach(btn => {
+          if (btn.getAttribute('data-filter') === pillarParam) {
+            btn.click();
+          }
+        });
+
+        // Scroll to the streams grid after filter is applied
+        setTimeout(() => {
+          streamsGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+
+      // Helper function to highlight matched streams and dim others
+      function highlightStreams(matchedStreamIds) {
+        if (matchedStreamIds.length === 0) {
+          // No selections - show all streams normally
+          streamCards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+            card.style.filter = 'none';
+          });
+          return;
+        }
+
+        streamCards.forEach(card => {
+          const streamId = card.getAttribute('data-stream');
+
+          if (matchedStreamIds.includes(streamId)) {
+            // Highlight matched streams
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1.02)';
+            card.style.filter = 'brightness(1.15)';
+            card.style.transition = 'all 0.3s ease';
+          } else {
+            // Dim non-matched streams
+            card.style.opacity = '0.3';
+            card.style.transform = 'scale(0.98)';
+            card.style.filter = 'grayscale(0.7)';
+            card.style.transition = 'all 0.3s ease';
+          }
+        });
+
+        // Scroll to streams grid
+        streamsGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Real-time interest matching
+      interestCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const checkedBoxes = Array.from(interestCheckboxes).filter(cb => cb.checked);
+          const matchStatus = document.getElementById('match-status');
+
+          if (checkedBoxes.length === 0) {
+            // No selections - reset
+            highlightStreams([]);
+            matchStatus.textContent = 'Select interests to see matching streams highlighted below';
+            return;
+          }
+
+          // Get all matched stream IDs from checked boxes
+          const matchedStreamIds = [];
+          checkedBoxes.forEach(cb => {
+            const matches = JSON.parse(cb.getAttribute('data-matches'));
+            matchedStreamIds.push(...matches);
+          });
+
+          // Remove duplicates
+          const uniqueMatches = [...new Set(matchedStreamIds)];
+
+          // Update status message
+          const matchCount = uniqueMatches.length;
+          matchStatus.textContent = `${matchCount} stream${matchCount !== 1 ? 's' : ''} match${matchCount === 1 ? 'es' : ''} your interests — highlighted below ↓`;
+
+          // Highlight matched streams
+          highlightStreams(uniqueMatches);
+        });
+      });
+
+      // Pillar filter buttons
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filterValue = button.getAttribute('data-filter');
+
+          // Update button states
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-arc-electric', 'text-white');
+            btn.classList.add('bg-gray-800', 'text-gray-400');
+          });
+          button.classList.remove('bg-gray-800', 'text-gray-400');
+          button.classList.add('bg-arc-electric', 'text-white');
+
+          // Filter streams
+          if (filterValue === 'all') {
+            streamCards.forEach(card => {
+              card.style.display = 'block';
+            });
+          } else {
+            streamCards.forEach(card => {
+              const pillar = card.getAttribute('data-pillar');
+              if (pillar === filterValue) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          }
+
+          // Reset highlighting when filtering
+          highlightStreams([]);
+        });
+      });
+
+      // Keyboard accessibility: Reset on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          highlightStreams([]);
+          // Uncheck all interest tags
+          interestCheckboxes.forEach(cb => cb.checked = false);
+        }
+      });
+    });
+  </script>
+</Layout>

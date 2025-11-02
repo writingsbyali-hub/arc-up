@@ -1,0 +1,210 @@
+---
+// ====================================================================
+// DYNAMIC PROJECT PAGE GENERATOR
+// Auto-generates pages from markdown files in src/content/projects/
+// ====================================================================
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map(project => {
+    // The slug from content collections includes the full path: "lab/water/saltwater-irrigation"
+    return {
+      params: {
+        slug: project.slug
+      },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+// Map status to colors
+const statusColors = {
+  'active': {
+    bg: 'bg-green-500/20',
+    text: 'text-green-400',
+    border: 'border-green-400/30'
+  },
+  'forming': {
+    bg: 'bg-yellow-500/20',
+    text: 'text-yellow-400',
+    border: 'border-yellow-400/30'
+  },
+  'early-idea': {
+    bg: 'bg-yellow-500/20',
+    text: 'text-yellow-400',
+    border: 'border-yellow-400/30'
+  },
+  'concept': {
+    bg: 'bg-gray-700/50',
+    text: 'text-gray-400',
+    border: 'border-gray-700/50'
+  }
+};
+
+const statusColor = statusColors[project.data.status] || statusColors.concept;
+
+// Map pillar to paths and colors
+const pillarData = {
+  'lab': { path: '/lab', color: 'yellow-400' },
+  'framework': { path: '/framework', color: 'green-400' },
+  'commons': { path: '/commons', color: 'blue-400' }
+};
+
+const currentPillar = pillarData[project.data.pillar];
+
+// Build stream path
+const streamPath = `/${project.data.pillar}/${project.data.stream}`;
+
+// Format status for display
+const statusDisplay = project.data.status
+  .split('-')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
+
+const metadata = {
+  title: `${project.data.title} — ${project.data.pillar.charAt(0).toUpperCase() + project.data.pillar.slice(1)} Project`,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Breadcrumb -->
+  <div class="bg-primary-900 border-b border-gray-700/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-sm text-gray-400 font-mono">
+        <a href="/projects" class="hover:text-living-earth transition">projects</a>
+        <span class="mx-2">/</span>
+        <a href={currentPillar.path} class={`hover:text-${currentPillar.color} transition`}>{project.data.pillar}</a>
+        <span class="mx-2">/</span>
+        <a href={streamPath} class={`hover:text-${currentPillar.color} transition`}>{project.data.stream.replace('-', ' ')}</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">{project.data.title.toLowerCase()}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-primary-900 pt-8 pb-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Status Badge -->
+      <div class="flex items-center gap-3 mb-6">
+        <span class={`px-4 py-2 ${statusColor.bg} ${statusColor.text} rounded-lg font-mono text-sm font-bold`}>
+          {statusDisplay}
+        </span>
+        <span class="text-gray-500 font-mono text-sm">Last updated: {project.data.updated}</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 font-mono">
+        {project.data.title}
+      </h1>
+
+      <!-- Tags & Skills -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2">
+          {project.data.tags.map(tag => (
+            <span class="px-3 py-1 bg-gray-800/50 text-gray-400 text-sm rounded font-mono">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <!-- Skills -->
+        <div class="flex flex-wrap gap-2">
+          {project.data.skills.map(skill => (
+            <span class="px-3 py-1 bg-green-900/30 text-green-400 text-sm rounded font-mono">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-6 md:py-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <!-- Markdown Content -->
+      <div class="prose prose-invert prose-green max-w-none
+                  prose-headings:font-mono prose-headings:text-white
+                  prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+                  prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                  prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg
+                  prose-a:text-green-400 prose-a:no-underline hover:prose-a:text-green-300
+                  prose-strong:text-white prose-strong:font-bold
+                  prose-ul:text-gray-300 prose-ul:space-y-2
+                  prose-ol:text-gray-300 prose-ol:space-y-2
+                  prose-li:text-gray-300
+                  prose-code:text-green-400 prose-code:bg-gray-800/50 prose-code:px-2 prose-code:py-1 prose-code:rounded
+                  prose-pre:bg-gray-900/50 prose-pre:border prose-pre:border-gray-700
+                  prose-blockquote:border-l-green-400 prose-blockquote:text-gray-400">
+        <Content />
+      </div>
+
+      <!-- Looking For (if specified) -->
+      {project.data.lookingFor && (
+        <div class="mt-12 bg-gray-900/50 border border-gray-700 rounded-xl p-8">
+          <h3 class="text-xl font-mono font-bold text-white mb-4">Looking For:</h3>
+          <p class="text-lg text-gray-300">{project.data.lookingFor}</p>
+        </div>
+      )}
+
+      <!-- CTA Section -->
+      <div class="mt-12 bg-gradient-to-br from-arc-electric/20 via-living-earth/10 to-transparent border border-arc-electric/30 rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4 font-mono">Ready to Join This Project?</h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Whether you're a researcher, maker, or curious mind—there's a role for you in this work.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScyVWKDifYxaVWOhdW-SPEXXDVEjBmVezv7W668lizvRCQuaQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-4 bg-living-earth hover:bg-living-earth/90 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-xl shadow-living-earth/20"
+          >
+            Contact Us →
+          </a>
+          <a
+            href="/get-started"
+            class="px-8 py-4 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-xl shadow-arc-electric/20"
+          >
+            Get Started
+          </a>
+          <a
+            href="https://discord.com/invite/DA8BPA3VsN"
+            target="_blank"
+            class="px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05]"
+          >
+            Join Discord
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Links -->
+      <div class="mt-12">
+        <h2 class="text-2xl font-bold text-white mb-6 font-mono">Related</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href={streamPath} class="group bg-gray-900/30 border border-gray-700/50 hover:border-living-earth/50 rounded-xl p-6 backdrop-blur-sm transition-all duration-300">
+            <h3 class="text-lg font-bold text-white mb-2 font-mono group-hover:text-living-earth transition">View All {project.data.stream.replace('-', ' ')} Projects →</h3>
+            <p class="text-sm text-gray-400">Explore other projects in this stream</p>
+          </a>
+          <a href={currentPillar.path} class={`group bg-gray-900/30 border border-gray-700/50 hover:border-${currentPillar.color}/50 rounded-xl p-6 backdrop-blur-sm transition-all duration-300`}>
+            <h3 class={`text-lg font-bold text-white mb-2 font-mono group-hover:text-${currentPillar.color} transition`}>Back to {project.data.pillar} →</h3>
+            <p class="text-sm text-gray-400">See all {project.data.pillar} streams</p>
+          </a>
+          <a href="/projects" class="group bg-gray-900/30 border border-gray-700/50 hover:border-arc-electric/50 rounded-xl p-6 backdrop-blur-sm transition-all duration-300">
+            <h3 class="text-lg font-bold text-white mb-2 font-mono group-hover:text-arc-electric transition">Explore Projects →</h3>
+            <p class="text-sm text-gray-400">Discover all arc^ work</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

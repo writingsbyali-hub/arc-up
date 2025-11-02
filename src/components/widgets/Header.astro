@@ -11,12 +11,11 @@ import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 
 // Navigation following the user journey
 const navList = [
-  { text: 'Home', href: getHomePermalink() },
-  { text: 'About', href: getPermalink('/about') },
-  { text: 'Research', href: getPermalink('/research') },
-  { text: 'Pathways', href: getPermalink('/pathways') },
-  { text: 'Get Started', href: getPermalink('/get-started') },
-  { text: 'Workspace', href: getPermalink('/workspace') },
+  { text: 'home', href: getHomePermalink() },
+  { text: 'about', href: getPermalink('/about') },
+  { text: 'research', href: getPermalink('/research') },
+  { text: 'projects', href: getPermalink('/projects') },
+  { text: 'get started', href: getPermalink('/get-started') },
 ];
 
 export interface Props {
@@ -56,7 +55,7 @@ const currentPath = Astro.url.pathname;
   >
     <!-- Logo Section -->
     <div class="flex justify-between items-center">
-      <a class="flex items-center gap-2" href={getHomePermalink()}>
+      <a class="flex items-center gap-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900" href={getHomePermalink()}>
         <AnimatedLogo size="sm" showMark={false} animation="playful" />
         <span class="text-sm text-gray-400 font-mono">byali</span>
       </a>
@@ -82,7 +81,7 @@ const currentPath = Astro.url.pathname;
               <li class="flex items-center">
                 <a
                   class:list={[
-                    'font-mono px-4 py-3 md:py-1 transition duration-150 ease-in-out',
+                    'font-mono px-4 py-3 md:py-1 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
                     isActive
                       ? 'text-arc-electric font-bold'
                       : 'hover:text-arc-electric'

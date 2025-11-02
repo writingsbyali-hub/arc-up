@@ -10,171 +10,15 @@ const featuresTheChallenge = [
     icon: 'tabler:lock',
     title: 'The Knowledge Lock',
     description: 'Critical technologies locked behind patents. Communities cannot adapt. Innovation stalls.',
-    responseTitle: 'the arc^ response',
+    responseTitle: 'The ARC^ Response',
     response: '<strong>Open-Source Blueprints.</strong> Technical schematics and methodologies released under open licenses.',
   },
   {
     icon: 'tabler:world',
     title: 'The Planetary Drift',
     description: 'Pollution and ecosystem disruption accelerate faster than siloed science can respond.',
-    responseTitle: 'the arc^ response',
+    responseTitle: 'The ARC^ Response',
     response: '<strong>Plasma for Regeneration.</strong> Controlled plasma energy as a tool for pollutant breakdown and ecological resilience.',
-  },
-];
-
-const tabContent = [
-  {
-    id: 'lab',
-    title: 'the Lab',
-    headline: 'multi-stream experimental research',
-    body:
-      'the engine for research. we link engineering with ecology by designing plasma systems and open-hardware standards. we pursue non-lethal, non-invasive techniques across three integrated Streams.',
-    streams: [
-      {
-        id: 'physical',
-        title: 'I. Physical Plasma Systems',
-        icon: 'tabler:bolt',
-        status: 'Coming Soon',
-        color: 'text-yellow-400',
-        focusAreas: [
-          'Plasma architecture design',
-          'Circuit optimization',
-          'Open-hardware standards',
-          'Community-led prototyping'
-        ],
-        forWho: 'Electrical engineers, hardware designers, makers',
-      },
-      {
-        id: 'water',
-        title: 'II. Plasma-Water Interface',
-        icon: 'tabler:droplet',
-        status: 'Ready to Build',
-        color: 'text-green-400',
-        focusAreas: [
-          'Oxidation mechanisms',
-          'Desalination & water reuse',
-          'Pollutant degradation',
-          'Pathogen removal'
-        ],
-        forWho: 'Chemists, environmental engineers, water systems researchers',
-      },
-      {
-        id: 'ecosystem',
-        title: 'III. Ecosystem Dynamics',
-        icon: 'tabler:tree',
-        status: 'Help Shape This',
-        color: 'text-blue-400',
-        focusAreas: [
-          'Genetic & non-genetic responses',
-          'Microbiome community shifts',
-          'Stress adaptation patterns',
-          'Ecosystem resilience modeling'
-        ],
-        forWho: 'Ecologists, molecular biologists, systems researchers',
-      },
-    ],
-  },
-  {
-    id: 'framework',
-    title: 'the Framework',
-    headline: 'governance, ethics, and reproducibility',
-    body:
-      'the adaptive methodology and ethical standard for practice. this ensures all work is reproducible, safe, and aligned with ecological principles.',
-    streams: [
-      {
-        id: 'protocols',
-        title: 'I. Protocols',
-        icon: 'tabler:file-text',
-        status: 'Active',
-        color: 'text-green-400',
-        focusAreas: [
-          'Methodology templates',
-          'Version control systems',
-          'Reproducible documentation',
-          'Open-hardware specs'
-        ],
-        forWho: 'Researchers, documentation specialists, open-source advocates',
-      },
-      {
-        id: 'governance',
-        title: 'II. Governance',
-        icon: 'tabler:scale',
-        status: 'In Development',
-        color: 'text-yellow-400',
-        focusAreas: [
-          '<strong>Non-Lethal Mandate</strong>',
-          'Transparent decision-making',
-          'Conflict resolution',
-          'Commons-based IP frameworks'
-        ],
-        forWho: 'Ethicists, community organizers, legal scholars',
-      },
-      {
-        id: 'validation',
-        title: 'III. Validation',
-        icon: 'tabler:circle-check',
-        status: 'Coming Soon',
-        color: 'text-blue-400',
-        focusAreas: [
-          'Open-source code review',
-          'Pre-registration workflows',
-          'Decentralized verification',
-          'Peer validation systems'
-        ],
-        forWho: 'Software developers, data scientists, peer reviewers',
-      },
-    ],
-  },
-  {
-    id: 'commons',
-    title: 'the Commons',
-    headline: 'global data infrastructure & access',
-    body:
-      'the future home for a global, decentralized dashboard. every builder is a co-contributor, sharing data to validate and improve the next design.',
-    streams: [
-      {
-        id: 'data',
-        title: 'I. Data',
-        icon: 'tabler:link',
-        status: 'In Development',
-        color: 'text-blue-400',
-        focusAreas: [
-          'Data ingestion APIs',
-          'Sensor network integration',
-          'Standardized schemas (JSON/CSV)',
-          'Distributed storage systems'
-        ],
-        forWho: 'Backend developers, database architects, IoT engineers',
-      },
-      {
-        id: 'visualization',
-        title: 'II. Visualization',
-        icon: 'tabler:chart-bar',
-        status: 'Coming Soon',
-        color: 'text-yellow-400',
-        focusAreas: [
-          'Real-time monitoring dashboards',
-          'Open-source viz libraries',
-          'Public data access interfaces',
-          'Interactive data exploration'
-        ],
-        forWho: 'Frontend developers, UX designers, data visualization specialists',
-      },
-      {
-        id: 'modeling',
-        title: 'III. Modeling',
-        icon: 'tabler:microscope',
-        status: 'Future Work',
-        color: 'text-red-400',
-        focusAreas: [
-          'Systems theory application',
-          'Ecosystem resilience modeling',
-          'Coupling & cycling dynamics',
-          'Predictive analytical tools'
-        ],
-        forWho: 'Data scientists, computational ecologists, systems modelers',
-      },
-    ],
   },
 ];
 ---
@@ -182,24 +26,24 @@ const tabContent = [
 <Layout>
   <div class="bg-primary-900 text-white min-h-screen">
     <Hero
-      tagline="for a better world - for everyone"
+      tagline="open plasma research for ecological regeneration"
       actions={[
         {
           variant: 'primary',
-          text: 'explore pathways',
-          href: '/pathways',
-          class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 text-lg px-8 py-4 transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
+          text: 'EXPLORE PATHWAYS',
+          href: '/projects',
+          class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 text-base md:text-lg px-6 md:px-8 py-3 md:py-4 transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
         },
       ]}
       bg="bg-primary-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-color-primary-900,rgba(8,14,33,1))_5%,_#000000_100%)]"
     >
       <Fragment slot="title">
-        <span class="font-mono ">building futures worth inheriting - openly</span> 
+        <span class="font-mono ">building futures worth inheriting</span> 
       </Fragment>
       <Fragment slot="subtitle">
         <span>
-          open plasma research for ecological regeneration.<br/>
-          <strong>for those ready to build a different future—experimentally, collaboratively, openly.</strong>
+          For those ready to build a better world:<br/>
+          scientifically, experimentally, collaboratively, openly.
         </span>
       </Fragment>
       <Fragment slot="content">
@@ -216,33 +60,52 @@ const tabContent = [
       </Fragment>
     </Hero>
 
-    <section aria-labelledby="systems-heading" class="py-16 md:py-20 lg:py-24 bg-[#131A33] border-t border-b border-gray-800">
+    <!-- New to arc^? Section (Lighter background) -->
+    <section class="py-6 md:py-10 bg-gray-800/40 backdrop-blur-sm border-b border-gray-700/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-xl md:text-2xl font-mono font-bold text-living-earth mb-3">
+          New to arc^?
+        </h2>
+        <p class="text-sm md:text-base text-gray-300 mb-4 max-w-2xl mx-auto">
+          Understand the project in 3 steps: <span class="text-white font-semibold">About</span> → <span class="text-white font-semibold">Research</span> → <span class="text-white font-semibold">Pathways</span>
+        </p>
+        <button
+          id="tour-button"
+          class="bg-arc-electric hover:bg-arc-electric/90 text-white px-5 py-2.5 rounded-lg font-mono font-bold transition-all hover:scale-105 hover:shadow-lg hover:shadow-arc-electric/50 focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-gray-800 text-sm md:text-base"
+        >
+          Take 2-minute tour →
+        </button>
+      </div>
+    </section>
+
+    <!-- Systems Section (Darker background) -->
+    <section aria-labelledby="systems-heading" class="py-6 md:py-10 bg-[#0a0f1f] border-b border-gray-800/50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center pb-4 md:pb-6">
-          <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">why arc^ exists</p>
-          <h2 id="systems-heading" class="text-3xl md:text-4xl font-mono tracking-tight mb-4">the systems we're changing</h2>
-          <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-            two systemic barriers lock humanity out of the solutions we need. arc^ is the response.
+        <div class="text-center pb-3 md:pb-4">
+          <p class="text-xs font-mono text-arc-electric uppercase tracking-widest mb-2">why arc^ exists</p>
+          <h2 id="systems-heading" class="text-xl md:text-2xl font-mono tracking-tight mb-2">the systems we're changing</h2>
+          <p class="text-sm md:text-base text-gray-400 max-w-3xl mx-auto">
+            Two systemic barriers lock humanity out of the solutions we need. arc^ is the response.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade">
           {
             featuresTheChallenge.map((feature) => (
-              <div class="group p-8 rounded-2xl bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hover:border-arc-electric/50 hover:bg-gray-900/40 transition-all duration-300 text-center">
-                <div class="mb-6 flex justify-center" role="img" aria-label={`${feature.title} icon`}>
-                  <Icon name={feature.icon} class="w-20 h-20 text-arc-electric" />
+              <div class="group p-5 md:p-6 rounded-xl bg-gray-900/30 backdrop-blur-sm shadow-xl border border-gray-700/50 hover:border-arc-electric/50 hover:bg-gray-900/40 transition-all duration-300 text-center">
+                <div class="mb-4 flex justify-center" role="img" aria-label={`${feature.title} icon`}>
+                  <Icon name={feature.icon} class="w-12 h-12 md:w-14 md:h-14 text-arc-electric" />
                 </div>
-                <h3 class="text-2xl font-mono text-white mb-4">{feature.title}</h3>
-                <p class="text-gray-350 leading-relaxed">{feature.description}</p>
+                <h3 class="text-lg md:text-xl font-mono text-white mb-3">{feature.title}</h3>
+                <p class="text-sm text-gray-350 leading-relaxed">{feature.description}</p>
 
-                <div class="mt-8 pt-6 border-t-2 border-living-earth/20">
-                  <div class="flex items-center justify-center gap-2 mb-3">
-                    <div class="h-0.5 w-8 bg-living-earth"></div>
-                    <h4 class="font-bold text-living-earth text-lg">{feature.responseTitle}</h4>
-                    <div class="h-0.5 w-8 bg-living-earth"></div>
+                <div class="mt-5 pt-4 border-t-2 border-living-earth/20">
+                  <div class="flex items-center justify-center gap-2 mb-2">
+                    <div class="h-0.5 w-6 bg-living-earth"></div>
+                    <h4 class="font-bold text-living-earth text-sm md:text-base">{feature.responseTitle}</h4>
+                    <div class="h-0.5 w-6 bg-living-earth"></div>
                   </div>
-                  <p class="text-gray-200 leading-relaxed" set:html={feature.response}></p>
+                  <p class="text-sm text-gray-200 leading-relaxed" set:html={feature.response}></p>
                 </div>
               </div>
             ))
@@ -251,162 +114,18 @@ const tabContent = [
       </div>
     </section>
 
-    <section id="pathways" aria-labelledby="pathways-heading" class="py-16 md:py-20 lg:py-24 bg-primary-900 scroll-mt-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center pb-12 md:pb-16">
-          <p class="text-sm font-mono text-living-earth uppercase tracking-widest mb-4">three pathways</p>
-          <h2 id="pathways-heading" class="text-3xl md:text-4xl font-mono tracking-tight mb-4">three Pillars. one vision.</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            From research to governance to global data—explore where you fit. <br/>
-            <span class="text-base text-gray-500 flex items-center justify-center gap-1">
-              <Icon name="tabler:arrow-down" class="w-4 h-4" />
-              Click a pillar to view its streams. Click a card to dive deeper.
-            </span>
-          </p>
-        </div>
-
-        <div class="mt-8 max-w-5xl mx-auto">
-          <!-- Hidden radio inputs for CSS-only tabs -->
-          <input type="radio" name="pillar-tabs" id="tab-lab" class="hidden" checked />
-          <input type="radio" name="pillar-tabs" id="tab-framework" class="hidden" />
-          <input type="radio" name="pillar-tabs" id="tab-commons" class="hidden" />
-
-          <!-- Tab buttons (labels) -->
-          <div role="tablist" aria-label="Pathways navigation" class="flex flex-col sm:flex-row justify-center items-center rounded-2xl p-2 space-y-2 sm:space-y-0 sm:space-x-2 bg-gray-900/30 backdrop-blur-sm border border-gray-700/50">
-            <label
-              for="tab-lab"
-              role="tab"
-              aria-controls="lab"
-              aria-selected="true"
-              tabindex="0"
-              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-yellow-500/20"
-            >
-              THE LAB
-            </label>
-            <label
-              for="tab-framework"
-              role="tab"
-              aria-controls="framework"
-              aria-selected="false"
-              tabindex="-1"
-              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-green-400/20"
-            >
-              THE FRAMEWORK
-            </label>
-            <label
-              for="tab-commons"
-              role="tab"
-              aria-controls="commons"
-              aria-selected="false"
-              tabindex="-1"
-              class="w-full sm:w-auto flex-1 py-4 px-6 font-bold rounded-xl transition-all duration-300 font-mono text-base tracking-wide text-center cursor-pointer text-gray-400 hover:text-white hover:bg-blue-400/20"
-            >
-              THE COMMONS
-            </label>
-          </div>
-
-          <!-- Tab content sections -->
-          <div class="mt-8">
-            {
-              tabContent.map((tab) => (
-                <div
-                  id={tab.id}
-                  role="tabpanel"
-                  aria-labelledby={`tab-${tab.id}`}
-                  class="tab-panel rounded-2xl p-8 md:p-10 bg-gray-900/30 backdrop-blur-sm shadow-2xl border border-gray-700/50 hidden"
-                  data-tab={tab.id}
-                >
-                  <h3 class="text-3xl font-mono text-arc-electric mb-4">{tab.headline}</h3>
-                  <p class="mb-10 text-gray-300 border-b-2 border-gray-800/50 pb-6 leading-relaxed" set:html={tab.body}></p>
-
-                  <div class="text-center mb-6">
-                    <p class="text-sm text-gray-500 flex items-center justify-center gap-1">
-                      <Icon name="tabler:arrow-down" class="w-4 h-4" />
-                      Choose your stream. Click to dive deeper.
-                    </p>
-                  </div>
-
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {
-                      tab.streams.map((stream) => (
-                        <a
-                          href={`/${tab.id}#${stream.id}`}
-                          class="group p-6 md:p-7 rounded-xl bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 hover:border-arc-electric/60 hover:bg-gray-800/60 hover:shadow-2xl hover:shadow-arc-electric/10 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between cursor-pointer"
-                        >
-                          <div>
-                            <h4 class="font-bold font-mono text-xl text-white mb-4 group-hover:text-arc-electric transition-colors tracking-tight">{stream.title}</h4>
-
-                            {/* Focus Areas List */}
-                            <div class="mb-4">
-                              <p class="text-xs font-mono text-gray-500 uppercase tracking-wide mb-2">Focus:</p>
-                              <ul class="space-y-1.5">
-                                {stream.focusAreas.map((area) => (
-                                  <li class="text-sm text-gray-300 flex items-start">
-                                    <span class="text-living-earth mr-2 mt-0.5">→</span>
-                                    <span set:html={area}></span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            {/* Who This Is For */}
-                            <div class="mt-4 p-3 rounded-lg bg-gray-900/50 border border-gray-700/30">
-                              <p class="text-xs font-mono text-arc-electric uppercase tracking-wide mb-1">For:</p>
-                              <p class="text-sm text-gray-300 leading-relaxed">{stream.forWho}</p>
-                            </div>
-                          </div>
-
-                          <div class="mt-6 pt-4 border-t border-gray-700/50 space-y-3">
-                            <span
-                              class:list={[
-                                'inline-block text-xs font-semibold px-3 py-1.5 rounded-full',
-                                stream.color === 'text-yellow-400'
-                                  ? 'bg-yellow-900/50 text-yellow-400'
-                                  : stream.color === 'text-green-400'
-                                  ? 'bg-green-900/50 text-green-400'
-                                  : stream.color === 'text-blue-400'
-                                  ? 'bg-blue-900/50 text-blue-400'
-                                  : 'bg-red-900/50 text-red-400',
-                              ]}
-                            >
-                              {stream.status}
-                            </span>
-                            <div class="flex items-center text-xs text-gray-500 group-hover:text-arc-electric transition-colors font-mono">
-                              <span>Explore this stream</span>
-                              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
-                          </div>
-                        </a>
-                      ))
-                    }
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16 md:py-20 lg:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <!-- Bottom CTA Section -->
+    <section class="py-6 md:py-10 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <CallToAction
-          title="<span class='text-living-earth'>Ready to Build?</span> Start Here."
-          subtitle="arc^ is at foundation stage. built in public. <strong>your contribution shapes what comes next.</strong>"
+          title="Ready to Contribute?"
+          subtitle="Explore pathways to get started, or dive into our research approach."
           actions={[
             {
               variant: 'primary',
-              text: 'JOIN THE BUILDERS',
-              href: '/contribute',
-              class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 text-lg transition-all',
-            },
-            {
-              variant: 'secondary',
-              text: 'ACCESS WORKSPACE',
-              href: '/workspace',
-              class: 'bg-living-earth hover:bg-living-earth/90 hover:scale-105 py-4 px-8 text-lg rounded-full font-bold shadow-2xl shadow-living-earth/50 transition-all',
+              text: 'GET STARTED',
+              href: '/get-started',
+              class: 'bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-white shadow-lg shadow-arc-electric/40 text-base md:text-lg transition-all focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900',
             },
           ]}
           bg="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50"
@@ -415,6 +134,100 @@ const tabContent = [
     </section>
 
 
+  </div>
+
+  <!-- Interactive Tour Modal -->
+  <div id="tour-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+    <div class="bg-primary-900 border-2 border-arc-electric rounded-2xl max-w-2xl w-full shadow-2xl shadow-arc-electric/20 transform scale-95 transition-all duration-300" id="tour-content">
+      <div class="p-6 md:p-8">
+        <!-- Tour Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <span id="tour-step-indicator" class="text-sm font-mono text-arc-electric">Step 1 of 3</span>
+          </div>
+          <button id="tour-close" class="text-gray-400 hover:text-white transition" aria-label="Close tour">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Tour Content (changes based on step) -->
+        <div id="tour-body">
+          <!-- Step 1: About -->
+          <div class="tour-step" data-step="1">
+            <h3 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">What is arc^?</h3>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+              Arc^ is <strong class="text-white">open plasma research for ecological regeneration</strong>. We're building plasma technologies to repair damaged ecosystems—water, soil, and living systems—and sharing everything openly.
+            </p>
+            <p class="text-base text-gray-400 mb-6">
+              No patents. No paywalls. Just collaborative science for planetary repair.
+            </p>
+            <a href="/about" class="text-arc-electric hover:text-arc-electric/80 font-mono underline">Read the full story →</a>
+          </div>
+
+          <!-- Step 2: Research -->
+          <div class="tour-step hidden" data-step="2">
+            <h3 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">How we work</h3>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+              Our research spans <strong class="text-white">4 scales</strong>: from plasma physics to ecosystem dynamics. We design systems, test on water and soil, monitor biological responses, and model long-term impacts.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                <p class="text-sm font-mono text-arc-electric mb-1">Scale 1</p>
+                <p class="text-sm text-gray-300">Plasma tech</p>
+              </div>
+              <div class="p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                <p class="text-sm font-mono text-living-earth mb-1">Scale 2</p>
+                <p class="text-sm text-gray-300">Water systems</p>
+              </div>
+              <div class="p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                <p class="text-sm font-mono text-blue-400 mb-1">Scale 3</p>
+                <p class="text-sm text-gray-300">Organisms</p>
+              </div>
+              <div class="p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                <p class="text-sm font-mono text-purple-400 mb-1">Scale 4</p>
+                <p class="text-sm text-gray-300">Ecosystems</p>
+              </div>
+            </div>
+            <a href="/research" class="text-arc-electric hover:text-arc-electric/80 font-mono underline">See our research approach →</a>
+          </div>
+
+          <!-- Step 3: Pathways -->
+          <div class="tour-step hidden" data-step="3">
+            <h3 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">Where you fit</h3>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+              We organize our work into <strong class="text-white">3 pillars</strong>. Each one needs different skills and perspectives.
+            </p>
+            <div class="space-y-3 mb-6">
+              <div class="p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                <p class="font-mono font-bold text-yellow-400 mb-1">Lab</p>
+                <p class="text-sm text-gray-300">Build & test plasma systems</p>
+              </div>
+              <div class="p-4 bg-green-400/10 border border-green-400/30 rounded-lg">
+                <p class="font-mono font-bold text-green-400 mb-1">Framework</p>
+                <p class="text-sm text-gray-300">Develop protocols & governance</p>
+              </div>
+              <div class="p-4 bg-blue-400/10 border border-blue-400/30 rounded-lg">
+                <p class="font-mono font-bold text-blue-400 mb-1">Commons</p>
+                <p class="text-sm text-gray-300">Share data & knowledge</p>
+              </div>
+            </div>
+            <a href="/projects" class="text-arc-electric hover:text-arc-electric/80 font-mono underline">Explore all pathways →</a>
+          </div>
+        </div>
+
+        <!-- Tour Navigation -->
+        <div class="flex items-center justify-between mt-8 pt-6 border-t border-gray-700">
+          <button id="tour-prev" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            ← Previous
+          </button>
+          <button id="tour-next" class="px-6 py-2 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition">
+            Next →
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Back to Top Button -->
@@ -428,34 +241,86 @@ const tabContent = [
     </svg>
   </button>
 
-  <style>
-    /* CSS-only tab switching */
-    #tab-lab:checked ~ div .tab-panel[data-tab="lab"],
-    #tab-framework:checked ~ div .tab-panel[data-tab="framework"],
-    #tab-commons:checked ~ div .tab-panel[data-tab="commons"] {
-      display: block !important;
-    }
-
-    /* Active tab styling */
-    #tab-lab:checked ~ div label[for="tab-lab"] {
-      background-color: rgb(234 179 8) !important; /* yellow-500 */
-      color: rgb(17 24 39) !important; /* gray-900 */
-    }
-
-    #tab-framework:checked ~ div label[for="tab-framework"] {
-      background-color: rgb(74 222 128) !important; /* green-400 */
-      color: rgb(17 24 39) !important; /* gray-900 */
-    }
-
-    #tab-commons:checked ~ div label[for="tab-commons"] {
-      background-color: rgb(96 165 250) !important; /* blue-400 */
-      color: rgb(17 24 39) !important; /* gray-900 */
-    }
-  </style>
-
   <script is:inline>
-    // Smooth scroll for anchor links
     document.addEventListener('DOMContentLoaded', () => {
+      // Interactive Tour
+      const tourButton = document.getElementById('tour-button');
+      const tourModal = document.getElementById('tour-modal');
+      const tourContent = document.getElementById('tour-content');
+      const tourClose = document.getElementById('tour-close');
+      const tourPrev = document.getElementById('tour-prev');
+      const tourNext = document.getElementById('tour-next');
+      const tourStepIndicator = document.getElementById('tour-step-indicator');
+      let currentStep = 1;
+      const totalSteps = 3;
+
+      function showTourStep(step) {
+        document.querySelectorAll('.tour-step').forEach(el => el.classList.add('hidden'));
+        document.querySelector(`.tour-step[data-step="${step}"]`).classList.remove('hidden');
+        tourStepIndicator.textContent = `Step ${step} of ${totalSteps}`;
+
+        tourPrev.disabled = step === 1;
+        if (step === totalSteps) {
+          tourNext.textContent = 'Get Started →';
+        } else {
+          tourNext.textContent = 'Next →';
+        }
+      }
+
+      function openTour() {
+        tourModal.classList.remove('opacity-0', 'invisible');
+        tourContent.classList.remove('scale-95');
+        tourContent.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeTour() {
+        tourModal.classList.add('opacity-0', 'invisible');
+        tourContent.classList.add('scale-95');
+        tourContent.classList.remove('scale-100');
+        document.body.style.overflow = '';
+        currentStep = 1;
+        showTourStep(1);
+      }
+
+      tourButton?.addEventListener('click', openTour);
+      tourClose?.addEventListener('click', closeTour);
+      tourModal?.addEventListener('click', (e) => {
+        if (e.target === tourModal) closeTour();
+      });
+
+      tourPrev?.addEventListener('click', () => {
+        if (currentStep > 1) {
+          currentStep--;
+          showTourStep(currentStep);
+        }
+      });
+
+      tourNext?.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          showTourStep(currentStep);
+        } else {
+          window.location.href = '/get-started';
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!tourModal.classList.contains('invisible')) {
+          if (e.key === 'Escape') closeTour();
+          if (e.key === 'ArrowRight' && currentStep < totalSteps) {
+            currentStep++;
+            showTourStep(currentStep);
+          }
+          if (e.key === 'ArrowLeft' && currentStep > 1) {
+            currentStep--;
+            showTourStep(currentStep);
+          }
+        }
+      });
+
+      // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
@@ -487,6 +352,5 @@ const tabContent = [
         });
       }
     });
-
   </script>
 </Layout>

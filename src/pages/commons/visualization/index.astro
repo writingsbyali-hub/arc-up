@@ -1,0 +1,138 @@
+---
+// ====================================================================
+// VISUALIZATION TOOLS STREAM PAGE
+// Making data accessible through interactive visualizations
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Visualization Tools — Commons Stream',
+};
+
+const projects = [
+  {
+    title: 'D3 Data Explorer',
+    slug: '/commons/visualization/d3-explorer',
+    summary: 'Interactive visualizations for exploring plasma research data using D3.js.',
+    tags: ['D3.js', 'Frontend', 'Data Viz'],
+    updated: 'Coming Soon'
+  },
+  {
+    title: 'Real-Time Dashboards',
+    slug: '/commons/visualization/dashboards',
+    summary: 'Building live dashboards for monitoring experiments and field trials.',
+    tags: ['Dashboards', 'Real-Time', 'Monitoring'],
+    updated: 'Coming Soon'
+  },
+  {
+    title: 'Geospatial Mapping',
+    slug: '/commons/visualization/mapping',
+    summary: 'Mapping field sites and ecological data on interactive geographic visualizations.',
+    tags: ['GIS', 'Mapping', 'Ecology'],
+    updated: 'Coming Soon'
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Breadcrumb -->
+  <div class="bg-primary-900 border-b border-gray-700/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-sm text-gray-400 font-mono">
+        <a href="/projects" class="hover:text-living-earth transition">projects</a>
+        <span class="mx-2">/</span>
+        <a href="/commons" class="hover:text-blue-400 transition">commons</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">visualization tools</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Visualization Tools"
+    tagline="Commons Stream"
+  >
+    <Fragment slot="subtitle">
+      <span class="text-gray-300">
+        Making data accessible. We create interactive visualizations to explore research data and communicate findings.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Projects -->
+      <div class="mb-12">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-white font-mono">Projects</h2>
+          <span class="text-sm text-gray-400 font-mono">{projects.length} total</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <a
+              href={project.slug}
+              class="group bg-gray-900/30 border border-gray-700/50 hover:border-blue-400/60 rounded-xl p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] block"
+            >
+              <!-- Header -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold mb-2 font-mono text-white group-hover:text-blue-400 transition">
+                    {project.title}
+                  </h3>
+                </div>
+                <svg class="w-6 h-6 text-gray-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+
+              <!-- Summary -->
+              <p class="text-gray-300 mb-4 leading-relaxed">{project.summary}</p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-3">
+                {project.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-gray-800/50 text-gray-400 text-xs rounded font-mono">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Footer -->
+              <div class="text-xs text-gray-500 font-mono">
+                Updated: {project.updated}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Compact CTA -->
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 text-center">
+        <p class="text-gray-300 mb-4">
+          Ready to contribute to Visualization Tools?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/get-started"
+            class="px-6 py-3 bg-green-400 hover:bg-green-300 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] text-center"
+          >
+            Get Started
+          </a>
+          <a
+            href="https://discord.com/invite/DA8BPA3VsN"
+            target="_blank"
+            class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] text-center"
+          >
+            Join Discord →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

@@ -1,18 +1,1 @@
-{
-	"folders": [
-		{
-			"path": "../.."
-		},
-		{
-			"path": "../../../../agents-main/agents-main/design"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"*.mdx": "markdown"
-		},
-		"prettier.documentSelectors": [
-			"**/*.astro"
-		]
-	}
-}
+{}

@@ -8,12 +8,8 @@ import { Icon } from 'astro-icon/components';
 import AnimatedLogo from '~/components/ui/AnimatedLogo.astro';
 import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 
-// Hardcoded ArcUp Navigation
-const navList = [
-  { text: 'Home', href: getHomePermalink() },
-  { text: 'Workspace', href: getPermalink('/workspace') },
-  { text: 'Re:Practise', href: 'https://repractise.xbyali.page', external: true },
-];
+// Social links for footer
+// Note: Navigation links are hardcoded in the footer template below
 
 const socialList = [
   {
@@ -46,7 +42,7 @@ const { theme = 'dark' } = Astro.props;
 
       <!-- Logo and Description Column -->
       <div class="space-y-4 xl:col-span-2 pr-8">
-        <a class="flex items-center gap-3" href={getHomePermalink()}>
+        <a class="flex items-center gap-3 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900" href={getHomePermalink()}>
           <AnimatedLogo size="sm" animation="playful" />
           <span class="text-sm text-gray-400 font-mono">byali</span>
         </a>
@@ -57,7 +53,7 @@ const { theme = 'dark' } = Astro.props;
         <div class="flex space-x-4">
           {socialList.map((item) => (
             <a
-              class="text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+              class="text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
               aria-label={item.ariaLabel}
               href={item.href}
               target="_blank"
@@ -73,46 +69,46 @@ const { theme = 'dark' } = Astro.props;
       <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
         <!-- Internal Pages -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Navigate</h3>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white">navigate</h3>
           <ul role="list" class="space-y-3">
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getHomePermalink()}
               >
-                Home
+                home
               </a>
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/about')}
               >
-                About
+                about
               </a>
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/research')}
               >
-                Research
+                research
               </a>
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
-                href={getPermalink('/pathways')}
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
+                href={getPermalink('/projects')}
               >
-                Pathways
+                projects
               </a>
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/get-started')}
               >
-                Get Started
+                get started
               </a>
             </li>
           </ul>
@@ -124,7 +120,7 @@ const { theme = 'dark' } = Astro.props;
           <ul role="list" class="space-y-3">
             <li>
               <a
-                class="text-base text-gray-400 hover:text-yellow-400 transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-yellow-400 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/lab')}
               >
                 Lab
@@ -132,7 +128,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-green-400 transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-green-400 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/framework')}
               >
                 Framework
@@ -140,7 +136,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-blue-400 transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-blue-400 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href={getPermalink('/commons')}
               >
                 Commons
@@ -155,7 +151,7 @@ const { theme = 'dark' } = Astro.props;
           <ul role="list" class="space-y-3">
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href="https://xbyali.page"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -165,7 +161,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href="https://repractise.xbyali.page"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -175,7 +171,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href="https://workspace.xbyali.page"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -185,7 +181,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href="https://discord.com/invite/DA8BPA3VsN"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -195,7 +191,7 @@ const { theme = 'dark' } = Astro.props;
             </li>
             <li>
               <a
-                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out"
+                class="text-base text-gray-400 hover:text-arc-electric transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 inline-block py-1"
                 href="https://www.youtube.com/@arc-arcup"
                 target="_blank"
                 rel="noopener noreferrer"

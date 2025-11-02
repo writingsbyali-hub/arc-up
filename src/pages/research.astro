@@ -1,10 +1,11 @@
 ---
 // ====================================================================
-// RESEARCH PAGE - FROM ENERGY TO ECOSYSTEMS
-// Explains the four connected scales of ArcUp research
+// RESEARCH PAGE - TABBED INTERFACE
+// The Science | Our Approach | Safety & Ethics | Open Licensing
 // ====================================================================
 import Layout from '~/layouts/PageLayout.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Research — From Energy to Ecosystems',
@@ -81,99 +82,438 @@ const scales = [
     connectorColor: 'from-arc-electric/30'
   }
 ];
+
+const tabs = [
+  { id: 'science', label: 'The Science', icon: 'tabler:flask' },
+  { id: 'approach', label: 'Our Approach', icon: 'tabler:route' },
+  { id: 'safety', label: 'Safety & Ethics', icon: 'tabler:shield-check' },
+  { id: 'licensing', label: 'Open Licensing', icon: 'tabler:license' },
+];
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section with Gradient -->
-  <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-      <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">
-        Four Connected Scales of Research
-      </p>
-      <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
-        From Energy to Ecosystems
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        arc^ studies how plasma interacts across interconnected scales—from device to droplet, organisms to ecosystems. each scale informs the next, creating a continuum of repair that moves from energy generation to ecological resilience.
-      </p>
+  <section class="relative py-6 md:py-10 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-gray-400">
+          <li><a href="/" class="hover:text-arc-electric transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded">home</a></li>
+          <li><span class="text-gray-600">/</span></li>
+          <li class="text-white font-medium" aria-current="page">research</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">
+          Four Connected Scales of Research
+        </p>
+        <h1 class="text-lg md:text-xl font-mono mb-6 tracking-tight text-white">
+          From Energy to Ecosystems
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          arc^ studies how plasma interacts across interconnected scales—from device to droplet, organisms to ecosystems. each scale informs the next, creating a continuum of repair that moves from energy generation to ecological resilience.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <section class="bg-primary-900 py-12 md:py-16">
+  <!-- Main Content with Tabs -->
+  <section class="bg-primary-900 py-6 md:py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-      <!-- Introduction -->
-      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-24">
-        <p class="text-xl text-gray-300 leading-relaxed">
-          Together, these scales form a <strong class="text-white">continuum of repair</strong>—from energy generation to ecological resilience.
-        </p>
-      </div>
-
-      <!-- Scales Grid -->
-      <div class="space-y-12 md:space-y-20">
-        {scales.map((scale, index) => (
-          <div
-            class={`relative ${scale.bgColor} border ${scale.borderColor} rounded-2xl p-8 md:p-12 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}
+      <!-- Tab Navigation -->
+      <nav class="flex flex-wrap justify-center gap-2 mb-8 border-b border-gray-700/50 pb-1" role="tablist" aria-label="Research sections">
+        {tabs.map((tab, index) => (
+          <button
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            aria-controls={`tab-${tab.id}`}
+            id={`btn-${tab.id}`}
+            data-tab={tab.id}
+            class={`tab-button group px-4 py-3 font-mono text-sm transition-all duration-300 rounded-t-lg flex items-center gap-2 ${
+              index === 0
+                ? 'text-arc-electric border-b-2 border-arc-electric bg-arc-electric/5'
+                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/30'
+            }`}
           >
-            <!-- Scale Number -->
-            <div class="absolute -top-6 -left-4 md:-left-6">
-              <div class={`${scale.bgColor} border-2 ${scale.borderColor} rounded-xl px-4 py-2 font-mono text-2xl md:text-3xl font-bold ${scale.iconColor} backdrop-blur-sm`}>
-                {scale.number}
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="space-y-6">
-              <!-- Header -->
-              <div class="space-y-2">
-                <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor}`}>
-                  {scale.subtitle}
-                </p>
-                <h3 class="text-3xl md:text-4xl font-bold text-white font-mono">
-                  {scale.title}
-                </h3>
-              </div>
-
-              <!-- Description -->
-              <p class="text-lg text-gray-300 leading-relaxed">
-                {scale.description}
-              </p>
-
-              <!-- Focus Areas -->
-              <div class="pt-4">
-                <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor} mb-4`}>
-                  Focus Areas
-                </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {scale.focus.map(item => (
-                    <li class="flex items-center gap-3 text-gray-300">
-                      <span class={`${scale.iconColor} text-lg`}>→</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <!-- Connector Line (except for last item) -->
-            {index < scales.length - 1 && (
-              <div class="hidden md:block absolute -bottom-10 left-1/2 transform -translate-x-1/2">
-                <div class={`w-0.5 h-20 bg-gradient-to-b ${scale.connectorColor} to-transparent`}></div>
-              </div>
-            )}
-          </div>
+            <Icon name={tab.icon} class="w-4 h-4" />
+            <span class="hidden sm:inline">{tab.label}</span>
+            <span class="sm:hidden">{tab.label.split(' ')[0]}</span>
+          </button>
         ))}
+      </nav>
+
+      <!-- Tab Content: The Science -->
+      <div id="tab-science" role="tabpanel" aria-labelledby="btn-science" class="tab-content">
+        <!-- Introduction -->
+        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Together, these scales form a <strong class="text-white">continuum of repair</strong>—from energy generation to ecological resilience.
+          </p>
+        </div>
+
+        <!-- Scales Grid -->
+        <div class="space-y-12 md:space-y-20">
+          {scales.map((scale, index) => (
+            <div
+              class={`relative ${scale.bgColor} border ${scale.borderColor} rounded-2xl p-6 md:p-12 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}
+            >
+              <!-- Scale Number -->
+              <div class="absolute -top-6 -left-4 md:-left-6">
+                <div class={`${scale.bgColor} border-2 ${scale.borderColor} rounded-xl px-4 py-2 font-mono text-lg md:text-xl font-bold ${scale.iconColor} backdrop-blur-sm`}>
+                  {scale.number}
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="space-y-6">
+                <!-- Header -->
+                <div class="space-y-2">
+                  <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor}`}>
+                    {scale.subtitle}
+                  </p>
+                  <h3 class="text-lg md:text-xl font-bold text-white font-mono">
+                    {scale.title}
+                  </h3>
+                </div>
+
+                <!-- Description -->
+                <p class="text-lg text-gray-300 leading-relaxed">
+                  {scale.description}
+                </p>
+
+                <!-- Focus Areas -->
+                <div class="pt-4">
+                  <p class={`text-sm font-mono uppercase tracking-wider ${scale.iconColor} mb-4`}>
+                    Focus Areas
+                  </p>
+                  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {scale.focus.map(item => (
+                      <li class="flex items-center gap-3 text-gray-300">
+                        <span class={`${scale.iconColor} text-lg`}>→</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Connector Line (except for last item) -->
+              {index < scales.length - 1 && (
+                <div class="hidden md:block absolute -bottom-10 left-1/2 transform -translate-x-1/2">
+                  <div class={`w-0.5 h-20 bg-gradient-to-b ${scale.connectorColor} to-transparent`}></div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <!-- Bottom Message -->
+        <div class="max-w-3xl mx-auto text-center mt-16 md:mt-24 p-6 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
+          <p class="text-lg text-gray-300 leading-relaxed mb-4">
+            Detailed methods and safety information are available through <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">Workspace</a> once verification is complete.
+          </p>
+          <p class="text-base text-gray-400">
+            This keeps practice responsible while allowing anyone who wishes to learn to do so safely.
+          </p>
+        </div>
       </div>
 
-      <!-- Bottom Message -->
-      <div class="max-w-3xl mx-auto text-center mt-16 md:mt-24 p-8 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
-        <p class="text-lg text-gray-300 leading-relaxed mb-4">
-          Detailed methods and safety information are available through <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">Workspace</a> once verification is complete.
-        </p>
-        <p class="text-base text-gray-400">
-          This keeps practice responsible while allowing anyone who wishes to learn to do so safely.
-        </p>
+      <!-- Tab Content: Our Approach -->
+      <div id="tab-approach" role="tabpanel" aria-labelledby="btn-approach" class="tab-content hidden">
+        <div class="max-w-4xl mx-auto space-y-12">
+
+          <!-- Introduction -->
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Methodology</h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Arc^ bridges fundamental plasma physics with field-scale ecological interventions through systematic research at four interconnected scales.
+            </p>
+          </div>
+
+          <!-- Approach Cards -->
+          <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Validation -->
+            <div class="bg-gray-900/30 border border-green-400/30 rounded-xl p-6 backdrop-blur-sm hover:border-green-400 transition-all duration-300">
+              <Icon name="tabler:checklist" class="w-12 h-12 text-green-400 mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Validation</h3>
+              <p class="text-gray-300 leading-relaxed">
+                Every experiment follows reproducible protocols. We pre-register methods, share raw data, and require independent replication before claims are accepted.
+              </p>
+            </div>
+
+            <!-- Collaboration -->
+            <div class="bg-gray-900/30 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm hover:border-blue-400 transition-all duration-300">
+              <Icon name="tabler:users" class="w-12 h-12 text-blue-400 mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Collaboration</h3>
+              <p class="text-gray-300 leading-relaxed">
+                Research happens across institutions, communities, and contexts. Shared infrastructure and open protocols enable anyone to contribute meaningfully.
+              </p>
+            </div>
+
+            <!-- Openness -->
+            <div class="bg-gray-900/30 border border-arc-electric/30 rounded-xl p-6 backdrop-blur-sm hover:border-arc-electric transition-all duration-300">
+              <Icon name="tabler:world" class="w-12 h-12 text-arc-electric mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Openness</h3>
+              <p class="text-gray-300 leading-relaxed">
+                All hardware designs, software, data, and documentation are open-licensed. Knowledge created collectively belongs to the commons.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Research Philosophy -->
+          <div class="bg-gradient-to-br from-arc-electric/5 via-transparent to-living-earth/5 border border-arc-electric/30 rounded-2xl p-8 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-white mb-4 font-mono">Research Philosophy</h3>
+            <div class="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                We study plasma not as an isolated phenomenon, but as a bridge between energy and ecology. Each intervention is an opportunity to understand coupling, resilience, and repair.
+              </p>
+              <p>
+                Our work integrates physics, chemistry, biology, and systems ecology—not because disciplines matter, but because the problems demand it. We follow questions across traditional boundaries.
+              </p>
+              <p>
+                Progress is measured not by publications, but by replicability, safety validation, and real-world application. If it can't be reproduced openly, it isn't science.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab Content: Safety & Ethics -->
+      <div id="tab-safety" role="tabpanel" aria-labelledby="btn-safety" class="tab-content hidden">
+        <div class="max-w-4xl mx-auto space-y-12">
+
+          <!-- Introduction -->
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Safety & Ethical Framework</h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Every decision passes through four lenses—ensuring research serves life, not extraction.
+            </p>
+          </div>
+
+          <!-- Four Lenses -->
+          <div class="space-y-6">
+
+            <!-- People -->
+            <div class="bg-gradient-to-r from-yellow-400/10 via-transparent to-transparent border-l-4 border-yellow-400 rounded-xl p-6 backdrop-blur-sm">
+              <div class="flex items-start gap-4">
+                <Icon name="tabler:users" class="w-10 h-10 text-yellow-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-3 font-mono">People</h3>
+                  <p class="text-gray-300 leading-relaxed mb-4">
+                    Consent, transparency, and community benefit guide all research. We prioritize local knowledge, equitable access, and collective decision-making.
+                  </p>
+                  <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-center gap-2">
+                      <span class="text-yellow-400">→</span>
+                      Informed consent for all participants
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-yellow-400">→</span>
+                      Open communication of risks and benefits
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-yellow-400">→</span>
+                      Community ownership of outcomes
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Organisms -->
+            <div class="bg-gradient-to-r from-green-400/10 via-transparent to-transparent border-l-4 border-green-400 rounded-xl p-6 backdrop-blur-sm">
+              <div class="flex items-start gap-4">
+                <Icon name="tabler:leaf" class="w-10 h-10 text-green-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-3 font-mono">Organisms</h3>
+                  <p class="text-gray-300 leading-relaxed mb-4">
+                    Non-invasive study wherever possible. We use eDNA sensing, observation, and molecular markers to minimize harm while maximizing understanding.
+                  </p>
+                  <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-center gap-2">
+                      <span class="text-green-400">→</span>
+                      Non-lethal sampling methods prioritized
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-green-400">→</span>
+                      Stress minimization protocols
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-green-400">→</span>
+                      Monitoring for unintended harm
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ecosystems -->
+            <div class="bg-gradient-to-r from-blue-400/10 via-transparent to-transparent border-l-4 border-blue-400 rounded-xl p-6 backdrop-blur-sm">
+              <div class="flex items-start gap-4">
+                <Icon name="tabler:plant-2" class="w-10 h-10 text-blue-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-3 font-mono">Ecosystems</h3>
+                  <p class="text-gray-300 leading-relaxed mb-4">
+                    We study dynamic systems, not static objects. Interventions account for coupling, feedbacks, and emergent properties across scales.
+                  </p>
+                  <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-center gap-2">
+                      <span class="text-blue-400">→</span>
+                      Long-term monitoring of ecosystem responses
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-blue-400">→</span>
+                      Feedback loop identification
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-blue-400">→</span>
+                      Adaptive management based on outcomes
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Future -->
+            <div class="bg-gradient-to-r from-arc-electric/10 via-transparent to-transparent border-l-4 border-arc-electric rounded-xl p-6 backdrop-blur-sm">
+              <div class="flex items-start gap-4">
+                <Icon name="tabler:rocket" class="w-10 h-10 text-arc-electric flex-shrink-0 mt-1" />
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-3 font-mono">Future</h3>
+                  <p class="text-gray-300 leading-relaxed mb-4">
+                    Downstream effects matter. We prioritize continuity over novelty, repair over extraction, and futures worth inheriting.
+                  </p>
+                  <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-center gap-2">
+                      <span class="text-arc-electric">→</span>
+                      Multi-generational impact assessment
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-arc-electric">→</span>
+                      Precautionary approach to uncertainty
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-arc-electric">→</span>
+                      Alignment with Re:Practise framework
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Re:Practise Link -->
+          <div class="text-center p-6 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
+            <p class="text-gray-300 mb-4">
+              Our ethical framework aligns with <strong class="text-white">Re:Practise</strong>—a methodology for responsible technology development grounded in care, repair, and collective futures.
+            </p>
+            <a href="https://re-practise.org" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">
+              Learn more about Re:Practise →
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab Content: Open Licensing -->
+      <div id="tab-licensing" role="tabpanel" aria-labelledby="btn-licensing" class="tab-content hidden">
+        <div class="max-w-4xl mx-auto space-y-12">
+
+          <!-- Introduction -->
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Open Licensing</h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              All work is open-licensed. Not anti-commercial. Pro-commons.
+            </p>
+          </div>
+
+          <!-- Why Open? -->
+          <div class="bg-gradient-to-br from-arc-electric/5 via-transparent to-living-earth/5 border border-arc-electric/30 rounded-2xl p-8 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-white mb-4 font-mono">Why Everything is Open</h3>
+            <div class="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                Ecological repair can't be proprietary. If plasma research is going to help restore degraded ecosystems, it must be accessible to communities facing those challenges—not locked behind patents or paywalls.
+              </p>
+              <p>
+                Open licensing doesn't mean anti-commercial. It means <strong class="text-white">pro-commons</strong>. Commercial entities can use our work, but they must contribute improvements back. Knowledge flows freely; extraction doesn't.
+              </p>
+              <p>
+                We choose licenses that protect this reciprocity: share-alike clauses ensure collective benefit, copyleft structures prevent enclosure.
+              </p>
+            </div>
+          </div>
+
+          <!-- Licenses Used -->
+          <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Hardware -->
+            <div class="bg-gray-900/30 border border-yellow-400/30 rounded-xl p-6 backdrop-blur-sm hover:border-yellow-400 transition-all duration-300">
+              <Icon name="tabler:cpu" class="w-12 h-12 text-yellow-400 mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Hardware</h3>
+              <p class="text-sm font-mono text-yellow-400 mb-3">CERN-OHL-S v2</p>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                All plasma devices, circuits, and physical designs. Strong reciprocal license—modifications must be shared.
+              </p>
+              <a href="https://ohwr.org/cern_ohl_s_v2.txt" target="_blank" class="text-sm text-gray-400 hover:text-arc-electric transition underline">
+                Read license →
+              </a>
+            </div>
+
+            <!-- Documentation -->
+            <div class="bg-gray-900/30 border border-green-400/30 rounded-xl p-6 backdrop-blur-sm hover:border-green-400 transition-all duration-300">
+              <Icon name="tabler:file-text" class="w-12 h-12 text-green-400 mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Documentation</h3>
+              <p class="text-sm font-mono text-green-400 mb-3">CC BY-NC-SA 4.0</p>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                Protocols, guides, research reports. Attribution required, non-commercial, share-alike.
+              </p>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="text-sm text-gray-400 hover:text-arc-electric transition underline">
+                Read license →
+              </a>
+            </div>
+
+            <!-- Software -->
+            <div class="bg-gray-900/30 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm hover:border-blue-400 transition-all duration-300">
+              <Icon name="tabler:code" class="w-12 h-12 text-blue-400 mb-4" />
+              <h3 class="text-xl font-bold text-white mb-3 font-mono">Software</h3>
+              <p class="text-sm font-mono text-blue-400 mb-3">AGPL-3.0</p>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                Analysis tools, data pipelines, visualization code. Network copyleft—even SaaS must share source.
+              </p>
+              <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" class="text-sm text-gray-400 hover:text-arc-electric transition underline">
+                Read license →
+              </a>
+            </div>
+
+          </div>
+
+          <!-- IP Policy -->
+          <div class="bg-gray-900/30 border border-gray-700/50 rounded-2xl p-8 backdrop-blur-sm">
+            <h3 class="text-2xl font-bold text-white mb-4 font-mono">Intellectual Property Policy</h3>
+            <div class="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                Arc^ does not file patents. We believe ecological technologies should be commons infrastructure, not commodities.
+              </p>
+              <p>
+                All contributors retain copyright to their individual contributions but grant perpetual rights to use, modify, and distribute under the licenses above.
+              </p>
+              <p>
+                For institutional collaborators: we negotiate IP terms that preserve openness. If a university partner requires patent rights, we ensure those patents are licensed freely for non-commercial ecological use.
+              </p>
+              <p class="text-sm text-gray-400">
+                For detailed IP guidance, see the <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition underline">Workspace governance documentation</a>.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -186,8 +526,8 @@ const scales = [
     actions={[
       {
         variant: 'primary',
-        text: 'Explore Pathways',
-        href: '/pathways',
+        text: 'Explore Projects',
+        href: '/projects',
       },
       {
         variant: 'secondary',
@@ -197,3 +537,63 @@ const scales = [
     ]}
   />
 </Layout>
+
+<!-- Tab Switching Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.dataset.tab;
+
+        // Hide all tab contents
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.setAttribute('aria-hidden', 'true');
+        });
+
+        // Show selected tab content
+        const selectedTab = document.getElementById(`tab-${tabId}`);
+        selectedTab.classList.remove('hidden');
+        selectedTab.setAttribute('aria-hidden', 'false');
+
+        // Update button states
+        tabButtons.forEach(btn => {
+          btn.classList.remove('text-arc-electric', 'border-b-2', 'border-arc-electric', 'bg-arc-electric/5');
+          btn.classList.add('text-gray-400');
+          btn.setAttribute('aria-selected', 'false');
+        });
+
+        // Activate clicked button
+        button.classList.remove('text-gray-400');
+        button.classList.add('text-arc-electric', 'border-b-2', 'border-arc-electric', 'bg-arc-electric/5');
+        button.setAttribute('aria-selected', 'true');
+
+        // Smooth scroll to top of content
+        selectedTab.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+
+    // Handle keyboard navigation
+    tabButtons.forEach((button, index) => {
+      button.addEventListener('keydown', (e) => {
+        let newIndex;
+
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          newIndex = (index + 1) % tabButtons.length;
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+        }
+
+        if (newIndex !== undefined) {
+          tabButtons[newIndex].focus();
+          tabButtons[newIndex].click();
+        }
+      });
+    });
+  });
+</script>

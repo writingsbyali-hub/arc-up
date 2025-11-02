@@ -3,46 +3,47 @@ import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Framework — Protocols & Governance',
+  title: 'Commons — Data & Knowledge',
 };
 
 const streams = [
   {
-    id: 'protocols',
-    title: 'I. Protocols',
-    status: 'Active',
-    statusColor: 'green',
-    workDescription: 'Create methodology templates that others can follow. Build version control systems for experimental workflows. Document procedures so thoroughly that replication becomes trivial. Establish open-hardware specification standards that turn ideas into buildable reality.',
-    backgrounds: 'Research methodology, technical writing, open-source documentation, experimental design',
-    projects: [
-      { title: 'Methodology Templates', lookingFor: 'Researchers, technical writers', status: 'Future Work' },
-      { title: 'Version Control Standards', lookingFor: 'Documentation specialists', status: 'Future Work' },
-    ],
-  },
-  {
-    id: 'governance',
-    title: 'II. Governance',
+    id: 'data',
+    title: 'I. Data',
     status: 'In Development',
     statusColor: 'yellow',
-    workDescription: 'Define and uphold the Non-Lethal Mandate. Work in alignment with Re:Practise (re:earth, re:tech, re:align) to build ethical research infrastructure. Design transparent decision-making processes that scale. Create conflict resolution protocols that preserve community. Develop commons-based intellectual property frameworks. Provide legal support and community care. Shape how arc^ makes choices collectively.',
-    backgrounds: 'Ethics, community organizing, legal frameworks, conflict mediation, commons governance, care work',
+    workDescription: 'Design APIs that make data ingestion seamless. Integrate global sensor networks into shared infrastructure. Build standardized schemas (JSON/CSV) so datasets talk to each other. Create distributed storage systems that keep data accessible and permanent. Turn raw observations into collective knowledge.',
+    backgrounds: 'Backend development, database architecture, API design, IoT systems, distributed systems',
     projects: [
-      { title: 'Non-Lethal Mandate Documentation', lookingFor: 'Ethicists, writers', status: 'In Development' },
-      { title: 'Decision-Making Framework', lookingFor: 'Community organizers, governance designers', status: 'Future Work' },
-      { title: 'IP & Licensing Guide', lookingFor: 'Legal scholars, open-source advocates', status: 'Future Work' },
+      { title: 'Data Ingestion API', lookingFor: 'Backend developers, API designers', status: 'Future Work' },
+      { title: 'Sensor Network Integration', lookingFor: 'IoT engineers, systems architects', status: 'Future Work' },
+      { title: 'Standardized Schema Definition', lookingFor: 'Database architects, data engineers', status: 'Future Work' },
     ],
   },
   {
-    id: 'validation',
-    title: 'III. Validation',
+    id: 'visualization',
+    title: 'II. Visualization',
     status: 'Future Work',
     statusColor: 'red',
-    workDescription: 'Build peer review systems that work openly. Create pre-registration workflows that prevent p-hacking and publication bias. Design decentralized verification methods so trust doesn\'t depend on institutions. Write code review tools for analysis pipelines. Make science actually reproducible.',
-    backgrounds: 'Statistics, software development, data science, peer review, scientific integrity',
+    workDescription: 'Design real-time monitoring dashboards that reveal patterns instantly. Build open-source visualization libraries anyone can use. Create public data access interfaces that make research transparent. Turn complex datasets into understandable graphics. Make the invisible visible.',
+    backgrounds: 'Frontend development, UX/UI design, data visualization, D3.js, interactive graphics',
     projects: [
-      { title: 'Open Peer Review System', lookingFor: 'Software developers, researchers', status: 'Future Work' },
-      { title: 'Pre-Registration Platform', lookingFor: 'Data scientists, UX designers', status: 'Future Work' },
-      { title: 'Code Review Tools', lookingFor: 'Developers, statisticians', status: 'Future Work' },
+      { title: 'Real-Time Dashboard', lookingFor: 'Frontend developers, UX designers', status: 'Future Work' },
+      { title: 'Visualization Library', lookingFor: 'Developers, data viz specialists', status: 'Future Work' },
+      { title: 'Public Data Portal', lookingFor: 'Full-stack developers, designers', status: 'Future Work' },
+    ],
+  },
+  {
+    id: 'modeling',
+    title: 'III. Modeling',
+    status: 'Future Work',
+    statusColor: 'red',
+    workDescription: 'Apply systems theory to ecosystem dynamics. Build resilience models that predict tipping points. Simulate coupling and cycling dynamics across scales. Create predictive tools for long-term planning. Connect plasma interventions to ecological outcomes mathematically.',
+    backgrounds: 'Computational modeling, systems ecology, mathematics, simulation, complexity science',
+    projects: [
+      { title: 'Ecosystem Resilience Model', lookingFor: 'Systems modelers, computational ecologists', status: 'Future Work' },
+      { title: 'Coupling Dynamics Simulator', lookingFor: 'Mathematicians, developers', status: 'Future Work' },
+      { title: 'Predictive Analysis Tools', lookingFor: 'Data scientists, modelers', status: 'Future Work' },
     ],
   },
 ];
@@ -58,21 +59,21 @@ const streams = [
         <!-- Breadcrumb -->
         <nav class="mb-8 text-sm">
           <ol class="flex items-center space-x-2 text-gray-400">
-            <li><a href="/pathways" class="hover:text-arc-electric transition">Pathways</a></li>
+            <li><a href="/projects" class="hover:text-arc-electric transition">projects</a></li>
             <li><span class="text-gray-600">/</span></li>
-            <li class="text-white font-medium">Framework</li>
+            <li class="text-white font-medium">commons</li>
           </ol>
         </nav>
 
         <div class="text-center">
-          <p class="text-sm font-mono text-green-400 uppercase tracking-widest mb-4">
-            Protocols & Governance
+          <p class="text-sm font-mono text-blue-400 uppercase tracking-widest mb-4">
+            Data & Knowledge
           </p>
-          <h1 class="text-5xl md:text-6xl font-mono mb-6 tracking-tight text-white">
-            The Framework
+          <h1 class="text-lg md:text-xl font-mono mb-6 tracking-tight text-white">
+            The Commons
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            The adaptive methodology and ethical standard for practice. This ensures all work is reproducible, safe, and aligned with ecological principles.
+            The future home for a global, decentralized dashboard. Every builder is a co-contributor, sharing data to validate and improve the next design.
           </p>
         </div>
       </div>
@@ -83,19 +84,19 @@ const streams = [
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
         <p class="text-sm text-gray-400 mb-3 text-center">jump to Stream:</p>
         <nav class="flex flex-wrap justify-center gap-4">
-          <a href="#protocols" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline flex items-center gap-2">
-            <Icon name="tabler:file-text" class="w-4 h-4" />
-            Protocols
+          <a href="#data" class="text-yellow-400 hover:text-yellow-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:link" class="w-4 h-4" />
+            Data
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#governance" class="text-green-400 hover:text-green-300 transition font-mono hover:underline flex items-center gap-2">
-            <Icon name="tabler:scale" class="w-4 h-4" />
-            Governance
+          <a href="#visualization" class="text-green-400 hover:text-green-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:chart-bar" class="w-4 h-4" />
+            Visualization
           </a>
           <span class="text-gray-600">|</span>
-          <a href="#validation" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline flex items-center gap-2">
-            <Icon name="tabler:circle-check" class="w-4 h-4" />
-            Validation
+          <a href="#modeling" class="text-blue-400 hover:text-blue-300 transition font-mono hover:underline flex items-center gap-2">
+            <Icon name="tabler:microscope" class="w-4 h-4" />
+            Modeling
           </a>
         </nav>
       </div>
@@ -109,7 +110,7 @@ const streams = [
           <div id={stream.id} class="scroll-mt-20">
             {/* Stream Header */}
             <div class="flex items-start justify-between mb-6">
-              <h2 class="text-3xl md:text-4xl font-mono text-white">{stream.title}</h2>
+              <h2 class="text-lg md:text-xl font-mono text-white">{stream.title}</h2>
               <span
                 class:list={[
                   'inline-block text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap ml-4',
@@ -185,7 +186,7 @@ const streams = [
             </div>
 
             {/* Divider between streams */}
-            {stream.id !== 'validation' && (
+            {stream.id !== 'modeling' && (
               <div class="mt-16 pt-16 border-t-2 border-gray-800/70">
                 <div class="flex items-center justify-center mb-8">
                   <div class="h-px w-16 bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
@@ -203,21 +204,16 @@ const streams = [
     <!-- CTA Section -->
     <section class="py-16 bg-[radial-gradient(circle_at_bottom,#181f3d_0%,#080E21_90%)] border-t border-gray-800">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h2 class="text-3xl font-mono text-white mb-4">Ready to Contribute?</h2>
+        <h2 class="text-3xl font-mono mb-4"><span class="text-blue-400">Ready to code?</span></h2>
         <p class="text-xl text-gray-300 mb-8">
-          whether you design protocols, review ethics, write documentation, or help shape governance—your contribution ensures arc^ stays aligned with its values.
+          Build APIs, design dashboards, model ecosystems, or architect data systems—your work powers the global knowledge infrastructure.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/get-started"
-            class="bg-arc-electric hover:bg-arc-electric/80 hover:scale-105 px-8 py-4 rounded-full font-bold text-white shadow-lg shadow-arc-electric/40 text-lg transition-all"
-          >
-            Get Started
-          </a>
+        <div class="flex justify-center">
           <a
             href="https://workspace.xbyali.page"
             target="_blank"
-            class="bg-living-earth hover:bg-living-earth/90 hover:scale-105 py-4 px-8 text-lg rounded-full font-bold shadow-lg shadow-living-earth/40 transition-all text-gray-900"
+            rel="noopener noreferrer"
+            class="bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
           >
             Access Workspace
           </a>

@@ -1,0 +1,145 @@
+---
+// ====================================================================
+// PLASMA-WATER INTERFACE STREAM PAGE
+// Water treatment, remediation, and agricultural applications
+// ====================================================================
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Plasma-Water Interface — Lab Stream',
+};
+
+const projects = [
+  {
+    title: 'Saltwater Irrigation',
+    slug: '/lab/water/saltwater-irrigation',
+    summary: 'Exploring salinity-tolerant cultivation and soil recovery using plasma-activated water.',
+    tags: ['Agriculture', 'Soil Remediation', 'Salinity'],
+    updated: 'October 2025'
+  },
+  {
+    title: 'Pollutant Degradation',
+    slug: '/lab/water/pollutant-degradation',
+    summary: 'Testing PAW effectiveness for breaking down persistent organic pollutants in water systems.',
+    tags: ['Water Treatment', 'Oxidation', 'Remediation'],
+    updated: 'Coming Soon'
+  },
+  {
+    title: 'Pathogen Removal',
+    slug: '/lab/water/pathogen-removal',
+    summary: 'Investigating plasma treatment for waterborne pathogen inactivation without chemical additives.',
+    tags: ['Water Safety', 'Disinfection', 'Public Health'],
+    updated: 'Coming Soon'
+  },
+  {
+    title: 'Desalination Systems',
+    slug: '/lab/water/desalination',
+    summary: 'Exploring plasma-assisted desalination as a lower-energy alternative to conventional methods.',
+    tags: ['Desalination', 'Energy Efficiency', 'Water Access'],
+    updated: 'Coming Soon'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Breadcrumb -->
+  <div class="bg-primary-900 border-b border-gray-700/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="text-sm text-gray-400 font-mono">
+        <a href="/projects" class="hover:text-living-earth transition">projects</a>
+        <span class="mx-2">/</span>
+        <a href="/lab" class="hover:text-yellow-400 transition">lab</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">plasma-water interface</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <Hero
+    title="Plasma-Water Interface"
+    tagline="Lab Stream"
+  >
+    <Fragment slot="subtitle">
+      <span class="text-gray-300">
+        Water is the first interface between plasma energy and matter. We study reactive species, oxidation-reduction balance, and contaminant breakdown.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="bg-primary-900 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Projects -->
+      <div class="mb-12">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-white font-mono">Projects</h2>
+          <span class="text-sm text-gray-400 font-mono">{projects.length} total</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <a
+              href={project.slug}
+              class="group bg-gray-900/30 border border-gray-700/50 hover:border-yellow-400/60 rounded-xl p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] block"
+            >
+              <!-- Header -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold mb-2 font-mono text-white group-hover:text-yellow-400 transition">
+                    {project.title}
+                  </h3>
+                </div>
+                <svg class="w-6 h-6 text-gray-500 group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+
+              <!-- Summary -->
+              <p class="text-gray-300 mb-4 leading-relaxed">{project.summary}</p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-3">
+                {project.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-gray-800/50 text-gray-400 text-xs rounded font-mono">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Footer -->
+              <div class="text-xs text-gray-500 font-mono">
+                Updated: {project.updated}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Compact CTA -->
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 text-center">
+        <p class="text-gray-300 mb-4">
+          Ready to contribute to Plasma-Water Interface?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/get-started"
+            class="px-6 py-3 bg-green-400 hover:bg-green-300 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] text-center"
+          >
+            Get Started
+          </a>
+          <a
+            href="https://discord.com/invite/DA8BPA3VsN"
+            target="_blank"
+            class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] text-center"
+          >
+            Join Discord →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

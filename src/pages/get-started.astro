@@ -19,487 +19,328 @@ const metadata = {
   <!-- ============================================ -->
   <section class="relative py-16 md:py-24 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h1 class="text-5xl md:text-6xl font-mono font-bold mb-12 tracking-tight text-white leading-[0.95]">
-        what if plasma research was open<br/>
-        <span class="text-arc-electric">from day one?</span>
+
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-gray-400">
+          <li><a href="/" class="hover:text-arc-electric transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded">home</a></li>
+          <li><span class="text-gray-600">/</span></li>
+          <li class="text-white font-medium" aria-current="page">get started</li>
+        </ol>
+      </nav>
+
+      <h1 class="text-lg md:text-xl font-mono font-bold mb-8 tracking-tight text-white leading-[0.95]">
+        let's build this <span class="text-arc-electric">together</span>
       </h1>
       <div class="max-w-3xl">
-        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-          No patents. No closed labs.<br/>
-          No waiting years to publish.
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+          Arc^ is open plasma research for ecological regeneration. Everything we build—hardware, protocols, data—is shared freely under open licenses.
         </p>
-        <p class="text-lg md:text-xl text-white leading-relaxed mb-8">
-          Just science built in the open,<br/>
-          for ecological repair.
-        </p>
-        <p class="text-base md:text-lg text-arc-electric font-mono font-bold">
-          That's arc^. And I'm building it right now.
+        <p class="text-lg md:text-xl text-white leading-relaxed">
+          No patents. No gatekeeping. Just science in service of repair.
         </p>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- THE REALITY - ASYMMETRIC LAYOUT -->
+  <!-- WHO ARE YOU? - PERSONA NAVIGATION -->
   <!-- ============================================ -->
-  <section class="bg-primary-900 py-12 md:py-16">
+  <section id="who-are-you" class="bg-gray-800/40 backdrop-blur-sm py-6 md:py-10 border-t border-gray-700/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-      <div class="grid md:grid-cols-12 gap-12 items-start">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white font-mono mb-3">
+          Who are you?
+        </h2>
+        <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
+          Choose your path. Each persona has tailored guidance and recommended projects.
+        </p>
+      </div>
 
-        <!-- Left: Big Header -->
-        <div class="md:col-span-4">
-          <div class="sticky top-8">
-            <div class="mb-4" aria-hidden="true">
-              <Icon name="tabler:user" class="w-12 h-12 text-arc-electric" />
+      <!-- Persona Selector Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
+        <button
+          data-persona="student"
+          tabindex="0"
+          aria-label="Student persona - for integrating plasma research with coursework"
+          class="persona-btn p-4 md:p-5 rounded-xl bg-gray-900/50 border-2 border-yellow-400/30 hover:border-yellow-400 hover:bg-yellow-400/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          <Icon name="tabler:school" class="w-8 h-8 md:w-10 md:h-10 text-yellow-400 mx-auto mb-2" />
+          <p class="text-sm md:text-base font-mono font-bold text-yellow-400">Student</p>
+        </button>
+
+        <button
+          data-persona="researcher"
+          tabindex="0"
+          aria-label="Researcher persona - for validating and co-developing frameworks"
+          class="persona-btn p-4 md:p-5 rounded-xl bg-gray-900/50 border-2 border-green-400/30 hover:border-green-400 hover:bg-green-400/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          <Icon name="tabler:microscope" class="w-8 h-8 md:w-10 md:h-10 text-green-400 mx-auto mb-2" />
+          <p class="text-sm md:text-base font-mono font-bold text-green-400">Researcher</p>
+        </button>
+
+        <button
+          data-persona="maker"
+          tabindex="0"
+          aria-label="Maker persona - for building and tinkering with hardware"
+          class="persona-btn p-4 md:p-5 rounded-xl bg-gray-900/50 border-2 border-purple-400/30 hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          <Icon name="tabler:tool" class="w-8 h-8 md:w-10 md:h-10 text-purple-400 mx-auto mb-2" />
+          <p class="text-sm md:text-base font-mono font-bold text-purple-400">Maker</p>
+        </button>
+
+        <button
+          data-persona="practitioner"
+          tabindex="0"
+          aria-label="Practitioner persona - for applying technologies locally"
+          class="persona-btn p-4 md:p-5 rounded-xl bg-gray-900/50 border-2 border-blue-400/30 hover:border-blue-400 hover:bg-blue-400/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          <Icon name="tabler:world" class="w-8 h-8 md:w-10 md:h-10 text-blue-400 mx-auto mb-2" />
+          <p class="text-sm md:text-base font-mono font-bold text-blue-400">Practitioner</p>
+        </button>
+
+        <button
+          data-persona="curious"
+          tabindex="0"
+          aria-label="Just Curious persona - for exploring and learning"
+          class="persona-btn p-4 md:p-5 rounded-xl bg-gray-900/50 border-2 border-arc-electric/30 hover:border-arc-electric hover:bg-arc-electric/10 transition-all duration-300 group col-span-2 md:col-span-1 focus:outline-none focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          <Icon name="tabler:bulb" class="w-8 h-8 md:w-10 md:h-10 text-arc-electric mx-auto mb-2" />
+          <p class="text-sm md:text-base font-mono font-bold text-arc-electric">Just Curious</p>
+        </button>
+      </div>
+
+      <!-- Persona Content Panels -->
+      <div class="persona-content-container">
+
+        <!-- Student Panel -->
+        <div id="content-student" class="persona-content hidden">
+          <div class="bg-gradient-to-br from-yellow-400/10 via-gray-900/50 to-transparent border border-yellow-400/30 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="tabler:school" class="w-8 h-8 text-yellow-400" />
+              <h3 class="text-xl md:text-2xl font-mono font-bold text-yellow-400">Student</h3>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white font-mono leading-tight mb-4">
-              The<br/>Reality
-            </h2>
-            <p class="text-lg text-gray-400 font-mono">Let me be honest about where this is.</p>
-          </div>
-        </div>
 
-        <!-- Right: Content -->
-        <div class="md:col-span-8">
-          <div class="bg-gradient-to-br from-arc-electric/10 via-gray-900/50 to-living-earth/10 border border-gray-700/50 rounded-2xl p-8 md:p-12">
-            <div class="space-y-6 text-lg md:text-xl text-gray-300 leading-relaxed">
-              <p>
-                Right now, <strong class="text-white text-2xl">it's just me</strong>. I'm Ali, an undergrad student at RMIT applying for honours.
+            <div class="space-y-4 text-base text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Integrate plasma research with your coursework. Build your portfolio while advancing open science. Explore hands-on experimental work across water, ecosystems, and hardware.
               </p>
-              <p class="text-base md:text-lg text-gray-400 font-mono">
-                I'm in the process of:
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-4">
-                  <span class="text-arc-electric text-2xl mt-1">→</span>
-                  <span class="text-lg">Pitching this proposal to my professors</span>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="text-arc-electric text-2xl mt-1">→</span>
-                  <span class="text-lg">Designing the experiments</span>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="text-arc-electric text-2xl mt-1">→</span>
-                  <span class="text-lg">Sharing information with my supervisory team</span>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="text-arc-electric text-2xl mt-1">→</span>
-                  <span class="text-lg">Negotiating intellectual property terms with my university</span>
-                </li>
-              </ul>
-              <p class="text-lg">
-                There's <strong class="text-white text-2xl">no lab yet</strong>. No funding. No team. No published results.
-              </p>
-              <div class="pt-6 border-t border-gray-700/50">
-                <p class="text-lg mb-4">
-                  But there <em class="text-white">is</em> a framework, a vision, and a commitment to doing research differently.
-                </p>
-                <p class="text-2xl text-arc-electric font-mono font-bold">
-                  If you're joining now,<br/>
-                  you're joining at the foundation.
-                </p>
-              </div>
+
+              <a href="/projects?pillar=lab" class="inline-block px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                Browse Lab Streams →
+              </a>
             </div>
           </div>
         </div>
 
-      </div>
+        <!-- Researcher Panel -->
+        <div id="content-researcher" class="persona-content hidden">
+          <div class="bg-gradient-to-br from-green-400/10 via-gray-900/50 to-transparent border border-green-400/30 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="tabler:microscope" class="w-8 h-8 text-green-400" />
+              <h3 class="text-xl md:text-2xl font-mono font-bold text-green-400">Researcher</h3>
+            </div>
 
-    </div>
-  </section>
+            <div class="space-y-4 text-base text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Validate, replicate, and co-develop early frameworks. Your expertise shapes responsible methods for plasma research. Help establish protocols, governance, and validation systems.
+              </p>
 
-  <!-- ============================================ -->
-  <!-- WHO THIS IS FOR - LEFT-ALIGNED, BIG TYPE -->
-  <!-- ============================================ -->
-  <section id="who-this-is-for" class="bg-primary-900 py-12 md:py-16 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-      <h2 class="text-3xl md:text-4xl font-bold text-white font-mono mb-16 leading-tight">
-        who this<br/>is for
-      </h2>
-
-      <div class="space-y-12 mb-20">
-
-        <!-- Students -->
-        <div class="border-l-4 border-yellow-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
-          <h3 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-4 font-mono flex items-center gap-4">
-            <Icon name="tabler:school" class="w-10 h-10" />
-            Students
-          </h3>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-4xl">
-            Integrate plasma research with your coursework. Build your portfolio while advancing open science. You'll need supervisor approval, agreement to open licensing, and commitment to safe practice.
-          </p>
-        </div>
-
-        <!-- Researchers -->
-        <div class="border-l-4 border-green-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
-          <h3 class="text-2xl md:text-3xl font-bold text-green-400 mb-4 font-mono flex items-center gap-4">
-            <Icon name="tabler:microscope" class="w-10 h-10" />
-            Researchers
-          </h3>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-4xl">
-            Validate, replicate, and co-develop early frameworks. Your expertise shapes responsible methods for plasma-water research. Emerging questions await your scrutiny.
-          </p>
-        </div>
-
-        <!-- Practitioners -->
-        <div class="border-l-4 border-blue-400 pl-8 py-4 hover:pl-12 transition-all duration-300">
-          <h3 class="text-2xl md:text-3xl font-bold text-blue-400 mb-4 font-mono flex items-center gap-4">
-            <Icon name="tabler:world" class="w-10 h-10" />
-            Practitioners
-          </h3>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-4xl">
-            Apply arc^ technologies locally under shared safety standards while contributing to the commons. Projects remain locally governed but strengthen collective knowledge.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Reflection Questions - Open Space -->
-      <div class="pt-16 border-t border-gray-700/50">
-        <h3 class="text-2xl md:text-3xl font-bold text-white font-mono mb-12 leading-tight">
-          Before You Join,<br/>Reflect
-        </h3>
-
-        <div class="space-y-10 max-w-4xl">
-          <div class="group hover:translate-x-4 transition-transform duration-200">
-            <p class="text-lg md:text-xl font-bold text-white mb-3 flex items-start gap-4">
-              <span class="text-arc-electric text-2xl group-hover:scale-125 transition-transform">→</span>
-              What problems drive your curiosity?
-            </p>
-            <p class="text-base text-gray-300 ml-16">Note what you care about solving.</p>
-          </div>
-
-          <div class="group hover:translate-x-4 transition-transform duration-200">
-            <p class="text-lg md:text-xl font-bold text-white mb-3 flex items-start gap-4">
-              <span class="text-arc-electric text-2xl group-hover:scale-125 transition-transform">→</span>
-              What can you contribute?
-            </p>
-            <p class="text-base text-gray-300 ml-16">Skills, time, equipment, or expertise.</p>
-          </div>
-
-          <div class="group hover:translate-x-4 transition-transform duration-200">
-            <p class="text-lg md:text-xl font-bold text-white mb-3 flex items-start gap-4">
-              <span class="text-arc-electric text-2xl group-hover:scale-125 transition-transform">→</span>
-              How does this support planetary repair?
-            </p>
-            <p class="text-base text-gray-300 ml-16">Connect your work to the bigger picture.</p>
+              <a href="/projects?pillar=framework" class="inline-block px-6 py-3 bg-green-400 hover:bg-green-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                Browse Framework Streams →
+              </a>
+            </div>
           </div>
         </div>
 
-        <p class="text-base text-gray-400 mt-12 font-mono italic">
-          Share these when you join the community.
-        </p>
-      </div>
+        <!-- Maker Panel -->
+        <div id="content-maker" class="persona-content hidden">
+          <div class="bg-gradient-to-br from-purple-400/10 via-gray-900/50 to-transparent border border-purple-400/30 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="tabler:tool" class="w-8 h-8 text-purple-400" />
+              <h3 class="text-xl md:text-2xl font-mono font-bold text-purple-400">Maker</h3>
+            </div>
 
-    </div>
-  </section>
+            <div class="space-y-4 text-base text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Build, tinker, and iterate. Design open-source plasma hardware or create data visualization tools. Share your builds and code with the community.
+              </p>
 
-  <!-- ============================================ -->
-  <!-- WHAT YOU NEED TO UNDERSTAND - SPLIT LAYOUT -->
-  <!-- ============================================ -->
-  <section class="bg-primary-900 py-12 md:py-16 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-      <h2 class="text-3xl md:text-4xl font-bold text-white font-mono mb-8 leading-tight">
-        what you need<br/>to understand
-      </h2>
-      <p class="text-base md:text-lg text-gray-400 font-mono mb-16 max-w-3xl">
-        read these before contributing.<br/>ten minutes now saves confusion later.
-      </p>
-
-      <!-- Essentials - Grid -->
-      <div class="mb-20 pb-16 border-b border-gray-700/50">
-        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-8">the essentials</h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="/about" class="group">
-            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">About arc^</div>
-            <div class="text-sm text-gray-500">Purpose & structure</div>
-          </a>
-          <a href="/research" class="group">
-            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Research</div>
-            <div class="text-sm text-gray-500">Energy to ecosystems</div>
-          </a>
-          <a href="https://repractise.xbyali.page" target="_blank" class="group">
-            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Re:Practise ↗</div>
-            <div class="text-sm text-gray-500">Ethics & openness</div>
-          </a>
-          <a href="/pathways" class="group">
-            <div class="text-xl font-bold text-living-earth group-hover:text-arc-electric font-mono transition-colors mb-2">Projects</div>
-            <div class="text-sm text-gray-500">See the work</div>
-          </a>
+              <a href="/projects" class="inline-block px-6 py-3 bg-purple-400 hover:bg-purple-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                Browse All Streams →
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Safety & Ethics - 2 Column -->
-      <div class="mb-20 pb-16 border-b border-gray-700/50">
-        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-4">Safety & Ethics</h3>
-        <p class="text-lg text-gray-400 mb-10">
-          Every decision passes through four lenses: <span class="text-white">people, organisms, ecosystems, and future.</span>
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <h4 class="text-xl md:text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
-              <Icon name="tabler:users" class="w-8 h-8 text-arc-electric" />
-              People
-            </h4>
-            <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-              Work must benefit communities without exploitation. Research conducted with consent and transparency.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="text-xl md:text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
-              <Icon name="tabler:plant" class="w-8 h-8 text-living-earth" />
-              Organisms
-            </h4>
-            <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-              Non-invasive study using environmental sensing (eDNA, protein markers) to understand change without harm.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="text-xl md:text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
+        <!-- Practitioner Panel -->
+        <div id="content-practitioner" class="persona-content hidden">
+          <div class="bg-gradient-to-br from-blue-400/10 via-gray-900/50 to-transparent border border-blue-400/30 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
               <Icon name="tabler:world" class="w-8 h-8 text-blue-400" />
-              Ecosystems
-            </h4>
-            <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-              Treated as dynamic systems. Monitoring extends to modelling feedbacks. If degradation appears, pause.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="text-xl md:text-2xl font-bold text-white font-mono mb-3 flex items-center gap-3">
-              <Icon name="tabler:crystal-ball" class="w-8 h-8 text-purple-400" />
-              Future
-            </h4>
-            <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-              Every project anticipates downstream effects. Success means continuity, not novelty.
-            </p>
-          </div>
-        </div>
-
-        <p class="text-base text-gray-400 italic mt-10 max-w-3xl">
-          This links with Re:Practise to ensure science produces results aligned with human dignity and Earth's continuity.
-        </p>
-      </div>
-
-      <!-- Licensing - Left Border Style -->
-      <div>
-        <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-4">Open Licensing</h3>
-        <p class="text-lg text-gray-400 mb-10">
-          All work is open. These licenses prevent enclosure.
-        </p>
-
-        <div class="space-y-6">
-          <div class="border-l-4 border-yellow-400 pl-6 py-3">
-            <div class="text-xl font-bold text-yellow-400 font-mono mb-2">Hardware</div>
-            <div class="text-base text-gray-400">
-              <strong class="text-white">CERN-OHL-S v2</strong> • Designs, CAD files, specs • Modifications stay open
+              <h3 class="text-xl md:text-2xl font-mono font-bold text-blue-400">Practitioner</h3>
             </div>
-          </div>
 
-          <div class="border-l-4 border-green-400 pl-6 py-3">
-            <div class="text-xl font-bold text-green-400 font-mono mb-2">Documentation</div>
-            <div class="text-base text-gray-400">
-              <strong class="text-white">CC BY-NC-SA 4.0</strong> • Guides, protocols, materials • Non-commercial, share-alike
-            </div>
-          </div>
+            <div class="space-y-4 text-base text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Apply plasma technologies in real contexts. Monitor outcomes, document field data, and share practical lessons. Your local knowledge strengthens collective understanding.
+              </p>
 
-          <div class="border-l-4 border-blue-400 pl-6 py-3">
-            <div class="text-xl font-bold text-blue-400 font-mono mb-2">Software</div>
-            <div class="text-base text-gray-400">
-              <strong class="text-white">AGPL-3.0</strong> • All code • Server-side changes shared
+              <a href="/projects?pillar=lab" class="inline-block px-6 py-3 bg-blue-400 hover:bg-blue-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                Browse Lab Streams →
+              </a>
             </div>
           </div>
         </div>
 
-        <p class="text-lg text-gray-400 mt-10">
-          Not anti-commercial. <strong class="text-white text-xl">Pro-commons.</strong>
-        </p>
+        <!-- Just Curious Panel -->
+        <div id="content-curious" class="persona-content hidden">
+          <div class="bg-gradient-to-br from-arc-electric/10 via-gray-900/50 to-transparent border border-arc-electric/30 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="tabler:bulb" class="w-8 h-8 text-arc-electric" />
+              <h3 class="text-xl md:text-2xl font-mono font-bold text-arc-electric">Just Curious</h3>
+            </div>
+
+            <div class="space-y-4 text-base text-gray-300">
+              <p class="text-lg leading-relaxed">
+                Start by exploring the research approach and see what resonates. Read <a href="/about" class="text-arc-electric hover:underline">our story</a>, explore <a href="/research" class="text-arc-electric hover:underline">the science</a>, or browse projects. No pressure—take your time.
+              </p>
+
+              <a href="/projects" class="inline-block px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                Browse All Streams →
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- CHOOSE YOUR LEVEL - HORIZONTAL CARDS -->
-  <!-- ============================================ -->
-  <section class="bg-primary-900 py-12 md:py-16 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
-      <h2 class="text-3xl md:text-4xl font-bold text-white font-mono mb-8 leading-tight">
-        choose<br/>your level
+  <!-- Simple Discord CTA -->
+  <section class="bg-gradient-to-b from-primary-900 to-primary-950 py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white font-mono mb-4">
+        Questions?
       </h2>
-      <p class="text-base md:text-lg text-gray-400 font-mono mb-16">
-        start where you are.<br/>move deeper when ready.
+      <p class="text-lg text-gray-300 mb-8">
+        Join the Discord to connect with the community.
       </p>
-
-      <div class="space-y-6">
-
-        <!-- Observe -->
-        <div class="bg-gray-700/10 border-2 border-gray-700/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl transition-all duration-300 group">
-          <div class="flex flex-col md:flex-row md:items-center gap-8">
-            <div class="flex items-center gap-6 md:w-1/3">
-              <Icon name="tabler:eye" class="w-12 h-12 text-gray-300 group-hover:scale-110 transition-transform duration-300" />
-              <div>
-                <h3 class="text-2xl md:text-3xl font-bold text-white font-mono mb-1">Observe</h3>
-                <p class="text-base text-gray-400">Follow along, no commitment</p>
-              </div>
-            </div>
-            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
-              <p class="text-lg text-gray-300">Join newsletter, watch research unfold, explore at your pace</p>
-              <a
-                href="https://discord.com/invite/DA8BPA3VsN"
-                target="_blank"
-                class="whitespace-nowrap px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] active:scale-95"
-              >
-                Join Discord ↗
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contribute -->
-        <div class="bg-living-earth/10 border-2 border-living-earth/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl hover:shadow-living-earth/20 transition-all duration-300 group">
-          <div class="flex flex-col md:flex-row md:items-center gap-8">
-            <div class="flex items-center gap-6 md:w-1/3">
-              <Icon name="tabler:microscope" class="w-12 h-12 text-living-earth group-hover:scale-110 transition-transform duration-300" />
-              <div>
-                <h3 class="text-2xl md:text-3xl font-bold text-living-earth font-mono mb-1">Contribute</h3>
-                <p class="text-base text-gray-400">Run experiments independently</p>
-              </div>
-            </div>
-            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
-              <p class="text-base md:text-lg text-gray-300">Replicate protocols, share verified data, improve methodologies</p>
-              <a
-                href="/workspace"
-                class="whitespace-nowrap px-6 py-3 bg-living-earth/20 border-2 border-living-earth hover:bg-living-earth/30 text-living-earth rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] active:scale-95"
-              >
-                Read Docs →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Collaborate -->
-        <div class="bg-arc-electric/10 border-2 border-arc-electric/30 rounded-2xl p-8 hover:scale-[1.01] hover:shadow-2xl hover:shadow-arc-electric/20 transition-all duration-300 group">
-          <div class="flex flex-col md:flex-row md:items-center gap-8">
-            <div class="flex items-center gap-6 md:w-1/3">
-              <Icon name="tabler:users-group" class="w-12 h-12 text-arc-electric group-hover:scale-110 transition-transform duration-300" />
-              <div>
-                <h3 class="text-2xl md:text-3xl font-bold text-arc-electric font-mono mb-1">Collaborate</h3>
-                <p class="text-base text-gray-400">Co-build the framework</p>
-              </div>
-            </div>
-            <div class="flex-1 md:border-l-2 md:border-gray-700 md:pl-8 flex items-center justify-between gap-6">
-              <p class="text-base md:text-lg text-gray-300">Join ongoing projects, shape governance, publish collectively</p>
-              <a
-                href="/workspace"
-                class="whitespace-nowrap px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-xl font-mono font-bold transition-all duration-300 hover:scale-[1.05] hover:shadow-lg hover:shadow-arc-electric/50 active:scale-95"
-              >
-                Enter Workspace →
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="text-base text-gray-400 italic text-center mt-10 font-mono">
-        Note: Workspace handles onboarding, verification, and agreement to safety standards.
-      </p>
-
+      <a
+        href="https://discord.com/invite/DA8BPA3VsN"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold text-lg transition-all hover:scale-105 hover:shadow-xl hover:shadow-arc-electric/50"
+      >
+        Join Discord →
+      </a>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- TAKE ACTION - BIG FINAL PUSH -->
-  <!-- ============================================ -->
-  <section class="bg-gradient-to-b from-primary-900 to-primary-950 py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Persona Navigation System
+      const personaButtons = document.querySelectorAll('.persona-btn');
+      const personaContents = document.querySelectorAll('.persona-content');
 
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-white font-mono mb-8">ready?</h2>
-        <p class="text-lg md:text-xl text-gray-300 font-mono">
-          pick your path and begin.
-        </p>
-      </div>
+      function showPersona(personaId) {
+        // Hide all content panels
+        personaContents.forEach(content => {
+          content.classList.add('hidden');
+        });
 
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        // Remove active state from all buttons
+        personaButtons.forEach(btn => {
+          btn.classList.remove('ring-2', 'ring-offset-2', 'ring-offset-primary-900');
+          const persona = btn.getAttribute('data-persona');
+          if (persona === 'student') {
+            btn.classList.remove('ring-yellow-400', 'border-yellow-400', 'bg-yellow-400/10');
+            btn.classList.add('border-yellow-400/30');
+          } else if (persona === 'researcher') {
+            btn.classList.remove('ring-green-400', 'border-green-400', 'bg-green-400/10');
+            btn.classList.add('border-green-400/30');
+          } else if (persona === 'maker') {
+            btn.classList.remove('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
+            btn.classList.add('border-purple-400/30');
+          } else if (persona === 'practitioner') {
+            btn.classList.remove('ring-blue-400', 'border-blue-400', 'bg-blue-400/10');
+            btn.classList.add('border-blue-400/30');
+          } else if (persona === 'curious') {
+            btn.classList.remove('ring-arc-electric', 'border-arc-electric', 'bg-arc-electric/10');
+            btn.classList.add('border-arc-electric/30');
+          }
+        });
 
-        <!-- Explore -->
-        <a href="/pathways" class="bg-gray-900/50 border-2 border-gray-700/50 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:border-gray-600 transition-all duration-300 group block">
-          <div class="mb-6 flex justify-center">
-            <Icon name="tabler:search" class="w-12 h-12 text-gray-300" />
-          </div>
-          <h3 class="text-xl md:text-2xl font-bold text-white mb-3 font-mono group-hover:text-gray-300 transition-colors">Explore</h3>
-          <p class="text-gray-400 text-base md:text-lg">See what's being built</p>
-        </a>
+        // Show selected content panel
+        const selectedContent = document.getElementById(`content-${personaId}`);
+        if (selectedContent) {
+          selectedContent.classList.remove('hidden');
+        }
 
-        <!-- Community -->
-        <a href="https://discord.com/invite/DA8BPA3VsN" target="_blank" class="bg-living-earth/10 border-2 border-living-earth/30 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:shadow-living-earth/20 hover:border-living-earth/50 transition-all duration-300 group block">
-          <div class="mb-6 flex justify-center">
-            <Icon name="tabler:message-circle" class="w-12 h-12 text-living-earth" />
-          </div>
-          <h3 class="text-xl md:text-2xl font-bold text-living-earth mb-3 font-mono group-hover:text-living-earth/90 transition-colors">Community</h3>
-          <p class="text-gray-400 text-base md:text-lg">Ask questions, share ideas</p>
-        </a>
+        // Add active state to selected button
+        const activeButton = document.querySelector(`[data-persona="${personaId}"]`);
+        if (activeButton) {
+          activeButton.classList.add('ring-2', 'ring-offset-2', 'ring-offset-primary-900');
+          if (personaId === 'student') {
+            activeButton.classList.remove('border-yellow-400/30');
+            activeButton.classList.add('ring-yellow-400', 'border-yellow-400', 'bg-yellow-400/10');
+          } else if (personaId === 'researcher') {
+            activeButton.classList.remove('border-green-400/30');
+            activeButton.classList.add('ring-green-400', 'border-green-400', 'bg-green-400/10');
+          } else if (personaId === 'maker') {
+            activeButton.classList.remove('border-purple-400/30');
+            activeButton.classList.add('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
+          } else if (personaId === 'practitioner') {
+            activeButton.classList.remove('border-blue-400/30');
+            activeButton.classList.add('ring-blue-400', 'border-blue-400', 'bg-blue-400/10');
+          } else if (personaId === 'curious') {
+            activeButton.classList.remove('border-arc-electric/30');
+            activeButton.classList.add('ring-arc-electric', 'border-arc-electric', 'bg-arc-electric/10');
+          }
+        }
 
-        <!-- Start -->
-        <a href="/workspace" class="bg-arc-electric/10 border-2 border-arc-electric/30 rounded-2xl p-10 text-center hover:scale-[1.05] hover:shadow-2xl hover:shadow-arc-electric/20 hover:border-arc-electric/50 transition-all duration-300 group block">
-          <div class="mb-6 flex justify-center">
-            <Icon name="tabler:rocket" class="w-12 h-12 text-arc-electric" />
-          </div>
-          <h3 class="text-xl md:text-2xl font-bold text-arc-electric mb-3 font-mono group-hover:text-arc-electric/90 transition-colors">Start</h3>
-          <p class="text-gray-400 text-base md:text-lg">Run experiments, share data</p>
-        </a>
+        // Smooth scroll to content
+        if (selectedContent) {
+          selectedContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
 
-      </div>
+      // Add click handlers to persona buttons
+      personaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const persona = button.getAttribute('data-persona');
+          showPersona(persona);
+        });
+      });
 
-      <!-- Contact Links -->
-      <div class="text-center pt-12 border-t border-gray-800">
-        <p class="text-lg text-gray-400 mb-6 font-mono">Have questions?</p>
-        <div class="flex flex-wrap justify-center gap-8 text-base">
-          <a href="https://discord.com/invite/DA8BPA3VsN" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
-            Discord
-          </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScyVWKDifYxaVWOhdW-SPEXXDVEjBmVezv7W668lizvRCQuaQ/viewform" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
-            Contact Form
-          </a>
-          <a href="https://www.youtube.com/@arc-arcup" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
-            YouTube
-          </a>
-          <a href="https://xbyali.page" target="_blank" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
-            Ali's Work
-          </a>
-          <a href="/about" class="text-gray-400 hover:text-living-earth transition font-mono underline underline-offset-4">
-            About arc^
-          </a>
-        </div>
-      </div>
+      // Add keyboard navigation (arrow keys)
+      personaButtons.forEach((button, index) => {
+        button.addEventListener('keydown', (e) => {
+          let newIndex;
 
-    </div>
-  </section>
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            newIndex = (index + 1) % personaButtons.length;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            newIndex = (index - 1 + personaButtons.length) % personaButtons.length;
+          } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            button.click();
+            return;
+          }
 
-  <!-- CTA -->
-  <CallToAction
-    title="Questions?"
-    subtitle="The community is here to help."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Join Discord',
-        href: 'https://discord.com/invite/DA8BPA3VsN',
-        target: '_blank',
-      },
-      {
-        variant: 'secondary',
-        text: 'Read the Docs',
-        href: '/workspace',
-      },
-    ]}
-  />
+          if (newIndex !== undefined) {
+            personaButtons[newIndex].focus();
+          }
+        });
+      });
+
+      // Auto-select first persona on page load
+      if (personaButtons.length > 0) {
+        showPersona('student');
+      }
+    });
+  </script>
 </Layout>

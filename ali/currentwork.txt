@@ -1,0 +1,23 @@
+working with the UI/UX agents to fix typography, here is the list of tasks:
+Top Critical Issues
+1. Typography "Zoomed In" Feeling (Highest Impact)
+Get Started page: Body text is text-2xl/3xl (should be text-base/lg)
+About page: Body text is text-3xl/4xl (should be text-xl/2xl)
+Impact: Users feel uncomfortable, pages look like presentation decks
+2. Broken Workspace (Blocks Primary Use Case)
+Primary CTA leads to "Coming Soon" page
+No alternative way to access research protocols
+Damages credibility
+3. Get Started Page Overwhelm (High Bounce Rate)
+7+ decision points on one page
+Too long (559 lines)
+Decision fatigue
+4. Missing Accessibility Features
+No lang="en" attribute
+Missing focus states on ~40% of links
+Inconsistent breadcrumbs
+404 page not branded
+5. Design System Gaps
+No unified spacing system
+Inconsistent button styling
+No typography documentation
