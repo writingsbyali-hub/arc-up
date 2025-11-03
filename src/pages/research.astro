@@ -540,9 +540,11 @@ const tabs = [
 
 <!-- Tab Switching Script -->
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initResearchPage() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
+
+    if (tabButtons.length === 0) return; // Exit if elements don't exist
 
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -595,5 +597,11 @@ const tabs = [
         }
       });
     });
-  });
+  }
+
+  // Initialize on first load
+  document.addEventListener('DOMContentLoaded', initResearchPage);
+
+  // Reinitialize after navigation (view transitions)
+  document.addEventListener('astro:after-swap', initResearchPage);
 </script>

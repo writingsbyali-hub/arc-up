@@ -398,11 +398,13 @@ const interestTags = [
 
   <!-- Interactive Stream Matcher JavaScript -->
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initProjectsPage() {
       const streamsGrid = document.getElementById('streams-grid');
       const streamCards = document.querySelectorAll('.stream-card');
       const interestCheckboxes = document.querySelectorAll('.interest-checkbox');
       const filterButtons = document.querySelectorAll('.filter-btn');
+
+      if (!streamsGrid || streamCards.length === 0) return; // Exit if elements don't exist
 
       // Handle URL parameters for persona-based navigation
       const urlParams = new URLSearchParams(window.location.search);
@@ -530,6 +532,12 @@ const interestTags = [
           interestCheckboxes.forEach(cb => cb.checked = false);
         }
       });
-    });
+    }
+
+    // Initialize on first load
+    document.addEventListener('DOMContentLoaded', initProjectsPage);
+
+    // Reinitialize after navigation (view transitions)
+    document.addEventListener('astro:after-swap', initProjectsPage);
   </script>
 </Layout>

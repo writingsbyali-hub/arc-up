@@ -239,10 +239,12 @@ const metadata = {
   </section>
 
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initGetStartedPage() {
       // Persona Navigation System
       const personaButtons = document.querySelectorAll('.persona-btn');
       const personaContents = document.querySelectorAll('.persona-content');
+
+      if (personaButtons.length === 0) return; // Exit if elements don't exist
 
       function showPersona(personaId) {
         // Hide all content panels
@@ -341,6 +343,12 @@ const metadata = {
       if (personaButtons.length > 0) {
         showPersona('student');
       }
-    });
+    }
+
+    // Initialize on first load
+    document.addEventListener('DOMContentLoaded', initGetStartedPage);
+
+    // Reinitialize after navigation (view transitions)
+    document.addEventListener('astro:after-swap', initGetStartedPage);
   </script>
 </Layout>

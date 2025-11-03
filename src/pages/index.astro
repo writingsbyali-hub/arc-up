@@ -242,7 +242,7 @@ const featuresTheChallenge = [
   </button>
 
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initHomePage() {
       // Interactive Tour
       const tourButton = document.getElementById('tour-button');
       const tourModal = document.getElementById('tour-modal');
@@ -251,6 +251,9 @@ const featuresTheChallenge = [
       const tourPrev = document.getElementById('tour-prev');
       const tourNext = document.getElementById('tour-next');
       const tourStepIndicator = document.getElementById('tour-step-indicator');
+
+      if (!tourButton || !tourModal) return; // Exit if elements don't exist
+
       let currentStep = 1;
       const totalSteps = 3;
 
@@ -351,6 +354,12 @@ const featuresTheChallenge = [
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
-    });
+    }
+
+    // Initialize on first load
+    document.addEventListener('DOMContentLoaded', initHomePage);
+
+    // Reinitialize after navigation (view transitions)
+    document.addEventListener('astro:after-swap', initHomePage);
   </script>
 </Layout>

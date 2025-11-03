@@ -78,10 +78,10 @@ const currentPath = Astro.url.pathname;
                            (href !== '/' && currentPath.startsWith(href));
 
             return (
-              <li class="flex items-center">
+              <li class="flex items-stretch md:items-center">
                 <a
                   class:list={[
-                    'font-mono px-4 py-3 md:py-1 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
+                    'font-mono px-6 py-4 md:px-4 md:py-1 transition duration-150 ease-in-out rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 flex items-center w-full md:w-auto',
                     isActive
                       ? 'text-arc-electric font-bold'
                       : 'hover:text-arc-electric'
