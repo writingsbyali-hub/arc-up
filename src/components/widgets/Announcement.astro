@@ -1,23 +1,48 @@
 ---
+export interface Props {
+  id?: string;
+}
 
+const { id = 'announcement' } = Astro.props;
 ---
 
 <div
-  class="dark text-muted text-sm bg-black dark:bg-transparent dark:border-b dark:border-slate-800 dark:text-slate-400 hidden md:flex gap-1 overflow-hidden px-3 py-2 relative text-ellipsis whitespace-nowrap"
+  {...id ? { id } : {}}
+  class="bg-primary-900 border-b border-arc-electric/30 backdrop-blur-sm flex justify-center items-center px-3 py-3 md:py-2.5 cursor-pointer hover:bg-primary-900/80 transition-all group"
+  role="button"
+  tabindex="0"
+  aria-label="Take the 2-minute tour to learn about arc^"
 >
   <span
-    class="bg-surface-alt border border-soft shadow-soft text-high font-semibold px-1 py-0.5 text-xs mr-0.5 rtl:mr-0 rtl:ml-0.5 inline-block"
-    >NEW</span
+    class="bg-arc-electric/20 border border-arc-electric/40 text-arc-electric font-mono font-bold px-2 py-0.5 text-xs mr-2 inline-block rounded uppercase"
+    >NEW TO ARC^?</span
   >
-  <a href="https://astro.build/blog/astro-5120/" class="text-muted hover:underline dark:text-slate-400 font-medium"
-    >Astro v5.12 is now available! »</a
+  <span class="text-white font-mono text-sm group-hover:text-arc-electric transition-colors"
+    >Take the 2-minute tour →</span
   >
-  <a
-    target="_blank"
-    rel="noopener"
-    class="ltr:ml-auto rtl:mr-auto w-[5.6rem] h-[1.25rem] ml-auto bg-contain inline-block bg-[url(https://img.shields.io/github/stars/arthelokyo/astrowind.svg?style=social&label=Stars&maxAge=86400)]"
-    title="If you like AstroWind, give us a star."
-    href="https://github.com/arthelokyo/astrowind"
-  >
-  </a>
 </div>
+
+<script>
+  function initAnnouncement() {
+    const announcement = document.getElementById('announcement');
+    const tourButton = document.getElementById('tour-button');
+
+    if (!announcement || !tourButton) return;
+
+    // Make announcement clickable to open tour
+    const openTour = () => {
+      tourButton.click();
+    };
+
+    announcement.addEventListener('click', openTour);
+    announcement.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openTour();
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initAnnouncement);
+  document.addEventListener('astro:after-swap', initAnnouncement);
+</script>
