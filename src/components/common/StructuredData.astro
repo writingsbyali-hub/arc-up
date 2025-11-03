@@ -1,0 +1,80 @@
+---
+// ====================================================================
+// STRUCTURED DATA (JSON-LD)
+// Provides rich search result data for Google and other search engines
+// ====================================================================
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    // Organization Schema
+    {
+      '@type': 'Organization',
+      '@id': 'https://arcup.xbyali.page/#organization',
+      name: 'arc^',
+      alternateName: 'arc-up',
+      description: 'Open research framework developing plasma-based systems for ecological regeneration',
+      url: 'https://arcup.xbyali.page',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://arcup.xbyali.page/favicons/apple-touch-icon.png',
+        width: 180,
+        height: 180,
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'Ali Al Saleh',
+        url: 'https://xbyali.page',
+      },
+      sameAs: [
+        'https://github.com/alixarcup',
+        'https://discord.com/invite/DA8BPA3VsN',
+        'https://www.youtube.com/@arc-arcup',
+        'https://twitter.com/arc_up',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'Community',
+        url: 'https://discord.com/invite/DA8BPA3VsN',
+      },
+    },
+    // WebSite Schema
+    {
+      '@type': 'WebSite',
+      '@id': 'https://arcup.xbyali.page/#website',
+      url: 'https://arcup.xbyali.page',
+      name: 'arc^ — Plasma for the Planet',
+      description: 'Open research framework developing plasma-based systems for ecological regeneration',
+      publisher: {
+        '@id': 'https://arcup.xbyali.page/#organization',
+      },
+      inLanguage: 'en-US',
+    },
+    // Research Project Schema
+    {
+      '@type': 'ResearchProject',
+      name: 'arc^ — Plasma for the Planet',
+      description: 'Honours research project exploring plasma applications for ecological repair, built openly with no patents or closed labs',
+      url: 'https://arcup.xbyali.page',
+      founder: {
+        '@type': 'Person',
+        name: 'Ali Al Saleh',
+        affiliation: {
+          '@type': 'Organization',
+          name: 'RMIT University',
+        },
+      },
+      keywords: [
+        'plasma physics',
+        'ecological regeneration',
+        'open research',
+        'plasma agriculture',
+        'ecosystem sensing',
+        'open science',
+      ],
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

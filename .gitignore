@@ -24,7 +24,5 @@ pnpm-lock.yaml
 .astro
 
 # Internal development files
-DEPLOYMENT-GUIDE.md
-QUICK-START.md
 README-NEW.md
-design/
+design/archive/

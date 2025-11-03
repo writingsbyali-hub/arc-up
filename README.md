@@ -10,8 +10,28 @@ arc^ byali is Ali Al Saleh's honours research project at RMIT exploring plasma a
 
 ## 🚀 Live Site
 
-Coming soon after deployment!
-[Deployment instructions](./DEPLOYMENT-GUIDE.md)
+**Production URL**: [https://arcup.xbyali.page](https://arcup.xbyali.page)
+
+### Deployment
+
+This site is hosted on **GitHub Pages** using GitHub Actions for automatic deployment.
+
+**Quick Deployment Steps:**
+1. Push to `main` branch
+2. GitHub Actions automatically builds and deploys
+3. Live at `https://arcup.xbyali.page` within 2-3 minutes
+
+**First-time Setup:**
+- Repository → Settings → Pages
+- Source: GitHub Actions
+- Build workflow: `.github/workflows/deploy.yml`
+- Custom domain configured in `astro.config.ts`
+
+**Manual Build:**
+```bash
+npm run build
+# Outputs to dist/ folder
+```
 
 ## 🛠️ Tech Stack
 
@@ -122,6 +142,50 @@ This project uses three licenses for different components:
 - **Software & Code**: AGPL-3.0
 
 Not anti-commercial. **Pro-commons.**
+
+---
+
+## 🙏 Acknowledgements
+
+**Template & Infrastructure:**
+- Built using [AstroWind](https://github.com/onwidget/astrowind) template by onWidget
+- Heavily customized for arc^ branding and research workflow
+- Astro static site framework
+
+**Inspiration & Context:**
+- Part of the xbyali ecosystem of open research projects
+- Influenced by Re:Practise ethical framework
+- Built openly from day one, following open science principles
+
+**Community:**
+- Early feedback and support from Discord community
+- Honours research supervision at RMIT University
+
+---
+
+## 📈 Optional Enhancements
+
+### Analytics Setup (Optional)
+To enable visitor analytics:
+1. Get a **Google Analytics 4** measurement ID from [analytics.google.com](https://analytics.google.com)
+2. Add to `src/config.yaml`:
+   ```yaml
+   analytics:
+     vendors:
+       googleAnalytics:
+         id: "G-XXXXXXXXXX"  # Your GA4 ID
+   ```
+
+### Google Search Console (Optional)
+To verify site ownership and see search performance:
+1. Go to [search.google.com/search-console](https://search.google.com/search-console)
+2. Add property for `https://arcup.xbyali.page`
+3. Get HTML tag verification code
+4. Add to `src/config.yaml`:
+   ```yaml
+   site:
+     googleSiteVerificationId: "your-verification-code"
+   ```
 
 ---
 
