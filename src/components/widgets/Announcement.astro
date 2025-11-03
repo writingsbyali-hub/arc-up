@@ -8,10 +8,12 @@ const { id = 'announcement' } = Astro.props;
 
 <div
   {...id ? { id } : {}}
-  class="bg-primary-900 border-b border-living-earth/30 backdrop-blur-sm flex justify-center items-center px-3 py-3 md:py-2.5 cursor-pointer hover:bg-primary-900/80 transition-all group"
+  class="bg-primary-900 border-b border-living-earth/30 backdrop-blur-sm flex justify-center items-center px-3 py-3 md:py-2.5 cursor-pointer hover:bg-primary-900/80 transition-all group relative z-50"
   role="button"
   tabindex="0"
   aria-label="Take the 2-minute tour to learn about arc^"
+  data-announcement-trigger
+  style="pointer-events: auto;"
 >
   <span
     class="bg-living-earth/20 border border-living-earth/40 text-living-earth font-mono font-bold px-2 py-0.5 text-xs mr-2 inline-block rounded uppercase"
@@ -22,51 +24,65 @@ const { id = 'announcement' } = Astro.props;
   >
 </div>
 
-<script is:inline>
-  function initAnnouncement() {
-    const announcement = document.getElementById('announcement');
+<script>
+  function setupAnnouncementClick() {
+    const announcement = document.querySelector('[data-announcement-trigger]');
+    if (!announcement) return;
 
-    if (!announcement) {
-      console.log('Announcement element not found');
-      return;
-    }
-
-    // Check if already initialized
-    if (announcement.dataset.initialized === 'true') {
-      return;
-    }
-
-    // Make announcement clickable to open tour
-    const openTour = (e) => {
-      e.preventDefault();
+    // Function to trigger tour
+    const triggerTour = () => {
       const tourButton = document.getElementById('tour-button');
       if (tourButton) {
-        console.log('Opening tour from announcement');
         tourButton.click();
-      } else {
-        console.log('Tour button not found');
       }
     };
 
-    announcement.addEventListener('click', openTour);
-    announcement.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        openTour(e);
+    // Wait for tour button to exist using MutationObserver
+    const waitForTourButton = () => {
+      const tourButton = document.getElementById('tour-button');
+
+      if (tourButton) {
+        // Tour button exists, attach handlers
+        announcement.onclick = triggerTour;
+        announcement.onkeydown = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            triggerTour();
+          }
+        };
+      } else {
+        // Tour button doesn't exist yet, watch for it
+        const observer = new MutationObserver(() => {
+          const btn = document.getElementById('tour-button');
+          if (btn) {
+            announcement.onclick = triggerTour;
+            announcement.onkeydown = (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                triggerTour();
+              }
+            };
+            observer.disconnect();
+          }
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
       }
-    });
+    };
 
-    // Mark as initialized
-    announcement.dataset.initialized = 'true';
-    console.log('Announcement initialized');
+    waitForTourButton();
   }
 
+  // Run on different events
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnnouncement);
+    document.addEventListener('DOMContentLoaded', setupAnnouncementClick);
   } else {
-    initAnnouncement();
+    setupAnnouncementClick();
   }
 
-  document.addEventListener('astro:after-swap', () => {
-    setTimeout(initAnnouncement, 100);
-  });
+  document.addEventListener('astro:after-swap', setupAnnouncementClick);
+  document.addEventListener('astro:page-load', setupAnnouncementClick);
 </script>
