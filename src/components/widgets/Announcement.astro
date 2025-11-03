@@ -8,41 +8,65 @@ const { id = 'announcement' } = Astro.props;
 
 <div
   {...id ? { id } : {}}
-  class="bg-primary-900 border-b border-arc-electric/30 backdrop-blur-sm flex justify-center items-center px-3 py-3 md:py-2.5 cursor-pointer hover:bg-primary-900/80 transition-all group"
+  class="bg-primary-900 border-b border-living-earth/30 backdrop-blur-sm flex justify-center items-center px-3 py-3 md:py-2.5 cursor-pointer hover:bg-primary-900/80 transition-all group"
   role="button"
   tabindex="0"
   aria-label="Take the 2-minute tour to learn about arc^"
 >
   <span
-    class="bg-arc-electric/20 border border-arc-electric/40 text-arc-electric font-mono font-bold px-2 py-0.5 text-xs mr-2 inline-block rounded uppercase"
+    class="bg-living-earth/20 border border-living-earth/40 text-living-earth font-mono font-bold px-2 py-0.5 text-xs mr-2 inline-block rounded uppercase"
     >NEW TO ARC^?</span
   >
-  <span class="text-white font-mono text-sm group-hover:text-arc-electric transition-colors"
+  <span class="text-white font-mono text-sm group-hover:text-living-earth transition-colors"
     >Take the 2-minute tour →</span
   >
 </div>
 
-<script>
+<script is:inline>
   function initAnnouncement() {
     const announcement = document.getElementById('announcement');
-    const tourButton = document.getElementById('tour-button');
 
-    if (!announcement || !tourButton) return;
+    if (!announcement) {
+      console.log('Announcement element not found');
+      return;
+    }
+
+    // Check if already initialized
+    if (announcement.dataset.initialized === 'true') {
+      return;
+    }
 
     // Make announcement clickable to open tour
-    const openTour = () => {
-      tourButton.click();
+    const openTour = (e) => {
+      e.preventDefault();
+      const tourButton = document.getElementById('tour-button');
+      if (tourButton) {
+        console.log('Opening tour from announcement');
+        tourButton.click();
+      } else {
+        console.log('Tour button not found');
+      }
     };
 
     announcement.addEventListener('click', openTour);
     announcement.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openTour();
+        openTour(e);
       }
     });
+
+    // Mark as initialized
+    announcement.dataset.initialized = 'true';
+    console.log('Announcement initialized');
   }
 
-  document.addEventListener('DOMContentLoaded', initAnnouncement);
-  document.addEventListener('astro:after-swap', initAnnouncement);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnnouncement);
+  } else {
+    initAnnouncement();
+  }
+
+  document.addEventListener('astro:after-swap', () => {
+    setTimeout(initAnnouncement, 100);
+  });
 </script>
