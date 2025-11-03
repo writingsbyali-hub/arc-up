@@ -599,9 +599,13 @@ const tabs = [
     });
   }
 
-  // Initialize on first load
-  document.addEventListener('DOMContentLoaded', initResearchPage);
+  // Run on different events to handle both initial load and navigation
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initResearchPage);
+  } else {
+    initResearchPage();
+  }
 
-  // Reinitialize after navigation (view transitions)
   document.addEventListener('astro:after-swap', initResearchPage);
+  document.addEventListener('astro:page-load', initResearchPage);
 </script>
