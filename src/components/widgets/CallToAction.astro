@@ -1,58 +1,99 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { CallToAction, Widget } from '~/types';
-import Headline from '~/components/ui/Headline.astro';
-import Button from '~/components/ui/Button.astro';
 
 interface Props extends Widget {
   title?: string;
   subtitle?: string;
   tagline?: string;
   callToAction?: CallToAction;
-  actions?: string | CallToAction[];
+  actions?: Array<{
+    text: string;
+    href: string;
+    variant?: 'primary' | 'secondary';
+  }>;
+  pillar?: 'lab' | 'framework' | 'commons' | 'neutral';
+  variant?: 'standard' | 'compact';
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
-  actions = await Astro.slots.render('actions'),
-
+  title,
+  subtitle,
+  tagline,
+  actions = [],
+  pillar = 'neutral',
+  variant = 'standard',
   id,
-  isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// Pillar-specific configurations
+const pillarConfig = {
+  lab: {
+    primaryBtn: 'bg-yellow-400 hover:bg-yellow-300 text-gray-900 shadow-lg shadow-yellow-400/50',
+    secondaryBtn: 'bg-gray-800 hover:bg-gray-700 text-white',
+    cardBg: 'bg-gradient-to-br from-yellow-400/10 to-[#131A33]/50',
+  },
+  framework: {
+    primaryBtn: 'bg-living-earth hover:bg-living-earth/90 text-gray-900 shadow-lg shadow-living-earth/50',
+    secondaryBtn: 'bg-gray-800 hover:bg-gray-700 text-white',
+    cardBg: 'bg-gradient-to-br from-living-earth/10 to-[#131A33]/50',
+  },
+  commons: {
+    primaryBtn: 'bg-blue-400 hover:bg-blue-300 text-gray-900 shadow-lg shadow-blue-400/50',
+    secondaryBtn: 'bg-gray-800 hover:bg-gray-700 text-white',
+    cardBg: 'bg-gradient-to-br from-blue-400/10 to-[#131A33]/50',
+  },
+  neutral: {
+    primaryBtn: 'bg-arc-electric hover:bg-arc-electric/90 text-white shadow-lg shadow-arc-electric/50',
+    secondaryBtn: 'bg-gray-800 hover:bg-gray-700 text-white',
+    cardBg: 'bg-[#131A33]/50',
+  },
+};
+
+const config = pillarConfig[pillar];
+
+// Variant-specific configurations
+const sectionPadding = variant === 'compact' ? 'py-8 md:py-12' : 'py-12 md:py-16';
+const containerMaxWidth = variant === 'compact' ? 'max-w-3xl' : 'max-w-4xl';
+const cardPadding = variant === 'compact' ? 'p-6' : 'p-8 md:p-10';
+const cardRounded = variant === 'compact' ? 'rounded-xl' : 'rounded-2xl';
+const cardShadow = variant === 'compact' ? '' : 'shadow-2xl';
+const cardBg = variant === 'compact' ? 'bg-gray-900/30' : config.cardBg;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div
-    class="max-w-3xl mx-auto text-center p-5 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600"
-  >
-    <Headline
-      title={title}
-      subtitle={subtitle}
-      tagline={tagline}
-      classes={{
-        container: 'mb-0 md:mb-0',
-        title: 'text-2xl md:text-3xl font-bold tracking-tighter mb-3 font-heading',
-        subtitle: 'text-base md:text-lg text-muted dark:text-slate-400',
-      }}
-    />
-    {
-      actions && (
-        <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-3 mt-5">
-          {Array.isArray(actions) ? (
-            actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
-              </div>
-            ))
-          ) : (
-            <Fragment set:html={actions} />
-          )}
+<section class={sectionPadding} id={id}>
+  <div class={`${containerMaxWidth} mx-auto px-4 sm:px-6 ${classes?.container ?? ''}`}>
+    <div class={`${cardBg} backdrop-blur-sm ${cardRounded} ${cardShadow} border border-gray-700/50 ${cardPadding} text-center`}>
+      {tagline && (
+        <p class="text-sm font-mono text-arc-electric uppercase tracking-widest mb-4">{tagline}</p>
+      )}
+      {title && (
+        <h2 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+      {actions && actions.length > 0 && (
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          {actions.map((action) => (
+            <a
+              href={action.href}
+              class={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] group ${
+                action.variant === 'secondary' ? config.secondaryBtn : config.primaryBtn
+              }`}
+            >
+              <span>{action.text}</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          ))}
         </div>
-      )
-    }
+      )}
+    </div>
   </div>
-</WidgetWrapper>
+</section>

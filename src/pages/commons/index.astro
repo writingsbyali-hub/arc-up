@@ -110,7 +110,7 @@ const streams = [
           <div id={stream.id} class="scroll-mt-20">
             {/* Stream Header */}
             <div class="flex items-start justify-between mb-6">
-              <h2 class="text-lg md:text-xl font-mono text-white">{stream.title}</h2>
+              <h2 class="text-2xl md:text-3xl font-mono text-arc-electric">{stream.title}</h2>
               <span
                 class:list={[
                   'inline-block text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap ml-4',
@@ -141,7 +141,7 @@ const streams = [
 
             {/* Projects Table */}
             <div>
-              <h3 class="text-xl font-mono text-white mb-4">Projects in this stream:</h3>
+              <h3 class="text-xl font-mono text-arc-electric mb-4">Projects in this stream:</h3>
               <div class="overflow-x-auto">
                 <table class="w-full border-collapse">
                   <thead>
@@ -202,20 +202,23 @@ const streams = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-[radial-gradient(circle_at_bottom,#181f3d_0%,#080E21_90%)] border-t border-gray-800">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h2 class="text-3xl font-mono mb-4"><span class="text-blue-400">Ready to code?</span></h2>
-        <p class="text-xl text-gray-300 mb-8">
-          Build APIs, design dashboards, model ecosystems, or architect data systems—your work powers the global knowledge infrastructure.
-        </p>
-        <div class="flex justify-center">
+    <section class="py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-gradient-to-br from-blue-400/10 to-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10 text-center">
+          <h2 class="text-2xl md:text-3xl font-mono mb-4 text-white font-bold">Ready to code?</h2>
+          <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Build APIs, design dashboards, model ecosystems, or architect data systems—your work powers the global knowledge infrastructure.
+          </p>
           <a
             href="https://workspace.xbyali.page"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+            class="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-blue-400 hover:bg-blue-300 text-gray-900 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-lg shadow-blue-400/50 group"
           >
-            Access Workspace
+            <span>Access Workspace</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
         </div>
       </div>

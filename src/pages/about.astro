@@ -4,7 +4,6 @@
 // The complete story: origin, mission, philosophy, and foundation
 // ====================================================================
 import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
@@ -231,27 +230,36 @@ const principles = [
     </section>
 
     <!-- FINAL CTA -->
-    <section class="py-6 md:py-10 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <CallToAction
-          title="<span class='text-arc-electric'>Ready to explore?</span>"
-          subtitle="Understand our research approach, then choose your path."
-          actions={[
-            {
-              variant: 'primary',
-              text: 'View Research',
-              href: '/research',
-              class: 'bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
-            },
-            {
-              variant: 'secondary',
-              text: 'Explore Projects',
-              href: '/projects',
-              class: 'bg-arc-electric hover:bg-arc-electric/90 px-8 py-4 rounded-lg font-bold text-white transition-all focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900',
-            },
-          ]}
-          bg="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50"
-        />
+    <section class="py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10 text-center">
+          <h2 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">
+            Ready to explore?
+          </h2>
+          <p class="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Understand our research approach, then choose your path.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] group"
+            >
+              <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+              </svg>
+              <span>Return Home</span>
+            </a>
+            <a
+              href="/research"
+              class="inline-flex items-center gap-2 bg-arc-electric hover:bg-arc-electric/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-lg shadow-arc-electric/50 group"
+            >
+              <span>View Research</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 

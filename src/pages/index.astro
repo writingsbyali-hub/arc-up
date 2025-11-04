@@ -8,17 +8,17 @@ import { Icon } from 'astro-icon/components';
 const featuresTheChallenge = [
   {
     icon: 'tabler:lock',
-    title: 'The Knowledge Lock',
-    description: 'Innovation slows when knowledge is kept behind walls.',
-    responseTitle: 'The ARC^ Response',
-    response: 'ARC^ opens blueprints so people everywhere can build together.',
+    title: 'Knowledge Barrier',
+    description: 'When research is locked behind patents or paywalls, progress slows and communities lose the power to adapt..',
+  responseTitle: 'The ARC^ Response',
+    response: 'Data and designs are shared so engineers, communities, and researchers can build solutions together.', 
   },
   {
     icon: 'tabler:world',
-    title: 'The Planetary Drift',
-    description: 'Ecosystems unravel faster than any field can respond alone.',
+    title: 'Planetary Disconnect',
+    description: 'Ecosystems are collapsing faster than coordination or care. Most solutions remain costly, extractive, or out of reach.',
     responseTitle: 'The ARC^ Response',
-    response: 'ARC^ links plasma research with shared action for ecological repair.',
+    response: 'Science for regeneration, we study how controlled energy can restore water systems and support resilence',
   },
 ];
 ---
@@ -65,8 +65,7 @@ const featuresTheChallenge = [
     <section aria-labelledby="systems-heading" class="py-6 md:py-10 bg-gray-800/40 backdrop-blur-sm border-b border-gray-700/50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center pb-3 md:pb-4">
-          <p class="text-xs font-mono text-arc-electric uppercase tracking-widest mb-2">why arc^ exists</p>
-          <h2 id="systems-heading" class="text-xl md:text-2xl font-mono tracking-tight mb-2">the systems we're changing</h2>
+          <h2 id="systems-heading" class="text-2xl md:text-3xl font-mono text-living-earth tracking-tight mb-2">the systems we're changing</h2>
           <p class="text-sm md:text-base text-gray-400 max-w-3xl mx-auto">
             The challenges we face are complex, not isolated.<br/>
             Repair depends on collaboration across disciplines and ecosystems alike.
@@ -99,27 +98,33 @@ const featuresTheChallenge = [
     </section>
 
     <!-- Dual-Purpose CTA Section -->
-    <section class="py-8 md:py-12 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)] border-t border-gray-800/30">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10">
+    <section class="py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10 text-center">
           <h2 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">
-            Ready to explore?
+            Ready to learn more?
           </h2>
           <p class="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Take the guided tour or dive straight into our projects
+            Take the guided tour or dive straight into arc^
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               id="tour-button"
-              class="bg-arc-electric hover:bg-arc-electric/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all hover:scale-105 hover:shadow-lg hover:shadow-arc-electric/50 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#131A33] text-base md:text-lg"
+              class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] group"
             >
-              Take the Tour
+              <span>Take the Tour</span>
+              <svg class="w-5 h-5 transition-transform group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
             </button>
             <a
-              href={getPermalink('/projects')}
-              class="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all hover:scale-105 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#131A33] text-base md:text-lg inline-block"
+              href={getPermalink('/about')}
+              class="inline-flex items-center gap-2 bg-arc-electric hover:bg-arc-electric/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-lg shadow-arc-electric/50 group"
             >
-              Explore Projects
+              <span>Learn About ARC^</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </a>
           </div>
         </div>
@@ -222,137 +227,5 @@ const featuresTheChallenge = [
       </div>
     </div>
   </div>
-
-  <!-- Back to Top Button -->
-  <button
-    id="back-to-top"
-    class="fixed bottom-6 right-6 bg-arc-electric hover:bg-arc-electric/90 text-white p-4 rounded-full shadow-2xl shadow-arc-electric/40 opacity-0 invisible transition-all duration-300 z-50 hover:scale-110"
-    aria-label="Back to top"
-  >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-  </button>
-
-  <script is:inline>
-    function initHomePage() {
-      // Interactive Tour
-      const tourButton = document.getElementById('tour-button');
-      const tourModal = document.getElementById('tour-modal');
-      const tourContent = document.getElementById('tour-content');
-      const tourClose = document.getElementById('tour-close');
-      const tourPrev = document.getElementById('tour-prev');
-      const tourNext = document.getElementById('tour-next');
-      const tourStepIndicator = document.getElementById('tour-step-indicator');
-
-      if (!tourButton || !tourModal) return; // Exit if elements don't exist
-
-      let currentStep = 1;
-      const totalSteps = 3;
-
-      function showTourStep(step) {
-        document.querySelectorAll('.tour-step').forEach(el => el.classList.add('hidden'));
-        document.querySelector(`.tour-step[data-step="${step}"]`).classList.remove('hidden');
-        tourStepIndicator.textContent = `Step ${step} of ${totalSteps}`;
-
-        tourPrev.disabled = step === 1;
-        if (step === totalSteps) {
-          tourNext.textContent = 'Get Started →';
-        } else {
-          tourNext.textContent = 'Next →';
-        }
-      }
-
-      function openTour() {
-        tourModal.classList.remove('opacity-0', 'invisible');
-        tourContent.classList.remove('scale-95');
-        tourContent.classList.add('scale-100');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeTour() {
-        tourModal.classList.add('opacity-0', 'invisible');
-        tourContent.classList.add('scale-95');
-        tourContent.classList.remove('scale-100');
-        document.body.style.overflow = '';
-        currentStep = 1;
-        showTourStep(1);
-      }
-
-      tourButton?.addEventListener('click', openTour);
-      tourClose?.addEventListener('click', closeTour);
-      tourModal?.addEventListener('click', (e) => {
-        if (e.target === tourModal) closeTour();
-      });
-
-      tourPrev?.addEventListener('click', () => {
-        if (currentStep > 1) {
-          currentStep--;
-          showTourStep(currentStep);
-        }
-      });
-
-      tourNext?.addEventListener('click', () => {
-        if (currentStep < totalSteps) {
-          currentStep++;
-          showTourStep(currentStep);
-        } else {
-          window.location.href = '/get-started';
-        }
-      });
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (!tourModal.classList.contains('invisible')) {
-          if (e.key === 'Escape') closeTour();
-          if (e.key === 'ArrowRight' && currentStep < totalSteps) {
-            currentStep++;
-            showTourStep(currentStep);
-          }
-          if (e.key === 'ArrowLeft' && currentStep > 1) {
-            currentStep--;
-            showTourStep(currentStep);
-          }
-        }
-      });
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href === '#') return;
-
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      // Back to top button logic
-      const backToTopButton = document.getElementById('back-to-top');
-      if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 500) {
-            backToTopButton.classList.remove('opacity-0', 'invisible');
-            backToTopButton.classList.add('opacity-100', 'visible');
-          } else {
-            backToTopButton.classList.add('opacity-0', 'invisible');
-            backToTopButton.classList.remove('opacity-100', 'visible');
-          }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    }
-
-    // Initialize on first load
-    document.addEventListener('DOMContentLoaded', initHomePage);
-
-    // Reinitialize after navigation (view transitions)
-    document.addEventListener('astro:after-swap', initHomePage);
-  </script>
+  <!-- Interactive features now handled by global-interactions.js -->
 </Layout>

@@ -1,0 +1,211 @@
+---
+// ====================================================================
+// CONTACT MODAL - Join the Field Form
+// Modal popup form for persona-based contact
+// ====================================================================
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Modal Backdrop -->
+<div
+  id="contact-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 invisible transition-all duration-300"
+  aria-hidden="true"
+  role="dialog"
+  aria-labelledby="modal-title"
+>
+  <!-- Modal Content -->
+  <div
+    id="contact-modal-content"
+    class="relative bg-primary-900 rounded-2xl shadow-2xl border border-gray-700/50 w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4 scale-95 transition-transform duration-300"
+  >
+    <!-- Close Button -->
+    <button
+      id="contact-modal-close"
+      aria-label="Close modal"
+      class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-arc-electric"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Modal Header -->
+    <div class="p-6 md:p-8 border-b border-gray-700/50">
+      <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-white font-mono">
+        Join the Field
+      </h2>
+      <p class="text-gray-300 mt-2">
+        Let's connect. Fill out what feels right—no pressure.
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form id="contact-form" class="p-6 md:p-8 space-y-6">
+
+      <!-- Anonymous Checkbox (Top Priority) -->
+      <div class="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="anonymous"
+          name="anonymous"
+          class="mt-1 w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2"
+        />
+        <label for="anonymous" class="text-sm text-gray-300">
+          <span class="font-semibold text-white">Send anonymously</span><br>
+          Skip name and email—just send a message
+        </label>
+      </div>
+
+      <!-- Name & Email Fields (Hidden when anonymous) -->
+      <div id="identity-fields" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-semibold text-white mb-2">
+            Name <span class="text-red-400">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-arc-electric focus:border-transparent"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-semibold text-white mb-2">
+            Email <span class="text-red-400">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-arc-electric focus:border-transparent"
+            placeholder="your@email.com"
+          />
+        </div>
+      </div>
+
+      <!-- Persona Dropdown -->
+      <div>
+        <label for="persona" class="block text-sm font-semibold text-white mb-2">
+          I am a... <span class="text-red-400">*</span>
+        </label>
+        <select
+          id="persona"
+          name="persona"
+          required
+          class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-arc-electric focus:border-transparent"
+        >
+          <option value="">Select your path</option>
+          <option value="student">Student / Degree-Based Researcher</option>
+          <option value="researcher">Academic / Independent Researcher</option>
+          <option value="practitioner">Community Practitioner</option>
+          <option value="collaborator">Open Collaborator</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-sm font-semibold text-white mb-2">
+          Message <span class="text-red-400">*</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-arc-electric focus:border-transparent resize-none"
+          placeholder="Tell us about your interest, project idea, or how you'd like to contribute..."
+        ></textarea>
+      </div>
+
+      <!-- Experience/Skills (Optional) -->
+      <div>
+        <p class="block text-sm font-semibold text-white mb-3">
+          Experience / Skills <span class="text-gray-400 font-normal">(optional)</span>
+        </p>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="research" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Research
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="design" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Design
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="development" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Development
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="writing" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Writing
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="data-analysis" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Data Analysis
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="checkbox" name="skills" value="field-work" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Field Work
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer col-span-2">
+            <input type="checkbox" name="skills" value="other" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 rounded focus:ring-arc-electric focus:ring-2" />
+            Other / Multiple
+          </label>
+        </div>
+      </div>
+
+      <!-- Contribution Level (Optional) -->
+      <div>
+        <p class="block text-sm font-semibold text-white mb-3">
+          How much do you want to contribute? <span class="text-gray-400 font-normal">(optional)</span>
+        </p>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="radio" name="contribution" value="exploring" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 focus:ring-arc-electric focus:ring-2" />
+            Just exploring
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="radio" name="contribution" value="casual" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 focus:ring-arc-electric focus:ring-2" />
+            Casual contributor
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="radio" name="contribution" value="active" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 focus:ring-arc-electric focus:ring-2" />
+            Active collaborator
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+            <input type="radio" name="contribution" value="long-term" class="w-4 h-4 text-arc-electric bg-gray-800 border-gray-600 focus:ring-arc-electric focus:ring-2" />
+            Long-term partner
+          </label>
+        </div>
+      </div>
+
+      <!-- Form Status Messages -->
+      <div id="form-status" class="hidden"></div>
+
+      <!-- Submit Button -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-4">
+        <button
+          type="submit"
+          id="contact-submit"
+          class="flex-1 px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-arc-electric focus:ring-offset-2 focus:ring-offset-primary-900"
+        >
+          Send Message
+        </button>
+        <button
+          type="button"
+          id="contact-cancel"
+          class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg font-mono font-bold transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gray-600"
+        >
+          Cancel
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

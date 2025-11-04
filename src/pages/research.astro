@@ -145,11 +145,16 @@ const tabs = [
       <!-- Tab Content: The Science -->
       <div id="tab-science" role="tabpanel" aria-labelledby="btn-science" class="tab-content">
         <!-- Introduction -->
-        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <p class="text-xl text-gray-300 leading-relaxed">
-            Together, these scales form a <strong class="text-white">continuum of repair</strong>—from energy generation to ecological resilience.
-          </p>
+        <div class="max-w-4xl mx-auto space-y-12">
+          <div class="text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-arc-electric mb-6 font-mono">Four Scales of Research</h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Together, these scales form a <strong class="text-white">continuum of repair</strong>—from energy generation to ecological resilience. Each scale informs the next, building understanding across plasma physics, water chemistry, biological systems, and ecosystem dynamics.
+            </p>
+          </div>
         </div>
+
+        <div class="max-w-4xl mx-auto mt-12 md:mt-16">
 
         <!-- Scales Grid -->
         <div class="space-y-12 md:space-y-20">
@@ -208,13 +213,12 @@ const tabs = [
         </div>
 
         <!-- Bottom Message -->
-        <div class="max-w-3xl mx-auto text-center mt-16 md:mt-24 p-6 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
-          <p class="text-lg text-gray-300 leading-relaxed mb-4">
-            Detailed methods and safety information are available through <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">Workspace</a> once verification is complete.
-          </p>
-          <p class="text-base text-gray-400">
-            This keeps practice responsible while allowing anyone who wishes to learn to do so safely.
-          </p>
+        <p class="text-sm text-gray-400 text-center mt-16 md:mt-24 max-w-3xl mx-auto">
+          Detailed methods and safety information are available through
+          <a href="https://workspace.xbyali.page" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2 mx-1">Workspace</a>
+          once verification is complete.
+        </p>
+
         </div>
       </div>
 
@@ -224,7 +228,7 @@ const tabs = [
 
           <!-- Introduction -->
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Methodology</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-arc-electric mb-6 font-mono">Methodology</h2>
             <p class="text-xl text-gray-300 leading-relaxed">
               Arc^ bridges fundamental plasma physics with field-scale ecological interventions through systematic research at four interconnected scales.
             </p>
@@ -287,7 +291,7 @@ const tabs = [
 
           <!-- Introduction -->
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Safety & Ethical Framework</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-arc-electric mb-6 font-mono">Safety & Ethical Framework</h2>
             <p class="text-xl text-gray-300 leading-relaxed">
               Every decision passes through four lenses—ensuring research serves life, not extraction.
             </p>
@@ -407,14 +411,10 @@ const tabs = [
           </div>
 
           <!-- Re:Practise Link -->
-          <div class="text-center p-6 bg-gray-900/30 border border-gray-700/50 rounded-2xl backdrop-blur-sm">
-            <p class="text-gray-300 mb-4">
-              Our ethical framework aligns with <strong class="text-white">Re:Practise</strong>—a methodology for responsible technology development grounded in care, repair, and collective futures.
-            </p>
-            <a href="https://re-practise.org" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2">
-              Learn more about Re:Practise →
-            </a>
-          </div>
+          <p class="text-sm text-gray-400 text-center">
+            Our ethical framework aligns with
+            <a href="https://re-practise.org" target="_blank" class="text-living-earth hover:text-arc-electric transition font-mono underline underline-offset-2 mx-1">Re:Practise</a>—a methodology for responsible technology development grounded in care, repair, and collective futures.
+          </p>
 
         </div>
       </div>
@@ -425,7 +425,7 @@ const tabs = [
 
           <!-- Introduction -->
           <div class="text-center">
-            <h2 class="text-3xl font-bold text-white mb-6 font-mono">Open Licensing</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-arc-electric mb-6 font-mono">Open Licensing</h2>
             <p class="text-xl text-gray-300 leading-relaxed">
               All work is open-licensed. Not anti-commercial. Pro-commons.
             </p>
@@ -518,91 +518,21 @@ const tabs = [
 
   <!-- CTA Section -->
   <CallToAction
+    pillar="neutral"
     title="Ready to explore the pathways?"
     subtitle="Dive into Lab, Framework, and Commons to see the work in action."
     actions={[
-      {
-        variant: 'primary',
-        text: 'Explore Projects',
-        href: '/projects',
-      },
       {
         variant: 'secondary',
         text: 'Get Started',
         href: '/get-started',
       },
+      {
+        text: 'Explore Projects',
+        href: '/projects',
+      },
     ]}
   />
 </Layout>
 
-<!-- Tab Switching Script -->
-<script is:inline>
-  function initResearchPage() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    if (tabButtons.length === 0) return; // Exit if elements don't exist
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const tabId = button.dataset.tab;
-
-        // Hide all tab contents
-        tabContents.forEach(content => {
-          content.classList.add('hidden');
-          content.setAttribute('aria-hidden', 'true');
-        });
-
-        // Show selected tab content
-        const selectedTab = document.getElementById(`tab-${tabId}`);
-        selectedTab.classList.remove('hidden');
-        selectedTab.setAttribute('aria-hidden', 'false');
-
-        // Update button states
-        tabButtons.forEach(btn => {
-          btn.classList.remove('text-arc-electric', 'border-b-2', 'border-arc-electric', 'bg-arc-electric/5');
-          btn.classList.add('text-gray-400');
-          btn.setAttribute('aria-selected', 'false');
-        });
-
-        // Activate clicked button
-        button.classList.remove('text-gray-400');
-        button.classList.add('text-arc-electric', 'border-b-2', 'border-arc-electric', 'bg-arc-electric/5');
-        button.setAttribute('aria-selected', 'true');
-
-        // Smooth scroll to top of content
-        selectedTab.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    });
-
-    // Handle keyboard navigation
-    tabButtons.forEach((button, index) => {
-      button.addEventListener('keydown', (e) => {
-        let newIndex;
-
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          newIndex = (index + 1) % tabButtons.length;
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
-        }
-
-        if (newIndex !== undefined) {
-          tabButtons[newIndex].focus();
-          tabButtons[newIndex].click();
-        }
-      });
-    });
-  }
-
-  // Run on different events to handle both initial load and navigation
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initResearchPage);
-  } else {
-    initResearchPage();
-  }
-
-  document.addEventListener('astro:after-swap', initResearchPage);
-  document.addEventListener('astro:page-load', initResearchPage);
-</script>
+<!-- Tab switching now handled by global-interactions.js -->

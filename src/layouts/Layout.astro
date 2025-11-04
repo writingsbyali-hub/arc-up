@@ -53,6 +53,20 @@ const { language, textDirection } = I18N;
 
     <slot />
 
+    <!-- Back to Top Button (Global) -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-arc-electric hover:bg-arc-electric/90 text-white p-3 md:p-4 rounded-full shadow-2xl shadow-arc-electric/40 opacity-0 invisible transition-all duration-300 z-50 hover:scale-110 active:scale-95"
+      aria-label="Back to top"
+    >
+      <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+
     <BasicScripts />
+
+    <!-- Global event delegation script - persists through view transitions -->
+    <script is:inline src="/scripts/global-interactions.js"></script>
   </body>
 </html>

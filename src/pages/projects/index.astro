@@ -209,7 +209,7 @@ const interestTags = [
       <!-- Decision Helper - Not Sure Where to Start? -->
       <div class="max-w-4xl mx-auto mb-10">
         <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 font-mono text-center">Not sure where to start?</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-arc-electric mb-6 font-mono text-center">Not sure where to start?</h2>
 
           <!-- Expandable Interest Tags -->
           <details class="group" open>
@@ -250,65 +250,28 @@ const interestTags = [
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         <button
           data-filter="all"
-          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-arc-electric text-white"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-arc-electric text-white hover:bg-arc-electric/90"
         >
           All Streams
         </button>
         <button
           data-filter="lab"
-          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 hover:bg-yellow-400/30"
         >
           Lab
         </button>
         <button
           data-filter="framework"
-          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-green-400/20 text-green-400 border border-green-400/30 hover:bg-green-400/30"
         >
           Framework
         </button>
         <button
           data-filter="commons"
-          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
+          class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all duration-300 bg-blue-400/20 text-blue-400 border border-blue-400/30 hover:bg-blue-400/30"
         >
           Commons
         </button>
-      </div>
-
-      <!-- Navigation Guide -->
-      <div class="max-w-4xl mx-auto mb-10">
-        <div class="bg-gray-900/30 border border-gray-700/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-          <h3 class="text-2xl font-bold text-white mb-6 font-mono">How to Navigate</h3>
-          <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-            <div class="flex gap-4">
-              <span class="text-2xl flex-shrink-0">01</span>
-              <div>
-                <p class="font-semibold text-white mb-2">Choose a Stream</p>
-                <p class="text-sm">Each stream focuses on a specific area—hardware, water, governance, data, etc.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <span class="text-2xl flex-shrink-0">02</span>
-              <div>
-                <p class="font-semibold text-white mb-2">Explore Projects</p>
-                <p class="text-sm">Within each stream, discover projects, research questions, and contribution opportunities.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <span class="text-2xl flex-shrink-0">03</span>
-              <div>
-                <p class="font-semibold text-white mb-2">Pick Your Level</p>
-                <p class="text-sm">Observe, contribute independently, or collaborate directly. Choose what fits your capacity.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <span class="text-2xl flex-shrink-0">04</span>
-              <div>
-                <p class="font-semibold text-white mb-2">Get Started</p>
-                <p class="text-sm">Visit <a href="/get-started" class="text-living-earth hover:text-arc-electric transition underline">Get Started</a> to choose your persona and begin contributing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- All Streams Grid -->
@@ -365,176 +328,40 @@ const interestTags = [
         ))}
       </div>
 
-      <!-- Bottom Info -->
-      <div class="max-w-4xl mx-auto space-y-8">
-        <!-- Alternative Paths -->
-        <div class="text-center p-6 md:p-8 bg-arc-electric/5 border border-arc-electric/30 rounded-2xl backdrop-blur-sm">
-          <h3 class="text-xl font-bold text-white mb-3 font-mono">Want to understand the research first?</h3>
-          <p class="text-gray-300 mb-6">
-            Learn about our four-scale approach before diving into specific streams.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/research"
-              class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
-            >
-              ← Read About Research
-            </a>
-            <a
-              href="/get-started"
-              class="px-6 py-3 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono transition-all duration-300 hover:scale-[1.05]"
-            >
-              Get Started →
-            </a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Interactive Stream Matcher JavaScript -->
-  <script is:inline>
-    function initProjectsPage() {
-      const streamsGrid = document.getElementById('streams-grid');
-      const streamCards = document.querySelectorAll('.stream-card');
-      const interestCheckboxes = document.querySelectorAll('.interest-checkbox');
-      const filterButtons = document.querySelectorAll('.filter-btn');
+  <!-- Alternative Paths CTA -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10 text-center">
+        <h2 class="text-2xl md:text-3xl font-mono font-bold text-white mb-4">Want to understand the research first?</h2>
+        <p class="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Learn about our four-scale approach before diving into specific streams.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/research"
+            class="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] group"
+          >
+            <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+            <span>Read About Research</span>
+          </a>
+          <a
+            href="/get-started"
+            class="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-arc-electric hover:bg-arc-electric/90 text-white rounded-lg font-mono font-bold transition-all duration-300 hover:scale-[1.05] shadow-lg shadow-arc-electric/50 group"
+          >
+            <span>Get Started</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      if (!streamsGrid || streamCards.length === 0) return; // Exit if elements don't exist
-
-      // Handle URL parameters for persona-based navigation
-      const urlParams = new URLSearchParams(window.location.search);
-      const pillarParam = urlParams.get('pillar');
-
-      if (pillarParam) {
-        // Auto-select the pillar filter and scroll to streams
-        filterButtons.forEach(btn => {
-          if (btn.getAttribute('data-filter') === pillarParam) {
-            btn.click();
-          }
-        });
-
-        // Scroll to the streams grid after filter is applied
-        setTimeout(() => {
-          streamsGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
-      }
-
-      // Helper function to highlight matched streams and dim others
-      function highlightStreams(matchedStreamIds) {
-        if (matchedStreamIds.length === 0) {
-          // No selections - show all streams normally
-          streamCards.forEach(card => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-            card.style.filter = 'none';
-          });
-          return;
-        }
-
-        streamCards.forEach(card => {
-          const streamId = card.getAttribute('data-stream');
-
-          if (matchedStreamIds.includes(streamId)) {
-            // Highlight matched streams
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1.02)';
-            card.style.filter = 'brightness(1.15)';
-            card.style.transition = 'all 0.3s ease';
-          } else {
-            // Dim non-matched streams
-            card.style.opacity = '0.3';
-            card.style.transform = 'scale(0.98)';
-            card.style.filter = 'grayscale(0.7)';
-            card.style.transition = 'all 0.3s ease';
-          }
-        });
-
-        // Scroll to streams grid
-        streamsGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      // Real-time interest matching
-      interestCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-          const checkedBoxes = Array.from(interestCheckboxes).filter(cb => cb.checked);
-          const matchStatus = document.getElementById('match-status');
-
-          if (checkedBoxes.length === 0) {
-            // No selections - reset
-            highlightStreams([]);
-            matchStatus.textContent = 'Select interests to see matching streams highlighted below';
-            return;
-          }
-
-          // Get all matched stream IDs from checked boxes
-          const matchedStreamIds = [];
-          checkedBoxes.forEach(cb => {
-            const matches = JSON.parse(cb.getAttribute('data-matches'));
-            matchedStreamIds.push(...matches);
-          });
-
-          // Remove duplicates
-          const uniqueMatches = [...new Set(matchedStreamIds)];
-
-          // Update status message
-          const matchCount = uniqueMatches.length;
-          matchStatus.textContent = `${matchCount} stream${matchCount !== 1 ? 's' : ''} match${matchCount === 1 ? 'es' : ''} your interests — highlighted below ↓`;
-
-          // Highlight matched streams
-          highlightStreams(uniqueMatches);
-        });
-      });
-
-      // Pillar filter buttons
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filterValue = button.getAttribute('data-filter');
-
-          // Update button states
-          filterButtons.forEach(btn => {
-            btn.classList.remove('bg-arc-electric', 'text-white');
-            btn.classList.add('bg-gray-800', 'text-gray-400');
-          });
-          button.classList.remove('bg-gray-800', 'text-gray-400');
-          button.classList.add('bg-arc-electric', 'text-white');
-
-          // Filter streams
-          if (filterValue === 'all') {
-            streamCards.forEach(card => {
-              card.style.display = 'block';
-            });
-          } else {
-            streamCards.forEach(card => {
-              const pillar = card.getAttribute('data-pillar');
-              if (pillar === filterValue) {
-                card.style.display = 'block';
-              } else {
-                card.style.display = 'none';
-              }
-            });
-          }
-
-          // Reset highlighting when filtering
-          highlightStreams([]);
-        });
-      });
-
-      // Keyboard accessibility: Reset on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          highlightStreams([]);
-          // Uncheck all interest tags
-          interestCheckboxes.forEach(cb => cb.checked = false);
-        }
-      });
-    }
-
-    // Initialize on first load
-    document.addEventListener('DOMContentLoaded', initProjectsPage);
-
-    // Reinitialize after navigation (view transitions)
-    document.addEventListener('astro:after-swap', initProjectsPage);
-  </script>
+  <!-- Interactive stream matching now handled by global-interactions.js -->
 </Layout>
