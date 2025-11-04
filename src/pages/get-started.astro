@@ -18,11 +18,11 @@ const metadata = {
   <!-- ============================================ -->
   <!-- HERO - MASSIVE TYPE -->
   <!-- ============================================ -->
-  <section class="relative py-8 md:py-12 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
+  <section class="relative py-6 md:py-8 bg-[radial-gradient(circle_at_top,#181f3d_0%,#080E21_90%)]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <!-- Breadcrumb -->
-      <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+      <nav class="mb-6 text-sm" aria-label="Breadcrumb">
         <ol class="flex items-center space-x-2 text-gray-400">
           <li><a href="/" class="hover:text-arc-electric transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arc-electric focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded">home</a></li>
           <li><span class="text-gray-600">/</span></li>
@@ -44,10 +44,10 @@ const metadata = {
   <!-- ============================================ -->
   <!-- WHO ARE YOU? - PERSONA NAVIGATION -->
   <!-- ============================================ -->
-  <section id="who-are-you" class="bg-primary-900 py-6 md:py-10">
+  <section id="who-are-you" class="bg-primary-900 py-5 md:py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-      <div class="text-center mb-8">
+      <div class="text-center mb-6">
         <h2 class="text-2xl md:text-3xl font-bold text-arc-electric font-mono mb-3">
           Who are you?
         </h2>
@@ -57,7 +57,7 @@ const metadata = {
       </div>
 
       <!-- Persona Selector Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-6">
         <button
           data-persona="student"
           tabindex="0"
@@ -104,18 +104,18 @@ const metadata = {
 
         <!-- Student Panel -->
         <div id="content-student" class="persona-content hidden">
-          <div class="bg-gradient-to-br from-yellow-400/10 via-gray-900/50 to-transparent border border-yellow-400/30 rounded-xl p-6 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
+          <div class="bg-gradient-to-br from-yellow-400/10 via-gray-900/50 to-transparent border border-yellow-400/30 rounded-xl p-4 md:p-6">
+            <div class="flex items-center gap-3 mb-3">
               <Icon name="tabler:school" class="w-8 h-8 text-yellow-400" />
               <h3 class="text-xl md:text-2xl font-mono font-bold text-yellow-400">Students / Degree-Based Researchers</h3>
             </div>
 
-            <div class="space-y-4 text-base text-gray-300">
+            <div class="space-y-3 text-base text-gray-300">
               <p class="text-lg leading-relaxed">
                 Integrate ArcUp research into coursework, thesis, or honours projects. Propose a topic, find a supervisor, and align with ArcUp's open-licensing framework.
               </p>
 
-              <div class="space-y-3">
+              <div class="space-y-2">
                 <p class="font-semibold text-white">What you'll do:</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                   <li>Propose project with your university supervisor</li>
@@ -124,13 +124,13 @@ const metadata = {
                 </ul>
               </div>
 
-              <div class="flex flex-wrap gap-3 pt-2">
-                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button data-modal-persona="student" class="contact-modal-btn inline-block px-6 py-3 bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                  Contact Me →
+                </button>
+                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
                   Access Workspace →
                 </a>
-                <button data-modal-persona="student" class="contact-modal-btn inline-block px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
-                  Join the Field →
-                </button>
               </div>
             </div>
           </div>
@@ -138,18 +138,18 @@ const metadata = {
 
         <!-- Researcher Panel -->
         <div id="content-researcher" class="persona-content hidden">
-          <div class="bg-gradient-to-br from-green-400/10 via-gray-900/50 to-transparent border border-green-400/30 rounded-xl p-6 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
+          <div class="bg-gradient-to-br from-green-400/10 via-gray-900/50 to-transparent border border-green-400/30 rounded-xl p-4 md:p-6">
+            <div class="flex items-center gap-3 mb-3">
               <Icon name="tabler:microscope" class="w-8 h-8 text-green-400" />
               <h3 class="text-xl md:text-2xl font-mono font-bold text-green-400">Academics / Independent Researchers</h3>
             </div>
 
-            <div class="space-y-4 text-base text-gray-300">
+            <div class="space-y-3 text-base text-gray-300">
               <p class="text-lg leading-relaxed">
                 Review and critique ArcUp frameworks, validate findings, and guide ethical development. Your expertise shapes responsible methods for plasma research.
               </p>
 
-              <div class="space-y-3">
+              <div class="space-y-2">
                 <p class="font-semibold text-white">What you'll do:</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                   <li>Review open datasets and methods</li>
@@ -158,13 +158,13 @@ const metadata = {
                 </ul>
               </div>
 
-              <div class="flex flex-wrap gap-3 pt-2">
-                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-green-400/20 hover:bg-green-400/30 text-green-400 border border-green-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button data-modal-persona="researcher" class="contact-modal-btn inline-block px-6 py-3 bg-green-400/20 hover:bg-green-400/30 text-green-400 border border-green-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                  Reach Out →
+                </button>
+                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-green-400 hover:bg-green-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
                   Access Workspace →
                 </a>
-                <button data-modal-persona="researcher" class="contact-modal-btn inline-block px-6 py-3 bg-green-400 hover:bg-green-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
-                  Contribute Insights →
-                </button>
               </div>
             </div>
           </div>
@@ -172,18 +172,18 @@ const metadata = {
 
         <!-- Collaborator Panel -->
         <div id="content-collaborator" class="persona-content hidden">
-          <div class="bg-gradient-to-br from-purple-400/10 via-gray-900/50 to-transparent border border-purple-400/30 rounded-xl p-6 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
+          <div class="bg-gradient-to-br from-purple-400/10 via-gray-900/50 to-transparent border border-purple-400/30 rounded-xl p-4 md:p-6">
+            <div class="flex items-center gap-3 mb-3">
               <Icon name="tabler:users" class="w-8 h-8 text-purple-400" />
               <h3 class="text-xl md:text-2xl font-mono font-bold text-purple-400">Open Collaborators</h3>
             </div>
 
-            <div class="space-y-4 text-base text-gray-300">
+            <div class="space-y-3 text-base text-gray-300">
               <p class="text-lg leading-relaxed">
                 Not tied to a specific role but want to help? Designers, coders, documenters, storytellers, translators, or anyone inspired by the work.
               </p>
 
-              <div class="space-y-3">
+              <div class="space-y-2">
                 <p class="font-semibold text-white">Ways to contribute:</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                   <li>Design, development, and technical documentation</li>
@@ -192,13 +192,13 @@ const metadata = {
                 </ul>
               </div>
 
-              <div class="flex flex-wrap gap-3 pt-2">
-                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-purple-400/20 hover:bg-purple-400/30 text-purple-400 border border-purple-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button data-modal-persona="collaborator" class="contact-modal-btn inline-block px-6 py-3 bg-purple-400/20 hover:bg-purple-400/30 text-purple-400 border border-purple-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                  Get In Touch →
+                </button>
+                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-purple-400 hover:bg-purple-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
                   Access Workspace →
                 </a>
-                <button data-modal-persona="collaborator" class="contact-modal-btn inline-block px-6 py-3 bg-purple-400 hover:bg-purple-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
-                  Get Involved →
-                </button>
               </div>
             </div>
           </div>
@@ -206,18 +206,18 @@ const metadata = {
 
         <!-- Practitioner Panel -->
         <div id="content-practitioner" class="persona-content hidden">
-          <div class="bg-gradient-to-br from-blue-400/10 via-gray-900/50 to-transparent border border-blue-400/30 rounded-xl p-6 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
+          <div class="bg-gradient-to-br from-blue-400/10 via-gray-900/50 to-transparent border border-blue-400/30 rounded-xl p-4 md:p-6">
+            <div class="flex items-center gap-3 mb-3">
               <Icon name="tabler:world" class="w-8 h-8 text-blue-400" />
               <h3 class="text-xl md:text-2xl font-mono font-bold text-blue-400">Community Practitioners</h3>
             </div>
 
-            <div class="space-y-4 text-base text-gray-300">
+            <div class="space-y-3 text-base text-gray-300">
               <p class="text-lg leading-relaxed">
                 Run small-scale experiments (e.g., plasma water, ecosystem trials) in the field. Complete onboarding and safety agreements before accessing detailed methods.
               </p>
 
-              <div class="space-y-3">
+              <div class="space-y-2">
                 <p class="font-semibold text-white">What you'll do:</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-300">
                   <li>Complete safety and onboarding module</li>
@@ -226,13 +226,13 @@ const metadata = {
                 </ul>
               </div>
 
-              <div class="flex flex-wrap gap-3 pt-2">
-                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-blue-400/20 hover:bg-blue-400/30 text-blue-400 border border-blue-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button data-modal-persona="practitioner" class="contact-modal-btn inline-block px-6 py-3 bg-blue-400/20 hover:bg-blue-400/30 text-blue-400 border border-blue-400 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
+                  Contact Ali →
+                </button>
+                <a href="https://workspace.xbyali.page" target="_blank" class="inline-block px-6 py-3 bg-blue-400 hover:bg-blue-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
                   Begin Onboarding →
                 </a>
-                <button data-modal-persona="practitioner" class="contact-modal-btn inline-block px-6 py-3 bg-blue-400 hover:bg-blue-300 text-gray-900 rounded-lg font-mono font-bold text-center transition-all hover:scale-[1.02]">
-                  Join the Field →
-                </button>
               </div>
             </div>
           </div>
@@ -244,16 +244,16 @@ const metadata = {
   </section>
 
   <!-- Community CTA -->
-  <section class="py-12 md:py-16">
+  <section class="py-8 md:py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-8 md:p-10 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-white font-mono mb-4">
+      <div class="bg-[#131A33]/50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700/50 p-6 md:p-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white font-mono mb-3">
           Join the Community
         </h2>
-        <p class="text-lg text-gray-300 mb-8">
+        <p class="text-lg text-gray-300 mb-6">
           Connect with others, follow updates, and access YouTube walkthroughs.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-wrap justify-center gap-3">
           <a
             href="https://discord.com/invite/bp3HbfyAeS"
             target="_blank"

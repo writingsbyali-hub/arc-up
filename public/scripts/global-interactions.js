@@ -24,6 +24,9 @@ if (window.__arcupGlobalInteractionsInitialized) {
 let currentTourStep = 1;
 const totalTourSteps = 3;
 
+// Contact modal state
+let selectedPersona = null;
+
 // =============================================================================
 // HELPER FUNCTIONS
 // =============================================================================
@@ -84,6 +87,158 @@ function closeTour() {
   document.body.style.overflow = '';
   currentTourStep = 1;
   showTourStep(1);
+}
+
+/**
+ * Contact Modal Functions
+ */
+function openContactModal(persona) {
+  const contactModal = document.getElementById('contact-modal');
+  const contactContent = document.getElementById('contact-modal-content');
+  const personaSelect = document.getElementById('persona');
+
+  if (!contactModal || !contactContent) return;
+
+  // Store selected persona
+  selectedPersona = persona;
+
+  // Pre-select persona if provided
+  if (persona && personaSelect) {
+    personaSelect.value = persona;
+  }
+
+  // Show modal
+  contactModal.classList.remove('opacity-0', 'invisible');
+  contactModal.setAttribute('aria-hidden', 'false');
+  contactContent.classList.remove('scale-95');
+  contactContent.classList.add('scale-100');
+  document.body.style.overflow = 'hidden';
+
+  // Focus first input
+  setTimeout(() => {
+    const firstInput = document.getElementById('name');
+    if (firstInput) firstInput.focus();
+  }, 100);
+}
+
+function closeContactModal() {
+  const contactModal = document.getElementById('contact-modal');
+  const contactContent = document.getElementById('contact-modal-content');
+
+  if (!contactModal || !contactContent) return;
+
+  contactModal.classList.add('opacity-0', 'invisible');
+  contactModal.setAttribute('aria-hidden', 'true');
+  contactContent.classList.add('scale-95');
+  contactContent.classList.remove('scale-100');
+  document.body.style.overflow = '';
+
+  // Reset form after animation completes
+  setTimeout(() => {
+    const form = document.getElementById('contact-form');
+    if (form) form.reset();
+    hideFormStatus();
+    selectedPersona = null;
+  }, 300);
+}
+
+function toggleAnonymousFields() {
+  const anonymousCheckbox = document.getElementById('anonymous');
+  const identityFields = document.getElementById('identity-fields');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+
+  if (!anonymousCheckbox || !identityFields) return;
+
+  const isAnonymous = anonymousCheckbox.checked;
+
+  if (isAnonymous) {
+    // Hide identity fields
+    identityFields.style.display = 'none';
+    nameInput.removeAttribute('required');
+    emailInput.removeAttribute('required');
+  } else {
+    // Show identity fields
+    identityFields.style.display = 'block';
+    nameInput.setAttribute('required', 'required');
+    emailInput.setAttribute('required', 'required');
+  }
+}
+
+function showFormStatus(message, isError = false) {
+  const statusEl = document.getElementById('form-status');
+  if (!statusEl) return;
+
+  statusEl.className = `p-4 rounded-lg ${isError ? 'bg-red-500/10 border border-red-500/30 text-red-400' : 'bg-green-500/10 border border-green-500/30 text-green-400'}`;
+  statusEl.textContent = message;
+  statusEl.classList.remove('hidden');
+}
+
+function hideFormStatus() {
+  const statusEl = document.getElementById('form-status');
+  if (statusEl) {
+    statusEl.classList.add('hidden');
+  }
+}
+
+async function handleContactFormSubmit(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const submitButton = document.getElementById('contact-submit');
+  const originalButtonText = submitButton ? submitButton.textContent : '';
+
+  try {
+    // Disable submit button
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+    }
+
+    // Collect form data
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      anonymous: formData.get('anonymous') === 'on',
+      persona: formData.get('persona'),
+      message: formData.get('message'),
+      skills: formData.getAll('skills'),
+      contribution: formData.get('contribution')
+    };
+
+    // Send to serverless function
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      showFormStatus('Message sent successfully! We\'ll be in touch soon.', false);
+
+      // Close modal after delay
+      setTimeout(() => {
+        closeContactModal();
+      }, 2000);
+    } else {
+      showFormStatus(result.error || 'Failed to send message. Please try again.', true);
+    }
+
+  } catch (error) {
+    console.error('Form submission error:', error);
+    showFormStatus('Network error. Please check your connection and try again.', true);
+  } finally {
+    // Re-enable submit button
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  }
 }
 
 /**
@@ -285,15 +440,12 @@ function showPersona(personaId) {
     } else if (persona === 'researcher') {
       btn.classList.remove('ring-green-400', 'border-green-400', 'bg-green-400/10');
       btn.classList.add('border-green-400/30');
-    } else if (persona === 'maker') {
-      btn.classList.remove('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
-      btn.classList.add('border-purple-400/30');
     } else if (persona === 'practitioner') {
       btn.classList.remove('ring-blue-400', 'border-blue-400', 'bg-blue-400/10');
       btn.classList.add('border-blue-400/30');
-    } else if (persona === 'curious') {
-      btn.classList.remove('ring-arc-electric', 'border-arc-electric', 'bg-arc-electric/10');
-      btn.classList.add('border-arc-electric/30');
+    } else if (persona === 'collaborator') {
+      btn.classList.remove('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
+      btn.classList.add('border-purple-400/30');
     }
   });
 
@@ -313,15 +465,12 @@ function showPersona(personaId) {
     } else if (personaId === 'researcher') {
       activeButton.classList.remove('border-green-400/30');
       activeButton.classList.add('ring-green-400', 'border-green-400', 'bg-green-400/10');
-    } else if (personaId === 'maker') {
-      activeButton.classList.remove('border-purple-400/30');
-      activeButton.classList.add('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
     } else if (personaId === 'practitioner') {
       activeButton.classList.remove('border-blue-400/30');
       activeButton.classList.add('ring-blue-400', 'border-blue-400', 'bg-blue-400/10');
-    } else if (personaId === 'curious') {
-      activeButton.classList.remove('border-arc-electric/30');
-      activeButton.classList.add('ring-arc-electric', 'border-arc-electric', 'bg-arc-electric/10');
+    } else if (personaId === 'collaborator') {
+      activeButton.classList.remove('border-purple-400/30');
+      activeButton.classList.add('ring-purple-400', 'border-purple-400', 'bg-purple-400/10');
     }
   }
 
@@ -466,6 +615,30 @@ document.addEventListener('click', (e) => {
     return;
   }
 
+  // Contact modal buttons
+  const contactModalBtn = e.target.closest('.contact-modal-btn');
+  if (contactModalBtn) {
+    const persona = contactModalBtn.getAttribute('data-modal-persona');
+    openContactModal(persona);
+    return;
+  }
+
+  if (e.target.id === 'contact-modal-close' || e.target.closest('#contact-modal-close')) {
+    closeContactModal();
+    return;
+  }
+
+  if (e.target.id === 'contact-cancel' || e.target.closest('#contact-cancel')) {
+    closeContactModal();
+    return;
+  }
+
+  const contactModal = document.getElementById('contact-modal');
+  if (e.target === contactModal) {
+    closeContactModal();
+    return;
+  }
+
   // Tab navigation
   const tabButton = e.target.closest('.tab-button');
   if (tabButton) {
@@ -517,12 +690,38 @@ document.addEventListener('change', (e) => {
     handleInterestCheckboxChange();
     return;
   }
+
+  // Anonymous checkbox
+  if (e.target.id === 'anonymous') {
+    toggleAnonymousFields();
+    return;
+  }
+});
+
+/**
+ * Form submission handler
+ */
+document.addEventListener('submit', (e) => {
+  // Contact form submission
+  if (e.target.id === 'contact-form') {
+    handleContactFormSubmit(e);
+    return;
+  }
 });
 
 /**
  * Keyboard event delegation
  */
 document.addEventListener('keydown', (e) => {
+  // Contact modal keyboard navigation (Escape to close)
+  const contactModal = document.getElementById('contact-modal');
+  if (contactModal && !contactModal.classList.contains('invisible')) {
+    if (e.key === 'Escape') {
+      closeContactModal();
+      return;
+    }
+  }
+
   // Tour modal keyboard navigation
   const tourModal = document.getElementById('tour-modal');
   if (tourModal && !tourModal.classList.contains('invisible')) {
